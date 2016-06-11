@@ -285,7 +285,7 @@ Partial Public Class UltraEvalDataSet
         
         Private columnEvaluator_Name As Global.System.Data.DataColumn
         
-        Private _columnEval_Sub_Type As Global.System.Data.DataColumn
+        Private columnEval_Sub_Type As Global.System.Data.DataColumn
         
         Private columnStart_Date As Global.System.Data.DataColumn
         
@@ -346,7 +346,7 @@ Partial Public Class UltraEvalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property _Eval_Sub_TypeColumn() As Global.System.Data.DataColumn
             Get
-                Return Me._columnEval_Sub_Type
+                Return Me.columnEval_Sub_Type
             End Get
         End Property
         
@@ -461,7 +461,7 @@ Partial Public Class UltraEvalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnEvaluator_Name = MyBase.Columns("Evaluator Name")
-            Me._columnEval_Sub_Type = MyBase.Columns("Eval Sub-Type")
+            Me.columnEval_Sub_Type = MyBase.Columns("Eval Sub-Type")
             Me.columnStart_Date = MyBase.Columns("Start Date")
             Me.columnEnd_Date = MyBase.Columns("End Date")
             Me.columnDogs_Enrolled = MyBase.Columns("Dogs Enrolled")
@@ -469,16 +469,16 @@ Partial Public Class UltraEvalDataSet
             Me.columnDetails = MyBase.Columns("Details")
             Me.columnEval_Type = MyBase.Columns("Eval Type")
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitClass()
             Me.columnEvaluator_Name = New Global.System.Data.DataColumn("Evaluator Name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEvaluator_Name)
-            Me._columnEval_Sub_Type = New Global.System.Data.DataColumn("Eval Sub-Type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnEval_Sub_Type.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnEval_Sub_Type")
-            Me._columnEval_Sub_Type.ExtendedProperties.Add("Generator_UserColumnName", "Eval Sub-Type")
-            MyBase.Columns.Add(Me._columnEval_Sub_Type)
+            Me.columnEval_Sub_Type = New Global.System.Data.DataColumn("Eval Sub-Type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnEval_Sub_Type.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnEval_Sub_Type")
+            Me.columnEval_Sub_Type.ExtendedProperties.Add("Generator_UserColumnName", "Eval Sub-Type")
+            MyBase.Columns.Add(Me.columnEval_Sub_Type)
             Me.columnStart_Date = New Global.System.Data.DataColumn("Start Date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnStart_Date)
             Me.columnEnd_Date = New Global.System.Data.DataColumn("End Date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
@@ -491,12 +491,12 @@ Partial Public Class UltraEvalDataSet
             MyBase.Columns.Add(Me.columnDetails)
             Me.columnEval_Type = New Global.System.Data.DataColumn("Eval Type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEval_Type)
-            Me.columnEvaluator_Name.ReadOnly = true
+            Me.columnEvaluator_Name.ReadOnly = True
             Me.columnEvaluator_Name.MaxLength = 536870910
-            Me._columnEval_Sub_Type.MaxLength = 50
-            Me.columnAddEdit.ReadOnly = true
+            Me.columnEval_Sub_Type.MaxLength = 50
+            Me.columnAddEdit.ReadOnly = True
             Me.columnAddEdit.MaxLength = 536870910
-            Me.columnDetails.ReadOnly = true
+            Me.columnDetails.ReadOnly = True
             Me.columnDetails.MaxLength = 536870910
             Me.columnEval_Type.MaxLength = 50
         End Sub

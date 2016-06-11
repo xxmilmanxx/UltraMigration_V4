@@ -18,7 +18,6 @@
                         "WHERE (IIf(tblEvaluations.CompleteFlag, 'View', 'Edit') IS NOT NULL) OR (IIf(tblEvaluations.evl_DogsEnrolled, 'Dog Evals', NULL) > '0') " &
                         "ORDER BY tblEvaluations.evl_DateStart DESC")
 
-        'frmEvalManagement.TblEvaluationsTableAdapter.Fill(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
 
         If Not String.IsNullOrEmpty(ClsQry.Exception) Then Exit Sub
         If ClsQry.RecordCount < 1 Then Exit Sub
@@ -30,11 +29,11 @@
 
     Public Sub LoadEvaluatorCombobox()
         'Clear/Purge Combobox
-        frmEvalManagement.cmboEvaluator.Items.Clear()
+        ' frmEvalManagement.cmboEvaluator.Items.Clear()
         ' ClsQry.AddParam("@evaluatorName", "%" & FilterEvaluatorName & "%")
-
+        ClsQry.RecordCount = 0
         'Fill Combobox with Evaluator Name
-        ClsQry.ExeQuery("SELECT [Evaluator Name] FROM tblEvaluations")
+        ClsQry.ExeQuery("SELECT DISTINCT [Evaluator_Name] FROM tblEvaluations")
 
         For Each R As DataRow In ClsQry.DBDT.Rows
             frmEvalManagement.cmboEvaluator.Items.Add(R("Evaluator Name"))

@@ -35,4 +35,10 @@
         Close()
 
     End Sub
+
+    Private Sub btnClearFilter_Click(sender As Object, e As EventArgs) Handles btnClearFilter.Click
+
+    End Sub
+
+
 End Class
