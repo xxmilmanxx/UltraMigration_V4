@@ -285,7 +285,7 @@ Partial Public Class UltraEvalDataSet
         
         Private columnEvaluator_Name As Global.System.Data.DataColumn
         
-        Private columnEval_Sub_Type As Global.System.Data.DataColumn
+        Private _columnEval_Sub_Type As Global.System.Data.DataColumn
         
         Private columnStart_Date As Global.System.Data.DataColumn
         
@@ -346,7 +346,7 @@ Partial Public Class UltraEvalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property _Eval_Sub_TypeColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnEval_Sub_Type
+                Return Me._columnEval_Sub_Type
             End Get
         End Property
         
@@ -461,7 +461,7 @@ Partial Public Class UltraEvalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnEvaluator_Name = MyBase.Columns("Evaluator Name")
-            Me.columnEval_Sub_Type = MyBase.Columns("Eval Sub-Type")
+            Me._columnEval_Sub_Type = MyBase.Columns("Eval Sub-Type")
             Me.columnStart_Date = MyBase.Columns("Start Date")
             Me.columnEnd_Date = MyBase.Columns("End Date")
             Me.columnDogs_Enrolled = MyBase.Columns("Dogs Enrolled")
@@ -469,16 +469,16 @@ Partial Public Class UltraEvalDataSet
             Me.columnDetails = MyBase.Columns("Details")
             Me.columnEval_Type = MyBase.Columns("Eval Type")
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
             Me.columnEvaluator_Name = New Global.System.Data.DataColumn("Evaluator Name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEvaluator_Name)
-            Me.columnEval_Sub_Type = New Global.System.Data.DataColumn("Eval Sub-Type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me.columnEval_Sub_Type.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnEval_Sub_Type")
-            Me.columnEval_Sub_Type.ExtendedProperties.Add("Generator_UserColumnName", "Eval Sub-Type")
-            MyBase.Columns.Add(Me.columnEval_Sub_Type)
+            Me._columnEval_Sub_Type = New Global.System.Data.DataColumn("Eval Sub-Type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me._columnEval_Sub_Type.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnEval_Sub_Type")
+            Me._columnEval_Sub_Type.ExtendedProperties.Add("Generator_UserColumnName", "Eval Sub-Type")
+            MyBase.Columns.Add(Me._columnEval_Sub_Type)
             Me.columnStart_Date = New Global.System.Data.DataColumn("Start Date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnStart_Date)
             Me.columnEnd_Date = New Global.System.Data.DataColumn("End Date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
@@ -491,12 +491,12 @@ Partial Public Class UltraEvalDataSet
             MyBase.Columns.Add(Me.columnDetails)
             Me.columnEval_Type = New Global.System.Data.DataColumn("Eval Type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEval_Type)
-            Me.columnEvaluator_Name.ReadOnly = True
+            Me.columnEvaluator_Name.ReadOnly = true
             Me.columnEvaluator_Name.MaxLength = 536870910
-            Me.columnEval_Sub_Type.MaxLength = 50
-            Me.columnAddEdit.ReadOnly = True
+            Me._columnEval_Sub_Type.MaxLength = 50
+            Me.columnAddEdit.ReadOnly = true
             Me.columnAddEdit.MaxLength = 536870910
-            Me.columnDetails.ReadOnly = True
+            Me.columnDetails.ReadOnly = true
             Me.columnDetails.MaxLength = 536870910
             Me.columnEval_Type.MaxLength = 50
         End Sub
@@ -1047,7 +1047,7 @@ Namespace UltraEvalDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name]"& _ 
@@ -1066,6 +1066,13 @@ Namespace UltraEvalDataSetTableAdapters
                 ") OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             (IIf(tblEvaluations.evl_DogsEnrolled, 'Dog Evals', NULL) > '0"& _ 
                 "')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY tblEvaluations.evl_DateStart DESC"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT DISTINCT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evalua"& _ 
+                "tor Name]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            (tblEvaluations LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
+                "     Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEnt"& _ 
+                "ityId)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1087,6 +1094,30 @@ Namespace UltraEvalDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As UltraEvalDataSet.tblEvaluationsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As UltraEvalDataSet.tblEvaluationsDataTable = New UltraEvalDataSet.tblEvaluationsDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillEvaluatorName(ByVal dataTable As UltraEvalDataSet.tblEvaluationsDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function EvaluatorName() As UltraEvalDataSet.tblEvaluationsDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
             Dim dataTable As UltraEvalDataSet.tblEvaluationsDataTable = New UltraEvalDataSet.tblEvaluationsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable

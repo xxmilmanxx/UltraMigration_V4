@@ -1,4 +1,7 @@
-﻿Module modEvalManagement
+﻿Imports System.Data.OleDb
+Imports System.Data.SqlClient
+
+Module modEvalManagement
     Public ClsQry As New ClsQryRunner
 
 
@@ -6,48 +9,42 @@
         Return Not String.IsNullOrEmpty(text)
     End Function
 
-    Public Sub LoadGrid()
+    Public Sub ClearEvalManagementFilters()
 
-        ClsQry.ExeQuery("SELECT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name], trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText AS [Eval Sub-Type], " &
-                            "tblEvaluations.evl_DateStart AS [Start Date], tblEvaluations.evl_DateEnd AS [End Date], tblEvaluations.evl_DogsEnrolled AS [Dogs Enrolled], " &
-                            "IIf(tblEvaluations.CompleteFlag, 'View', 'Edit') AS AddEdit, IIf(tblEvaluations.evl_DogsEnrolled, 'Dog Evals', NULL) AS Details, " &
-                            "trefDogBehaviorChecklistCode.wbc_BehaviorChecklistText AS [Eval Type] " &
-                        "FROM   (((tblEvaluations LEFT OUTER JOIN trefDogBehaviorChecklistCode ON tblEvaluations.evl_ReportTypeCode = trefDogBehaviorChecklistCode.wbc_BehaviorChecklistCode) " &
-                            "LEFT OUTER JOIN trefDogBehaviorChecklistSubCode ON tblEvaluations.evl_ReportTypeSubCode = trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistSubCode) " &
-                            "LEFT OUTER JOIN Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId) " &
-                        "WHERE (IIf(tblEvaluations.CompleteFlag, 'View', 'Edit') IS NOT NULL) OR (IIf(tblEvaluations.evl_DogsEnrolled, 'Dog Evals', NULL) > '0') " &
-                        "ORDER BY tblEvaluations.evl_DateStart DESC")
-
-
-        If Not String.IsNullOrEmpty(ClsQry.Exception) Then Exit Sub
-        If ClsQry.RecordCount < 1 Then Exit Sub
-
-        frmEvalManagement.DGVfrmEvalManagement.DataSource = ClsQry.DBDT
+        frmEvalManagement.cmboEvaluator.SelectedIndex = -1
+        frmEvalManagement.cmboType.SelectedIndex = -1
+        frmEvalManagement.cmboSubType.SelectedIndex = -1
+        frmEvalManagement.DTP1.Text = ""
 
 
     End Sub
 
     Public Sub LoadEvaluatorCombobox()
-        'Clear/Purge Combobox
-        ' frmEvalManagement.cmboEvaluator.Items.Clear()
-        ' ClsQry.AddParam("@evaluatorName", "%" & FilterEvaluatorName & "%")
-        ClsQry.RecordCount = 0
-        'Fill Combobox with Evaluator Name
-        ClsQry.ExeQuery("SELECT DISTINCT [Evaluator_Name] FROM tblEvaluations")
+        Dim evalName As New DataTable
 
-        For Each R As DataRow In ClsQry.DBDT.Rows
+        ' frmEvalManagement.TblEvaluationsTableAdapter.Fill(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
+
+        ' frmEvalManagement.TblEvaluationsTableAdapter.FillEvaluatorName(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
+        'Clear/Purge Combobox
+
+        '  ClsQry.ExeQuery("SELECT DISTINCT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name]
+        '                     FROM            (tblEvaluations LEFT OUTER JOIN
+        '                 Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId)")
+        ClsQry.ExeQuery("SELECT DISTINCT [Evaluator_Name] FROM frmEvalManagement.UltraEvalDataSet.tblEvaluations")
+        For Each R As DataRow In evalName.Rows
             frmEvalManagement.cmboEvaluator.Items.Add(R("Evaluator Name"))
         Next
 
         'If records are found add them to combobox
-        If ClsQry.RecordCount > 0 Then
-            'For Each R As DataRow In ClsQry.DBDS.Tables(0).Rows
-            'frmEvalManagement.cmboEvaluator.Items.Add(R("Evaluator Name"))
-            'Next
-            ' frmEvalManagement.cmboEvaluator.SelectedIndex = -1
-            ' ElseIf ClsQry.Exception <> "" Then
-            MsgBox(ClsQry.Exception)
-        End If
+        'If ClsQry.RecordCount > 0 Then
+        'For Each R As DataRow In ClsQry.DBDS.Tables(0).Rows
+        'frmEvalManagement.cmboEvaluator.Items.Add(R("Evaluator Name"))
+        'Next
+        ' frmEvalManagement.cmboEvaluator.SelectedIndex = -1
+        ' ElseIf ClsQry.Exception <> "" Then
+        'MsgBox(ClsQry.Exception)
+        ' End If
+
     End Sub
 
     Public Sub UpdateEvalMngntTable()
