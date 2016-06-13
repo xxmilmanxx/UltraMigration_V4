@@ -10,10 +10,10 @@ Public Class frmEvalManagement
 
     Private Sub frmEvalManagement_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
-
-        ClearEvalManagementFilters()
         LoadEvaluatorCombobox()
-
+        LoadEvalTypeCombobox()
+        LoadEvalSubTypeCombobox()
+        ClearEvalManagementFilters()
 
         Me.TblEvaluationsTableAdapter.Fill(Me.UltraEvalDataSet.tblEvaluations)
         UpdateEvalMngntTable()

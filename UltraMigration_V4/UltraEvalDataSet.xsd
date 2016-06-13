@@ -37,6 +37,32 @@ ORDER BY tblEvaluations.evl_DateStart DESC</CommandText>
               <Mapping SourceColumn="Eval Type" DataSetColumn="Eval Type" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="UltraDataConnectionString (MySettings)" DbObjectName="trefDogBehaviorChecklistSubCode" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillEvalSubType" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="EvalSubType" GeneratorSourceName="FillEvalSubType" GetMethodModifier="Public" GetMethodName="EvalSubType" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="EvalSubType" UserSourceName="FillEvalSubType">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText AS [Eval Sub-Type]
+FROM            (((tblEvaluations LEFT OUTER JOIN
+                         trefDogBehaviorChecklistCode ON tblEvaluations.evl_ReportTypeCode = trefDogBehaviorChecklistCode.wbc_BehaviorChecklistCode) LEFT OUTER JOIN
+                         trefDogBehaviorChecklistSubCode ON tblEvaluations.evl_ReportTypeSubCode = trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistSubCode) 
+                         LEFT OUTER JOIN
+                         Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="UltraDataConnectionString (MySettings)" DbObjectName="trefDogBehaviorChecklistCode" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillEvalType" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="EvalType" GeneratorSourceName="FillEvalType" GetMethodModifier="Public" GetMethodName="EvalType" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="EvalType" UserSourceName="FillEvalType">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT trefDogBehaviorChecklistCode.wbc_BehaviorChecklistText AS [Eval Type]
+FROM            (((tblEvaluations LEFT OUTER JOIN
+                         trefDogBehaviorChecklistCode ON tblEvaluations.evl_ReportTypeCode = trefDogBehaviorChecklistCode.wbc_BehaviorChecklistCode) LEFT OUTER JOIN
+                         trefDogBehaviorChecklistSubCode ON tblEvaluations.evl_ReportTypeSubCode = trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistSubCode) 
+                         LEFT OUTER JOIN
+                         Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="UltraDataConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillEvaluatorName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="EvaluatorName" GeneratorSourceName="FillEvaluatorName" GetMethodModifier="Public" GetMethodName="EvaluatorName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="EvaluatorName" UserSourceName="FillEvaluatorName">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">

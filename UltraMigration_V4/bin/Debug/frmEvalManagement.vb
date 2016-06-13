@@ -10,32 +10,16 @@ Public Class frmEvalManagement
 
     Private Sub frmEvalManagement_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
-
-        ClearEvalManagementFilters()
         LoadEvaluatorCombobox()
-
-        ' EvaluatorLoad()
+        LoadEvalTypeCombobox()
+        LoadEvalSubTypeCombobox()
+        ClearEvalManagementFilters()
 
         Me.TblEvaluationsTableAdapter.Fill(Me.UltraEvalDataSet.tblEvaluations)
         UpdateEvalMngntTable()
 
     End Sub
 
-    Private Sub EvaluatorLoad()
-
-
-        Try
-            Me.TblEvaluationsTableAdapter.FillEvaluatorName(Me.UltraEvalDataSet.tblEvaluations)
-        Catch ex As System.Exception
-            System.Windows.Forms.MessageBox.Show(ex.Message)
-        End Try
-        cmboEvaluator.Items.Clear()
-        For Each R As DataRow In Me.UltraEvalDataSet.tblEvaluations.Rows
-            cmboEvaluator.Items.Add(R("Evaluator Name"))
-        Next
-
-
-    End Sub
     Private Sub btnAddEval_Click(sender As Object, e As EventArgs) Handles btnAddEval.Click
 
         frmNewEval.Show()
