@@ -3,7 +3,6 @@ Imports System.Data.SqlClient
 
 Public Class frmEvalManagement
     Public ClsQry As New ClsQryRunner
-    Public evalDT As New DataTable
 
     Public Function NotEmpty(text As String) As Boolean
         Return Not String.IsNullOrEmpty(text)
@@ -11,52 +10,32 @@ Public Class frmEvalManagement
 
     Private Sub frmEvalManagement_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
-        Me.TblEvaluationsTableAdapter.Fill(Me.UltraEvalDataSet.tblEvaluations)
 
-        UpdateEvalMngntTable()
         ClearEvalManagementFilters()
-        'EvaluatorLoad()
-        LoadEvalCombobox(evalDT)
+        LoadEvaluatorCombobox()
+
+        ' EvaluatorLoad()
+
+        Me.TblEvaluationsTableAdapter.Fill(Me.UltraEvalDataSet.tblEvaluations)
+        UpdateEvalMngntTable()
 
     End Sub
 
     Private Sub EvaluatorLoad()
 
 
-        ' frmEvalManagement.TblEvaluationsTableAdapter.Fill(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
-
-        '("SELECT DISTINCT [Evaluator Name] FROM tblEvaluations")
-
-
-
-        'Me.TblEvaluationsTableAdapter.FillEvaluatorName(Me.UltraEvalDataSet.tblEvaluations)
-        'Clear/Purge Combobox
-
-        '  ClsQry.ExeQuery("SELECT DISTINCT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name]
-        '                     FROM            (tblEvaluations LEFT OUTER JOIN
-        '                 Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId)")
-        ' ClsQry.ExeQuery("SELECT DISTINCT [Evaluator Name] FROM UltraEvalDataSet.tblEvaluations")
-
-
-        'If records are found add them to combobox
-        ' If ClsQry.RecordCount > 0 Then
-        'For Each R As DataRow In ClsQry.DBDS.Tables(0).Rows
-        'frmEvalManagement.cmboEvaluator.Items.Add(R("Evaluator Name"))
-        'Next
-        ' frmEvalManagement.cmboEvaluator.SelectedIndex = -1
-        ' ElseIf ClsQry.Exception <> "" Then
-        'MsgBox(ClsQry.Exception)
-        'End If
-
-
-    End Sub
-
-    Private Sub LoadEvalCombobox(evalDT As DataTable)
-        For Each R As DataRow In evalDT.Rows
-            Me.cmboEvaluator.Items.Add(R("Evaluator Name"))
+        Try
+            Me.TblEvaluationsTableAdapter.FillEvaluatorName(Me.UltraEvalDataSet.tblEvaluations)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+        cmboEvaluator.Items.Clear()
+        For Each R As DataRow In Me.UltraEvalDataSet.tblEvaluations.Rows
+            cmboEvaluator.Items.Add(R("Evaluator Name"))
         Next
-    End Sub
 
+
+    End Sub
     Private Sub btnAddEval_Click(sender As Object, e As EventArgs) Handles btnAddEval.Click
 
         frmNewEval.Show()
@@ -76,4 +55,6 @@ Public Class frmEvalManagement
         ClearEvalManagementFilters()
 
     End Sub
+
+
 End Class

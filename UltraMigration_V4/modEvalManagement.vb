@@ -20,30 +20,18 @@ Module modEvalManagement
     End Sub
 
     Public Sub LoadEvaluatorCombobox()
-        Dim evalName As New DataTable
 
-        ' frmEvalManagement.TblEvaluationsTableAdapter.Fill(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
+        frmEvalManagement.cmboEvaluator.Items.Clear()
 
-        ' frmEvalManagement.TblEvaluationsTableAdapter.FillEvaluatorName(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
-        'Clear/Purge Combobox
+        Try
+            frmEvalManagement.TblEvaluationsTableAdapter.FillEvaluatorName(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
 
-        '  ClsQry.ExeQuery("SELECT DISTINCT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name]
-        '                     FROM            (tblEvaluations LEFT OUTER JOIN
-        '                 Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId)")
-        ClsQry.ExeQuery("SELECT DISTINCT [Evaluator_Name] FROM frmEvalManagement.UltraEvalDataSet.tblEvaluations")
-        For Each R As DataRow In evalName.Rows
-            frmEvalManagement.cmboEvaluator.Items.Add(R("Evaluator Name"))
-        Next
-
-        'If records are found add them to combobox
-        'If ClsQry.RecordCount > 0 Then
-        'For Each R As DataRow In ClsQry.DBDS.Tables(0).Rows
-        'frmEvalManagement.cmboEvaluator.Items.Add(R("Evaluator Name"))
-        'Next
-        ' frmEvalManagement.cmboEvaluator.SelectedIndex = -1
-        ' ElseIf ClsQry.Exception <> "" Then
-        'MsgBox(ClsQry.Exception)
-        ' End If
+            For Each R As DataRow In frmEvalManagement.UltraEvalDataSet.tblEvaluations.Rows
+                frmEvalManagement.cmboEvaluator.Items.Add(R("Evaluator Name"))
+            Next
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
 

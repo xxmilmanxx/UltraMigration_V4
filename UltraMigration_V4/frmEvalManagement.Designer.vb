@@ -23,8 +23,8 @@ Partial Class frmEvalManagement
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.gpbxFilterContainer = New System.Windows.Forms.GroupBox()
         Me.lblSubType = New System.Windows.Forms.Label()
         Me.cmboSubType = New System.Windows.Forms.ComboBox()
@@ -52,10 +52,12 @@ Partial Class frmEvalManagement
         Me.txtRecordsCount = New System.Windows.Forms.TextBox()
         Me.TblEvaluationsTableAdapter = New UltraMigration_V4.UltraEvalDataSetTableAdapters.tblEvaluationsTableAdapter()
         Me.TableAdapterManager = New UltraMigration_V4.UltraEvalDataSetTableAdapters.TableAdapterManager()
+        Me.EvaluatorNameBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.gpbxFilterContainer.SuspendLayout()
         CType(Me.TblEvaluationsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraEvalDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGVfrmEvalManagement, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EvaluatorNameBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gpbxFilterContainer
@@ -232,7 +234,7 @@ Partial Class frmEvalManagement
         Me.DGVfrmEvalManagement.ReadOnly = True
         Me.DGVfrmEvalManagement.RowTemplate.Height = 28
         Me.DGVfrmEvalManagement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGVfrmEvalManagement.Size = New System.Drawing.Size(1005, 404)
+        Me.DGVfrmEvalManagement.Size = New System.Drawing.Size(1005, 413)
         Me.DGVfrmEvalManagement.TabIndex = 22
         '
         'EvaluatorNameDataGridViewTextBoxColumn
@@ -259,8 +261,8 @@ Partial Class frmEvalManagement
         'StartDateDataGridViewTextBoxColumn
         '
         Me.StartDateDataGridViewTextBoxColumn.DataPropertyName = "Start Date"
-        DataGridViewCellStyle1.Format = "dd-MMM-yyyy"
-        Me.StartDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Format = "dd-MMM-yyyy"
+        Me.StartDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle5
         Me.StartDateDataGridViewTextBoxColumn.HeaderText = "Start Date"
         Me.StartDateDataGridViewTextBoxColumn.Name = "StartDateDataGridViewTextBoxColumn"
         Me.StartDateDataGridViewTextBoxColumn.ReadOnly = True
@@ -268,8 +270,8 @@ Partial Class frmEvalManagement
         'EndDateDataGridViewTextBoxColumn
         '
         Me.EndDateDataGridViewTextBoxColumn.DataPropertyName = "End Date"
-        DataGridViewCellStyle2.Format = "dd-MMM-yyyy"
-        Me.EndDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Format = "dd-MMM-yyyy"
+        Me.EndDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle6
         Me.EndDateDataGridViewTextBoxColumn.HeaderText = "End Date"
         Me.EndDateDataGridViewTextBoxColumn.Name = "EndDateDataGridViewTextBoxColumn"
         Me.EndDateDataGridViewTextBoxColumn.ReadOnly = True
@@ -324,11 +326,17 @@ Partial Class frmEvalManagement
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.UpdateOrder = UltraMigration_V4.UltraEvalDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'EvaluatorNameBindingSource
+        '
+        Me.EvaluatorNameBindingSource.DataMember = "tblEvaluations"
+        Me.EvaluatorNameBindingSource.DataSource = Me.UltraEvalDataSet
+        Me.EvaluatorNameBindingSource.Filter = ""
+        '
         'frmEvalManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1103, 690)
+        Me.ClientSize = New System.Drawing.Size(1103, 699)
         Me.Controls.Add(Me.txtRecordsCount)
         Me.Controls.Add(Me.DGVfrmEvalManagement)
         Me.Controls.Add(Me.btnExit)
@@ -344,6 +352,7 @@ Partial Class frmEvalManagement
         CType(Me.TblEvaluationsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraEvalDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGVfrmEvalManagement, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EvaluatorNameBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -376,4 +385,5 @@ Partial Class frmEvalManagement
     Friend WithEvents DogsEnrolledDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents AddEditDataGridViewTextBoxColumn As DataGridViewLinkColumn
     Friend WithEvents DetailsDataGridViewTextBoxColumn As DataGridViewLinkColumn
+    Friend WithEvents EvaluatorNameBindingSource As BindingSource
 End Class

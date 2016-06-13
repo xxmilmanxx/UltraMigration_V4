@@ -10,47 +10,16 @@ Public Class frmEvalManagement
 
     Private Sub frmEvalManagement_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
-        Me.TblEvaluationsTableAdapter.Fill(Me.UltraEvalDataSet.tblEvaluations)
 
-        UpdateEvalMngntTable()
         ClearEvalManagementFilters()
-        EvaluatorLoad()
+        LoadEvaluatorCombobox()
 
 
-    End Sub
-
-    Private Sub EvaluatorLoad()
-
-
-        ' frmEvalManagement.TblEvaluationsTableAdapter.Fill(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
-        Dim evalDT As New DataTable
-        '("SELECT DISTINCT [Evaluator Name] FROM tblEvaluations")
-
-
-
-        'Me.TblEvaluationsTableAdapter.FillEvaluatorName(Me.UltraEvalDataSet.tblEvaluations)
-        'Clear/Purge Combobox
-
-        '  ClsQry.ExeQuery("SELECT DISTINCT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name]
-        '                     FROM            (tblEvaluations LEFT OUTER JOIN
-        '                 Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId)")
-        ClsQry.ExeQuery("SELECT DISTINCT [Evaluator Name] FROM UltraEvalDataSet.tblEvaluations")
-        For Each R As DataRow In evalDT.Rows
-            Me.cmboEvaluator.Items.Add(R("Evaluator Name"))
-        Next
-
-        'If records are found add them to combobox
-        ' If ClsQry.RecordCount > 0 Then
-        'For Each R As DataRow In ClsQry.DBDS.Tables(0).Rows
-        'frmEvalManagement.cmboEvaluator.Items.Add(R("Evaluator Name"))
-        'Next
-        ' frmEvalManagement.cmboEvaluator.SelectedIndex = -1
-        ' ElseIf ClsQry.Exception <> "" Then
-        'MsgBox(ClsQry.Exception)
-        'End If
-
+        Me.TblEvaluationsTableAdapter.Fill(Me.UltraEvalDataSet.tblEvaluations)
+        UpdateEvalMngntTable()
 
     End Sub
+
     Private Sub btnAddEval_Click(sender As Object, e As EventArgs) Handles btnAddEval.Click
 
         frmNewEval.Show()
@@ -70,4 +39,6 @@ Public Class frmEvalManagement
         ClearEvalManagementFilters()
 
     End Sub
+
+
 End Class
