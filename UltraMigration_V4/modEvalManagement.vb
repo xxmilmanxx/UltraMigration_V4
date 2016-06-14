@@ -48,6 +48,7 @@ Module modEvalManagement
         End Try
 
     End Sub
+
     Public Sub LoadEvalSubTypeCombobox()
 
         frmEvalManagement.cmboSubType.Items.Clear()
@@ -61,6 +62,19 @@ Module modEvalManagement
         End Try
 
     End Sub
+
+    Public Sub FilterDataGridView()
+
+        Try
+            If frmEvalManagement.cmboEvaluator.SelectedIndex > -1 Then
+                ClsQry.ExeQuery("SELECT * From frmEvalmanagement.TblEvaluationsTableAdapter.Fill(frmEvalManagement.UltraEvalDataSet.tblEvaluations) WHERE [Evaluator Name] = '" & frmEvalManagement.cmboEvaluator.SelectedIndex & "'")
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
     Public Sub UpdateEvalMngntTable()
         'Will update the current  Table in the frmEvalManagement Form
         Dim evalRowCount As String = frmEvalManagement.DGVfrmEvalManagement.Rows.Count
