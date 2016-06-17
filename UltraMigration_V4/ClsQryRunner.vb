@@ -1,8 +1,4 @@
-﻿Imports System.Data.OleDb
-Imports System.Data.SqlClient
-
-
-Public Class ClsQryRunner
+﻿Public Class ClsQryRunner
     'Connection to database
     Public connection As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; " & "Data Source=ULTRA_Data.accdb;")
     Public DBCmd As OleDbCommand
@@ -11,6 +7,7 @@ Public Class ClsQryRunner
     Public DBDA As OleDbDataAdapter
     Public DBDT As DataTable
     Public DBDS As DataSet
+    ' Public reader As OleDbDataReader
 
     'Query parameters
     Public Params As New List(Of OleDbParameter)

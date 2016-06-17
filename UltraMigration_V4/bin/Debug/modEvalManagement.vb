@@ -1,9 +1,5 @@
-﻿Imports System.Data.OleDb
-Imports System.Data.SqlClient
-
-Module modEvalManagement
+﻿Module modEvalManagement
     Public ClsQry As New ClsQryRunner
-
 
     Public Function NotEmpty(text As String) As Boolean
         Return Not String.IsNullOrEmpty(text)
@@ -15,7 +11,6 @@ Module modEvalManagement
         frmEvalManagement.cmboType.SelectedIndex = -1
         frmEvalManagement.cmboSubType.SelectedIndex = -1
         frmEvalManagement.DTP1.Text = ""
-
 
     End Sub
 
@@ -32,7 +27,6 @@ Module modEvalManagement
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
-
     End Sub
 
     Public Sub LoadEvalTypeCombobox()
@@ -40,13 +34,13 @@ Module modEvalManagement
         frmEvalManagement.cmboType.Items.Clear()
         Try
             frmEvalManagement.TblEvaluationsTableAdapter.FillEvalType(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
+
             For Each R As DataRow In frmEvalManagement.UltraEvalDataSet.tblEvaluations.Rows
                 frmEvalManagement.cmboType.Items.Add(R("Eval Type"))
             Next
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
-
     End Sub
 
     Public Sub LoadEvalSubTypeCombobox()
@@ -54,25 +48,24 @@ Module modEvalManagement
         frmEvalManagement.cmboSubType.Items.Clear()
         Try
             frmEvalManagement.TblEvaluationsTableAdapter.FillEvalSubType(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
+
             For Each R As DataRow In frmEvalManagement.UltraEvalDataSet.tblEvaluations.Rows
                 frmEvalManagement.cmboSubType.Items.Add(R("Eval Sub-Type"))
             Next
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
-
     End Sub
 
     Public Sub FilterDataGridView()
 
         Try
             If frmEvalManagement.cmboEvaluator.SelectedIndex > -1 Then
-                ClsQry.ExeQuery("SELECT * From frmEvalmanagement.TblEvaluationsTableAdapter.Fill(frmEvalManagement.UltraEvalDataSet.tblEvaluations) WHERE [Evaluator Name] = '" & frmEvalManagement.cmboEvaluator.SelectedIndex & "'")
+                ClsQry.ExeQuery("SELECT * From frmEvalManagement.UltraEvalDataSet.tblEvaluations WHERE [Evaluator Name] = '" & frmEvalManagement.cmboEvaluator.SelectedIndex & "'")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
-
     End Sub
 
     Public Sub UpdateEvalMngntTable()
@@ -81,5 +74,4 @@ Module modEvalManagement
         frmEvalManagement.txtRecordsCount.Text = evalRowCount & " EVALUATIONS SHOWING"
 
     End Sub
-
 End Module

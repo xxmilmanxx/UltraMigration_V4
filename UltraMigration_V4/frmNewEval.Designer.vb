@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmNewEval
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,15 +20,20 @@ Partial Class frmNewEval
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.pnlNewEval = New System.Windows.Forms.Panel()
+        Me.btnAddDogs = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.cmboAddEvalStatus = New System.Windows.Forms.ComboBox()
         Me.cmboAddEvalSubType = New System.Windows.Forms.ComboBox()
         Me.cmboAddEvaluator = New System.Windows.Forms.ComboBox()
         Me.cmboAddEvalType = New System.Windows.Forms.ComboBox()
+        Me.TrefDogBehaviorChecklistCodeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.NewEvalDataSet = New UltraMigration_V4.NewEvalDataSet()
         Me.dtpAddEvalDateEnded = New System.Windows.Forms.DateTimePicker()
         Me.dtpAddEvalDateStarted = New System.Windows.Forms.DateTimePicker()
         Me.lblEvalEvalStatus = New System.Windows.Forms.Label()
@@ -38,11 +43,18 @@ Partial Class frmNewEval
         Me.lblEvalDateStart = New System.Windows.Forms.Label()
         Me.lblEvalType = New System.Windows.Forms.Label()
         Me.lblNewEvalTitle = New System.Windows.Forms.Label()
+        Me.NewEvalDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TrefDogBehaviorChecklistCodeTableAdapter = New UltraMigration_V4.NewEvalDataSetTableAdapters.trefDogBehaviorChecklistCodeTableAdapter()
         Me.pnlNewEval.SuspendLayout()
+        CType(Me.TrefDogBehaviorChecklistCodeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NewEvalDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NewEvalDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlNewEval
         '
+        Me.pnlNewEval.Controls.Add(Me.btnAddDogs)
+        Me.pnlNewEval.Controls.Add(Me.btnClear)
         Me.pnlNewEval.Controls.Add(Me.btnCancel)
         Me.pnlNewEval.Controls.Add(Me.btnSave)
         Me.pnlNewEval.Controls.Add(Me.cmboAddEvalStatus)
@@ -62,6 +74,29 @@ Partial Class frmNewEval
         Me.pnlNewEval.Name = "pnlNewEval"
         Me.pnlNewEval.Size = New System.Drawing.Size(1418, 709)
         Me.pnlNewEval.TabIndex = 4
+        '
+        'btnAddDogs
+        '
+        Me.btnAddDogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddDogs.Location = New System.Drawing.Point(814, 555)
+        Me.btnAddDogs.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnAddDogs.Name = "btnAddDogs"
+        Me.btnAddDogs.Size = New System.Drawing.Size(188, 82)
+        Me.btnAddDogs.TabIndex = 16
+        Me.btnAddDogs.Text = "Add Dogs"
+        Me.btnAddDogs.UseVisualStyleBackColor = True
+        Me.btnAddDogs.Visible = False
+        '
+        'btnClear
+        '
+        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.Location = New System.Drawing.Point(553, 414)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(188, 82)
+        Me.btnClear.TabIndex = 15
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = True
         '
         'btnCancel
         '
@@ -99,6 +134,7 @@ Partial Class frmNewEval
         '
         'cmboAddEvalSubType
         '
+        Me.cmboAddEvalSubType.DisplayMember = "bcs_BehaviorChecklistText"
         Me.cmboAddEvalSubType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmboAddEvalSubType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmboAddEvalSubType.FormattingEnabled = True
@@ -130,6 +166,16 @@ Partial Class frmNewEval
         Me.cmboAddEvalType.Name = "cmboAddEvalType"
         Me.cmboAddEvalType.Size = New System.Drawing.Size(360, 37)
         Me.cmboAddEvalType.TabIndex = 8
+        '
+        'TrefDogBehaviorChecklistCodeBindingSource
+        '
+        Me.TrefDogBehaviorChecklistCodeBindingSource.DataMember = "trefDogBehaviorChecklistCode"
+        Me.TrefDogBehaviorChecklistCodeBindingSource.DataSource = Me.NewEvalDataSet
+        '
+        'NewEvalDataSet
+        '
+        Me.NewEvalDataSet.DataSetName = "NewEvalDataSet"
+        Me.NewEvalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'dtpAddEvalDateEnded
         '
@@ -234,17 +280,29 @@ Partial Class frmNewEval
         Me.lblNewEvalTitle.TabIndex = 3
         Me.lblNewEvalTitle.Text = "Add New Evaluation"
         '
+        'NewEvalDataSetBindingSource
+        '
+        Me.NewEvalDataSetBindingSource.DataSource = Me.NewEvalDataSet
+        Me.NewEvalDataSetBindingSource.Position = 0
+        '
+        'TrefDogBehaviorChecklistCodeTableAdapter
+        '
+        Me.TrefDogBehaviorChecklistCodeTableAdapter.ClearBeforeFill = True
+        '
         'frmNewEval
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1470, 1088)
+        Me.ClientSize = New System.Drawing.Size(1470, 1204)
         Me.Controls.Add(Me.pnlNewEval)
         Me.Controls.Add(Me.lblNewEvalTitle)
         Me.Name = "frmNewEval"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add New Evaluation"
         Me.pnlNewEval.ResumeLayout(False)
+        CType(Me.TrefDogBehaviorChecklistCodeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NewEvalDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NewEvalDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -266,4 +324,10 @@ Partial Class frmNewEval
     Friend WithEvents lblEvalDateStart As Label
     Friend WithEvents lblEvalType As Label
     Friend WithEvents lblNewEvalTitle As Label
+    Friend WithEvents btnClear As Button
+    Friend WithEvents btnAddDogs As Button
+    Friend WithEvents NewEvalDataSet As NewEvalDataSet
+    Friend WithEvents NewEvalDataSetBindingSource As BindingSource
+    Friend WithEvents TrefDogBehaviorChecklistCodeBindingSource As BindingSource
+    Friend WithEvents TrefDogBehaviorChecklistCodeTableAdapter As NewEvalDataSetTableAdapters.trefDogBehaviorChecklistCodeTableAdapter
 End Class
