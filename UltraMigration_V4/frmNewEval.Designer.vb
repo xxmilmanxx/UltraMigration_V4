@@ -22,7 +22,6 @@ Partial Class frmNewEval
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.pnlNewEval = New System.Windows.Forms.Panel()
         Me.btnAddDogs = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -32,8 +31,6 @@ Partial Class frmNewEval
         Me.cmboAddEvalSubType = New System.Windows.Forms.ComboBox()
         Me.cmboAddEvaluator = New System.Windows.Forms.ComboBox()
         Me.cmboAddEvalType = New System.Windows.Forms.ComboBox()
-        Me.TrefDogBehaviorChecklistCodeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.NewEvalDataSet = New UltraMigration_V4.NewEvalDataSet()
         Me.dtpAddEvalDateEnded = New System.Windows.Forms.DateTimePicker()
         Me.dtpAddEvalDateStarted = New System.Windows.Forms.DateTimePicker()
         Me.lblEvalEvalStatus = New System.Windows.Forms.Label()
@@ -43,12 +40,7 @@ Partial Class frmNewEval
         Me.lblEvalDateStart = New System.Windows.Forms.Label()
         Me.lblEvalType = New System.Windows.Forms.Label()
         Me.lblNewEvalTitle = New System.Windows.Forms.Label()
-        Me.NewEvalDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TrefDogBehaviorChecklistCodeTableAdapter = New UltraMigration_V4.NewEvalDataSetTableAdapters.trefDogBehaviorChecklistCodeTableAdapter()
         Me.pnlNewEval.SuspendLayout()
-        CType(Me.TrefDogBehaviorChecklistCodeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NewEvalDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NewEvalDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlNewEval
@@ -167,16 +159,6 @@ Partial Class frmNewEval
         Me.cmboAddEvalType.Size = New System.Drawing.Size(360, 37)
         Me.cmboAddEvalType.TabIndex = 8
         '
-        'TrefDogBehaviorChecklistCodeBindingSource
-        '
-        Me.TrefDogBehaviorChecklistCodeBindingSource.DataMember = "trefDogBehaviorChecklistCode"
-        Me.TrefDogBehaviorChecklistCodeBindingSource.DataSource = Me.NewEvalDataSet
-        '
-        'NewEvalDataSet
-        '
-        Me.NewEvalDataSet.DataSetName = "NewEvalDataSet"
-        Me.NewEvalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'dtpAddEvalDateEnded
         '
         Me.dtpAddEvalDateEnded.CustomFormat = "dd-MMM-yyyy"
@@ -280,15 +262,6 @@ Partial Class frmNewEval
         Me.lblNewEvalTitle.TabIndex = 3
         Me.lblNewEvalTitle.Text = "Add New Evaluation"
         '
-        'NewEvalDataSetBindingSource
-        '
-        Me.NewEvalDataSetBindingSource.DataSource = Me.NewEvalDataSet
-        Me.NewEvalDataSetBindingSource.Position = 0
-        '
-        'TrefDogBehaviorChecklistCodeTableAdapter
-        '
-        Me.TrefDogBehaviorChecklistCodeTableAdapter.ClearBeforeFill = True
-        '
         'frmNewEval
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -300,9 +273,6 @@ Partial Class frmNewEval
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add New Evaluation"
         Me.pnlNewEval.ResumeLayout(False)
-        CType(Me.TrefDogBehaviorChecklistCodeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NewEvalDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NewEvalDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -326,8 +296,4 @@ Partial Class frmNewEval
     Friend WithEvents lblNewEvalTitle As Label
     Friend WithEvents btnClear As Button
     Friend WithEvents btnAddDogs As Button
-    Friend WithEvents NewEvalDataSet As NewEvalDataSet
-    Friend WithEvents NewEvalDataSetBindingSource As BindingSource
-    Friend WithEvents TrefDogBehaviorChecklistCodeBindingSource As BindingSource
-    Friend WithEvents TrefDogBehaviorChecklistCodeTableAdapter As NewEvalDataSetTableAdapters.trefDogBehaviorChecklistCodeTableAdapter
 End Class

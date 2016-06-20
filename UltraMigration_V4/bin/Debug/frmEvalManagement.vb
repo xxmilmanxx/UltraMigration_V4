@@ -1,6 +1,5 @@
 ﻿Public Class frmEvalManagement
     Public ClsQry As New ClsQryRunner
-    Dim myBindingSource As New DataTable
 
     Public Function NotEmpty(text As String) As Boolean
         Return Not String.IsNullOrEmpty(text)
@@ -8,27 +7,24 @@
 
     Private Sub frmEvalManagement_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
-        LoadEvaluatorCombobox()
-        LoadEvalTypeCombobox()
-        LoadEvalSubTypeCombobox()
-        ClearEvalManagementFilters()
-        'LoadGrid()
-        'FilterAll()
-        ClsQry.GetRecords()
-        UpdateEvalMngntTable()
+        Try
+            'Loads the table into the DataGridView
+            Me.QryTblEvaluationTableAdapter.Fill(Me.UltraEvalDataSet.qryTblEvaluation)
+            ' LoadEvalName()
+            'LoadEvaluatorCombobox()
+            LoadEvalTypeCombobox()
+            LoadEvalSubTypeCombobox()
+            ClearEvalManagementFilters()
+            UpdateEvalMngntTable()
 
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
+    Private Sub LoadEvalName()
 
-    Private Sub LoadGrid()
-
-        myBindingSource = UltraEvalDataSet.tblEvaluations
-
-        TblEvaluationsTableAdapter.Fill(myBindingSource)
-
-        DGVfrmEvalManagement.DataSource = myBindingSource
-
+        ' Me.QryTblEvaluationTableAdapter.FillByEvalName(Me.UltraEvalDataSet.qryTblEvaluation)
     End Sub
-
     Public Sub FilterName()
         Try
 
@@ -61,9 +57,16 @@
 
         ClearEvalManagementFilters()
 
-        ' LoadGrid()
-
         UpdateEvalMngntTable()
+
+    End Sub
+
+    Private Sub FillByEvalNameToolStripButton_Click(sender As Object, e As EventArgs) Handles FillByEvalNameToolStripButton.Click
+        Try
+            Me.QryTblEvaluationTableAdapter.FillByEvalName(Me.UltraEvalDataSet.qryTblEvaluation)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
 End Class

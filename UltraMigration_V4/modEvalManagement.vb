@@ -5,8 +5,6 @@
         Return Not String.IsNullOrEmpty(text)
     End Function
 
-
-
     Public Sub ClearEvalManagementFilters()
 
         frmEvalManagement.cmboEvaluator.SelectedIndex = -1
@@ -21,9 +19,11 @@
         frmEvalManagement.cmboEvaluator.Items.Clear()
 
         Try
-            frmEvalManagement.TblEvaluationsTableAdapter.FillEvaluatorName(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
 
-            For Each R As DataRow In frmEvalManagement.UltraEvalDataSet.tblEvaluations.Rows
+            ' ClsQry.ExeQuery("SELECT DISTINCT [Evaluator Name] from UltraEvalDataSet.qryTblEvaluation")
+            'frmEvalManagement.UltraEvalDataSet.QueriesTableAdapter.qryLoadEval(frmEvalManagement.UltraEvalDataSet.qryTblEvaluation)
+
+            For Each R As DataRow In frmEvalManagement.UltraEvalDataSet.qryTblEvaluation.Rows
                 frmEvalManagement.cmboEvaluator.Items.Add(R("Evaluator Name"))
             Next
         Catch ex As Exception
@@ -35,11 +35,11 @@
 
         frmEvalManagement.cmboType.Items.Clear()
         Try
-            frmEvalManagement.TblEvaluationsTableAdapter.FillEvalType(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
+            '   frmEvalManagement.TblEvaluationsTableAdapter.FillEvalType(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
 
-            For Each R As DataRow In frmEvalManagement.UltraEvalDataSet.tblEvaluations.Rows
-                frmEvalManagement.cmboType.Items.Add(R("Eval Type"))
-            Next
+            '     For Each R As DataRow In frmEvalManagement.UltraEvalDataSet.tblEvaluations.Rows
+            '      frmEvalManagement.cmboType.Items.Add(R("Eval Type"))
+            '      Next
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -49,11 +49,11 @@
 
         frmEvalManagement.cmboSubType.Items.Clear()
         Try
-            frmEvalManagement.TblEvaluationsTableAdapter.FillEvalSubType(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
+            '   frmEvalManagement.TblEvaluationsTableAdapter.FillEvalSubType(frmEvalManagement.UltraEvalDataSet.tblEvaluations)
 
-            For Each R As DataRow In frmEvalManagement.UltraEvalDataSet.tblEvaluations.Rows
-                frmEvalManagement.cmboSubType.Items.Add(R("Eval Sub-Type"))
-            Next
+            ' '     For Each R As DataRow In frmEvalManagement.UltraEvalDataSet.tblEvaluations.Rows
+            '    frmEvalManagement.cmboSubType.Items.Add(R("Eval Sub-Type"))
+            '    Next
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try

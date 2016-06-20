@@ -4,8 +4,7 @@
 
     Private Sub frmNewEval_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        myNewEval = NewEvalDataSet.trefDogBehaviorChecklistCode
-        TrefDogBehaviorChecklistCodeTableAdapter.Fill(myNewEval)
+
         LoadNewEvalCombobox()
 
 

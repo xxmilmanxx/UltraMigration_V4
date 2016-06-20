@@ -21,15 +21,7 @@
         frmNewEval.cmboAddEvalType.Items.Clear()
 
         Try
-            'frmNewEval.TrefDogBehaviorChecklistCodeTableAdapter.FillNewEvalType(frmNewEval.trefDogBehaviorChecklistCode)
-            ' ClsQry.ExeQuery("SELECT wbc_BehaviorChecklistText
-            '    FROM   trefDogBehaviorChecklistCode
-            '    WHERE wbc_Evaluations = True")
 
-
-            For Each R As DataRow In frmNewEval.NewEvalDataSet.trefDogBehaviorChecklistCode.Rows
-                frmNewEval.cmboAddEvalType.Items.Add(R("wbc_BehaviorChecklistText"))
-            Next
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
