@@ -58,16 +58,6 @@ FROM   (tblEvaluations LEFT OUTER JOIN
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="UltraDataConnectionString (MySettings)" DbObjectName="trefDogBehaviorChecklistCode" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByEvalType" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByEvalType" GeneratorSourceName="FillByEvalType" GetMethodModifier="Public" GetMethodName="GetDataByEvalType" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByEvalType" UserSourceName="FillByEvalType">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT DISTINCT trefDogBehaviorChecklistCode.wbc_BehaviorChecklistText AS [Eval Type]
-FROM   (tblEvaluations LEFT OUTER JOIN
-             trefDogBehaviorChecklistCode ON tblEvaluations.evl_ReportTypeCode = trefDogBehaviorChecklistCode.wbc_BehaviorChecklistCode)</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
             </Sources>
           </TableAdapter>
         </Tables>

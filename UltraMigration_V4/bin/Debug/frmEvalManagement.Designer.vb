@@ -37,7 +37,6 @@ Partial Class frmEvalManagement
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnAddEval = New System.Windows.Forms.Button()
         Me.DGVfrmEvalManagement = New System.Windows.Forms.DataGridView()
-        Me.txtRecordsCount = New System.Windows.Forms.TextBox()
         Me.EvaluatorNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EvalTypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EvalSubTypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -48,15 +47,13 @@ Partial Class frmEvalManagement
         Me.DetailsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.QryTblEvaluationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UltraEvalDataSet = New UltraMigration_V4.UltraEvalDataSet()
+        Me.txtRecordsCount = New System.Windows.Forms.TextBox()
         Me.QryTblEvaluationTableAdapter = New UltraMigration_V4.UltraEvalDataSetTableAdapters.qryTblEvaluationTableAdapter()
         Me.TableAdapterManager = New UltraMigration_V4.UltraEvalDataSetTableAdapters.TableAdapterManager()
-        Me.FillByEvalNameToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.FillByEvalNameToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.gpbxFilterContainer.SuspendLayout()
         CType(Me.DGVfrmEvalManagement, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QryTblEvaluationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraEvalDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FillByEvalNameToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'gpbxFilterContainer
@@ -147,8 +144,6 @@ Partial Class frmEvalManagement
         '
         'cmboEvaluator
         '
-        Me.cmboEvaluator.DataSource = Me.QryTblEvaluationBindingSource
-        Me.cmboEvaluator.DisplayMember = "Evaluator Name"
         Me.cmboEvaluator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmboEvaluator.DropDownWidth = 200
         Me.cmboEvaluator.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -237,21 +232,6 @@ Partial Class frmEvalManagement
         Me.DGVfrmEvalManagement.Size = New System.Drawing.Size(1508, 635)
         Me.DGVfrmEvalManagement.TabIndex = 22
         '
-        'txtRecordsCount
-        '
-        Me.txtRecordsCount.AcceptsReturn = True
-        Me.txtRecordsCount.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtRecordsCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRecordsCount.Location = New System.Drawing.Point(944, 186)
-        Me.txtRecordsCount.Margin = New System.Windows.Forms.Padding(15)
-        Me.txtRecordsCount.Name = "txtRecordsCount"
-        Me.txtRecordsCount.ReadOnly = True
-        Me.txtRecordsCount.ShortcutsEnabled = False
-        Me.txtRecordsCount.Size = New System.Drawing.Size(452, 26)
-        Me.txtRecordsCount.TabIndex = 23
-        Me.txtRecordsCount.TabStop = False
-        Me.txtRecordsCount.WordWrap = False
-        '
         'EvaluatorNameDataGridViewTextBoxColumn
         '
         Me.EvaluatorNameDataGridViewTextBoxColumn.DataPropertyName = "Evaluator Name"
@@ -318,6 +298,21 @@ Partial Class frmEvalManagement
         Me.UltraEvalDataSet.DataSetName = "UltraEvalDataSet"
         Me.UltraEvalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'txtRecordsCount
+        '
+        Me.txtRecordsCount.AcceptsReturn = True
+        Me.txtRecordsCount.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtRecordsCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRecordsCount.Location = New System.Drawing.Point(944, 186)
+        Me.txtRecordsCount.Margin = New System.Windows.Forms.Padding(15)
+        Me.txtRecordsCount.Name = "txtRecordsCount"
+        Me.txtRecordsCount.ReadOnly = True
+        Me.txtRecordsCount.ShortcutsEnabled = False
+        Me.txtRecordsCount.Size = New System.Drawing.Size(452, 26)
+        Me.txtRecordsCount.TabIndex = 23
+        Me.txtRecordsCount.TabStop = False
+        Me.txtRecordsCount.WordWrap = False
+        '
         'QryTblEvaluationTableAdapter
         '
         Me.QryTblEvaluationTableAdapter.ClearBeforeFill = True
@@ -328,29 +323,11 @@ Partial Class frmEvalManagement
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.UpdateOrder = UltraMigration_V4.UltraEvalDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'FillByEvalNameToolStrip
-        '
-        Me.FillByEvalNameToolStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.FillByEvalNameToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FillByEvalNameToolStripButton})
-        Me.FillByEvalNameToolStrip.Location = New System.Drawing.Point(0, 0)
-        Me.FillByEvalNameToolStrip.Name = "FillByEvalNameToolStrip"
-        Me.FillByEvalNameToolStrip.Size = New System.Drawing.Size(1654, 32)
-        Me.FillByEvalNameToolStrip.TabIndex = 24
-        Me.FillByEvalNameToolStrip.Text = "FillByEvalNameToolStrip"
-        '
-        'FillByEvalNameToolStripButton
-        '
-        Me.FillByEvalNameToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.FillByEvalNameToolStripButton.Name = "FillByEvalNameToolStripButton"
-        Me.FillByEvalNameToolStripButton.Size = New System.Drawing.Size(23, 23)
-        Me.FillByEvalNameToolStripButton.Text = "FillByEvalName"
-        '
         'frmEvalManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1654, 1075)
-        Me.Controls.Add(Me.FillByEvalNameToolStrip)
         Me.Controls.Add(Me.txtRecordsCount)
         Me.Controls.Add(Me.DGVfrmEvalManagement)
         Me.Controls.Add(Me.btnExit)
@@ -365,8 +342,6 @@ Partial Class frmEvalManagement
         CType(Me.DGVfrmEvalManagement, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.QryTblEvaluationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraEvalDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.FillByEvalNameToolStrip.ResumeLayout(False)
-        Me.FillByEvalNameToolStrip.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -399,6 +374,4 @@ Partial Class frmEvalManagement
     Friend WithEvents DogsEnrolledDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents AddEditDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DetailsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents FillByEvalNameToolStrip As ToolStrip
-    Friend WithEvents FillByEvalNameToolStripButton As ToolStripButton
 End Class

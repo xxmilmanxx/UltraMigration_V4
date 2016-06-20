@@ -1047,7 +1047,7 @@ Namespace UltraEvalDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(3) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name]"& _ 
@@ -1079,13 +1079,6 @@ Namespace UltraEvalDataSetTableAdapters
                 "rChecklistSubCode ON tblEvaluations.evl_ReportTypeSubCode = trefDogBehaviorCheck"& _ 
                 "listSubCode.bcs_BehaviorChecklistSubCode)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT DISTINCT trefDogBehaviorChecklistCode.wbc_BehaviorChecklistText AS [Eval T"& _ 
-                "ype]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM   (tblEvaluations LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             trefDogBehaviorCheckl"& _ 
-                "istCode ON tblEvaluations.evl_ReportTypeCode = trefDogBehaviorChecklistCode.wbc_"& _ 
-                "BehaviorChecklistCode)"
-            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1155,30 +1148,6 @@ Namespace UltraEvalDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByEvalSubType() As UltraEvalDataSet.qryTblEvaluationDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Dim dataTable As UltraEvalDataSet.qryTblEvaluationDataTable = New UltraEvalDataSet.qryTblEvaluationDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByEvalType(ByVal dataTable As UltraEvalDataSet.qryTblEvaluationDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByEvalType() As UltraEvalDataSet.qryTblEvaluationDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             Dim dataTable As UltraEvalDataSet.qryTblEvaluationDataTable = New UltraEvalDataSet.qryTblEvaluationDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable

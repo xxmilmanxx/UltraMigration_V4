@@ -60,13 +60,4 @@
         UpdateEvalMngntTable()
 
     End Sub
-
-    Private Sub FillByEvalNameToolStripButton_Click(sender As Object, e As EventArgs) Handles FillByEvalNameToolStripButton.Click
-        Try
-            Me.QryTblEvaluationTableAdapter.FillByEvalName(Me.UltraEvalDataSet.qryTblEvaluation)
-        Catch ex As System.Exception
-            System.Windows.Forms.MessageBox.Show(ex.Message)
-        End Try
-
-    End Sub
 End Class
