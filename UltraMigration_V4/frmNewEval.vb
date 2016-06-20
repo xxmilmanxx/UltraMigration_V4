@@ -1,12 +1,11 @@
-﻿Imports UltraMigration_V4
-
-Public Class frmNewEval
-    Public Shared Property trefDogBehaviorChecklistCode As NewEvalDataSet.trefDogBehaviorChecklistCodeDataTable
+﻿Public Class frmNewEval
+    Public ClsQry As New ClsQryRunner
+    Dim myNewEval As New DataTable
 
     Private Sub frmNewEval_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'TODO: This line of code loads data into the 'NewEvalDataSet.trefDogBehaviorChecklistCode' table. You can move, or remove it, as needed.
-        Me.TrefDogBehaviorChecklistCodeTableAdapter.Fill(Me.NewEvalDataSet.trefDogBehaviorChecklistCode)
+        myNewEval = NewEvalDataSet.trefDogBehaviorChecklistCode
+        TrefDogBehaviorChecklistCodeTableAdapter.Fill(myNewEval)
         LoadNewEvalCombobox()
 
 

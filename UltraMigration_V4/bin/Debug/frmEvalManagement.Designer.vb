@@ -23,8 +23,6 @@ Partial Class frmEvalManagement
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.gpbxFilterContainer = New System.Windows.Forms.GroupBox()
         Me.lblSubType = New System.Windows.Forms.Label()
         Me.cmboSubType = New System.Windows.Forms.ComboBox()
@@ -39,14 +37,6 @@ Partial Class frmEvalManagement
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnAddEval = New System.Windows.Forms.Button()
         Me.DGVfrmEvalManagement = New System.Windows.Forms.DataGridView()
-        Me.EvaluatorNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EvalTypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EvalSubTypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StartDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EndDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DogsEnrolledDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AddEditDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewLinkColumn()
-        Me.DetailsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.TblEvaluationsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UltraEvalDataSet = New UltraMigration_V4.UltraEvalDataSet()
         Me.txtRecordsCount = New System.Windows.Forms.TextBox()
@@ -222,10 +212,7 @@ Partial Class frmEvalManagement
         Me.DGVfrmEvalManagement.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DGVfrmEvalManagement.AutoGenerateColumns = False
         Me.DGVfrmEvalManagement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVfrmEvalManagement.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EvaluatorNameDataGridViewTextBoxColumn, Me.EvalTypeDataGridViewTextBoxColumn, Me.EvalSubTypeDataGridViewTextBoxColumn, Me.StartDateDataGridViewTextBoxColumn, Me.EndDateDataGridViewTextBoxColumn, Me.DogsEnrolledDataGridViewTextBoxColumn, Me.AddEditDataGridViewTextBoxColumn, Me.DetailsDataGridViewTextBoxColumn})
-        Me.DGVfrmEvalManagement.DataSource = Me.TblEvaluationsBindingSource
         Me.DGVfrmEvalManagement.Location = New System.Drawing.Point(72, 423)
         Me.DGVfrmEvalManagement.Name = "DGVfrmEvalManagement"
         Me.DGVfrmEvalManagement.ReadOnly = True
@@ -233,70 +220,6 @@ Partial Class frmEvalManagement
         Me.DGVfrmEvalManagement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGVfrmEvalManagement.Size = New System.Drawing.Size(1508, 635)
         Me.DGVfrmEvalManagement.TabIndex = 22
-        '
-        'EvaluatorNameDataGridViewTextBoxColumn
-        '
-        Me.EvaluatorNameDataGridViewTextBoxColumn.DataPropertyName = "Evaluator Name"
-        Me.EvaluatorNameDataGridViewTextBoxColumn.HeaderText = "Evaluator Name"
-        Me.EvaluatorNameDataGridViewTextBoxColumn.Name = "EvaluatorNameDataGridViewTextBoxColumn"
-        Me.EvaluatorNameDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'EvalTypeDataGridViewTextBoxColumn
-        '
-        Me.EvalTypeDataGridViewTextBoxColumn.DataPropertyName = "Eval Type"
-        Me.EvalTypeDataGridViewTextBoxColumn.HeaderText = "Eval Type"
-        Me.EvalTypeDataGridViewTextBoxColumn.Name = "EvalTypeDataGridViewTextBoxColumn"
-        Me.EvalTypeDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'EvalSubTypeDataGridViewTextBoxColumn
-        '
-        Me.EvalSubTypeDataGridViewTextBoxColumn.DataPropertyName = "Eval Sub-Type"
-        Me.EvalSubTypeDataGridViewTextBoxColumn.HeaderText = "Eval Sub-Type"
-        Me.EvalSubTypeDataGridViewTextBoxColumn.Name = "EvalSubTypeDataGridViewTextBoxColumn"
-        Me.EvalSubTypeDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'StartDateDataGridViewTextBoxColumn
-        '
-        Me.StartDateDataGridViewTextBoxColumn.DataPropertyName = "Start Date"
-        DataGridViewCellStyle1.Format = "dd-MMM-yyyy"
-        Me.StartDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
-        Me.StartDateDataGridViewTextBoxColumn.HeaderText = "Start Date"
-        Me.StartDateDataGridViewTextBoxColumn.Name = "StartDateDataGridViewTextBoxColumn"
-        Me.StartDateDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'EndDateDataGridViewTextBoxColumn
-        '
-        Me.EndDateDataGridViewTextBoxColumn.DataPropertyName = "End Date"
-        DataGridViewCellStyle2.Format = "dd-MMM-yyyy"
-        Me.EndDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
-        Me.EndDateDataGridViewTextBoxColumn.HeaderText = "End Date"
-        Me.EndDateDataGridViewTextBoxColumn.Name = "EndDateDataGridViewTextBoxColumn"
-        Me.EndDateDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'DogsEnrolledDataGridViewTextBoxColumn
-        '
-        Me.DogsEnrolledDataGridViewTextBoxColumn.DataPropertyName = "Dogs Enrolled"
-        Me.DogsEnrolledDataGridViewTextBoxColumn.HeaderText = "Dogs Enrolled"
-        Me.DogsEnrolledDataGridViewTextBoxColumn.Name = "DogsEnrolledDataGridViewTextBoxColumn"
-        Me.DogsEnrolledDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'AddEditDataGridViewTextBoxColumn
-        '
-        Me.AddEditDataGridViewTextBoxColumn.DataPropertyName = "AddEdit"
-        Me.AddEditDataGridViewTextBoxColumn.HeaderText = "AddEdit"
-        Me.AddEditDataGridViewTextBoxColumn.Name = "AddEditDataGridViewTextBoxColumn"
-        Me.AddEditDataGridViewTextBoxColumn.ReadOnly = True
-        Me.AddEditDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.AddEditDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
-        'DetailsDataGridViewTextBoxColumn
-        '
-        Me.DetailsDataGridViewTextBoxColumn.DataPropertyName = "Details"
-        Me.DetailsDataGridViewTextBoxColumn.HeaderText = "Details"
-        Me.DetailsDataGridViewTextBoxColumn.Name = "DetailsDataGridViewTextBoxColumn"
-        Me.DetailsDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DetailsDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DetailsDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'TblEvaluationsBindingSource
         '
@@ -314,7 +237,7 @@ Partial Class frmEvalManagement
         Me.txtRecordsCount.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtRecordsCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRecordsCount.Location = New System.Drawing.Point(944, 186)
-        Me.txtRecordsCount.Margin = New System.Windows.Forms.Padding(15, 15, 15, 15)
+        Me.txtRecordsCount.Margin = New System.Windows.Forms.Padding(15)
         Me.txtRecordsCount.Name = "txtRecordsCount"
         Me.txtRecordsCount.ReadOnly = True
         Me.txtRecordsCount.ShortcutsEnabled = False
@@ -376,12 +299,4 @@ Partial Class frmEvalManagement
     Friend WithEvents TblEvaluationsBindingSource As BindingSource
     Friend WithEvents TblEvaluationsTableAdapter As UltraEvalDataSetTableAdapters.tblEvaluationsTableAdapter
     Friend WithEvents TableAdapterManager As UltraEvalDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents EvaluatorNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents EvalTypeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents EvalSubTypeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents StartDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents EndDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DogsEnrolledDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents AddEditDataGridViewTextBoxColumn As DataGridViewLinkColumn
-    Friend WithEvents DetailsDataGridViewTextBoxColumn As DataGridViewLinkColumn
 End Class

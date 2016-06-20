@@ -5,6 +5,8 @@
         Return Not String.IsNullOrEmpty(text)
     End Function
 
+
+
     Public Sub ClearEvalManagementFilters()
 
         frmEvalManagement.cmboEvaluator.SelectedIndex = -1

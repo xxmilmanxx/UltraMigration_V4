@@ -8,18 +8,13 @@
 
     Private Sub frmEvalManagement_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
-        'TblEvaluationsBindingSource.DataSource = UltraEvalDataSet.tblEvaluations.DefaultView()
-
-        ' DGVfrmEvalManagement.DataSource = TblEvaluationsBindingSource
-
-
         LoadEvaluatorCombobox()
         LoadEvalTypeCombobox()
         LoadEvalSubTypeCombobox()
         ClearEvalManagementFilters()
-        LoadGrid()
+        'LoadGrid()
         'FilterAll()
-
+        ClsQry.GetRecords()
         UpdateEvalMngntTable()
 
     End Sub
@@ -32,14 +27,12 @@
 
         DGVfrmEvalManagement.DataSource = myBindingSource
 
-
-        'Me.TblEvaluationsTableAdapter.Fill(Me.UltraEvalDataSet.tblEvaluations)
-
-
     End Sub
 
     Public Sub FilterName()
         Try
+
+            ' TODO: GET FILTER TO WORK 
             '  If cmboEvaluator.SelectedIndex > -1 Then
             ' ClsQry.ExeQuery("SELECT * FROM UltraEvalDataSet.tblEvaluations WHERE [Evaluator Name] = '" & cmboEvaluator.SelectedIndex & "'")
 
@@ -47,27 +40,6 @@
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
-
-    End Sub
-
-    Public Sub FilterType()
-        Try
-            '    If cmboType.SelectedIndex > -1 Then
-            '   ClsQry.ExeQuery("SELECT * FROM tblEvaluations WHERE [Eval Type] = '" & cmboType.SelectedIndex & "'")
-            '  End If
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-
-
-    End Sub
-
-    Public Sub FilterAll()
-        Dim criteria As New List(Of String)
-
-        If cmboEvaluator.SelectedIndex > -1 Then
-            criteria.Add(String.Format("[Evaluator Name] LIKE '{0}%'", cmboEvaluator.SelectedText))
-        End If
 
     End Sub
 
@@ -89,14 +61,7 @@
 
         ClearEvalManagementFilters()
 
-        LoadGrid()
-
-        UpdateEvalMngntTable()
-
-    End Sub
-
-    Private Sub cmboEvaluator_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmboEvaluator.SelectionChangeCommitted
-        FilterName()
+        ' LoadGrid()
 
         UpdateEvalMngntTable()
 

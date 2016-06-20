@@ -18,10 +18,10 @@
     End Sub
 
     Public Sub LoadNewEvalCombobox()
-        'frmNewEval.cmboAddEvalType.Items.Clear()
+        frmNewEval.cmboAddEvalType.Items.Clear()
 
         Try
-            frmNewEval.TrefDogBehaviorChecklistCodeTableAdapter.FillNewEvalType(frmNewEval.trefDogBehaviorChecklistCode)
+            'frmNewEval.TrefDogBehaviorChecklistCodeTableAdapter.FillNewEvalType(frmNewEval.trefDogBehaviorChecklistCode)
             ' ClsQry.ExeQuery("SELECT wbc_BehaviorChecklistText
             '    FROM   trefDogBehaviorChecklistCode
             '    WHERE wbc_Evaluations = True")
