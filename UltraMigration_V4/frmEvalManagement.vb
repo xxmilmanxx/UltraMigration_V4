@@ -9,33 +9,28 @@
 
         Try
             'Loads the table into the DataGridView
-            Me.QryTblEvaluationTableAdapter.Fill(Me.UltraEvalDataSet.qryTblEvaluation)
-            ' LoadEvalName()
-            'LoadEvaluatorCombobox()
-            LoadEvalTypeCombobox()
-            LoadEvalSubTypeCombobox()
-            ClearEvalManagementFilters()
+            LoadDataGrid()
+            ' Loads Evaluator Name into Combobox
+            LoadEvaluatorCombobox()
+            ' Loads Eval Type into Combobox
+            LoadTypeCombobox()
+            ' Loads Eval Sub-Type into Combobox
+            LoadSubTypeCombobox()
+            ' Resets combobox and datetimepicker
+            ResetEvalManagementFilters()
+            ' Counts records and displays number in the txtRecordCount field
             UpdateEvalMngntTable()
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
-    Private Sub LoadEvalName()
 
-        ' Me.QryTblEvaluationTableAdapter.FillByEvalName(Me.UltraEvalDataSet.qryTblEvaluation)
-    End Sub
-    Public Sub FilterName()
-        Try
+    Private Sub cmboEvaluator_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmboEvaluator.SelectionChangeCommitted
 
-            ' TODO: GET FILTER TO WORK 
-            '  If cmboEvaluator.SelectedIndex > -1 Then
-            ' ClsQry.ExeQuery("SELECT * FROM UltraEvalDataSet.tblEvaluations WHERE [Evaluator Name] = '" & cmboEvaluator.SelectedIndex & "'")
+        'Filter data grid based on current selected index in the combobox
+        FilterName(cmboEvaluator.Text)
 
-            ' End If
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
 
     End Sub
 
@@ -55,7 +50,7 @@
 
     Private Sub btnClearFilter_Click(sender As Object, e As EventArgs) Handles btnClearFilter.Click
 
-        ClearEvalManagementFilters()
+        ResetEvalManagementFilters()
 
         UpdateEvalMngntTable()
 

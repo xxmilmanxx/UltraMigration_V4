@@ -1,13 +1,11 @@
 ﻿Public Class ClsQryRunner
     'Connection to database
-    Public connection As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; " & "Data Source=ULTRA_Data.accdb;")
-    Public DBCmd As OleDbCommand
+    Private connection As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; " & "Data Source=ULTRA_Data.accdb;")
+    Private DBCmd As OleDbCommand
 
     'Initiate database
     Public DBDA As OleDbDataAdapter
     Public DBDT As DataTable
-    Public DBDS As DataSet
-    ' Public reader As OleDbDataReader
 
     'Query parameters
     Public Params As New List(Of OleDbParameter)
@@ -15,7 +13,6 @@
     'Query statistics
     Public RecordCount As Integer
     Public Exception As String
-
 
     Public Sub ExeQuery(Query As String)
 
@@ -36,6 +33,7 @@
             Params.Clear()
 
             'Execute command and fill dataset
+
             DBDT = New DataTable
             DBDA = New OleDbDataAdapter(DBCmd)
             RecordCount = DBDA.Fill(DBDT)
@@ -58,6 +56,4 @@
         Params.Add(NewParam)
 
     End Sub
-
-
 End Class

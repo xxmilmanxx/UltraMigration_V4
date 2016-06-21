@@ -157,14 +157,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="UltraEvalDataSet.Designer.vb">
+    <Compile Include="Ultra_DataDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UltraEvalDataSet.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="UltraEvalDataSet.vb">
-      <DependentUpon>UltraEvalDataSet.xsd</DependentUpon>
+      <DependentUpon>Ultra_DataDataSet.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -195,23 +191,20 @@
     <None Include="App.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="UltraEvalDataSet.xsc">
-      <DependentUpon>UltraEvalDataSet.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="Ultra_DataDataSet.xsc">
+      <DependentUpon>Ultra_DataDataSet.xsd</DependentUpon>
     </None>
-    <None Include="UltraEvalDataSet.xsd">
+    <None Include="Ultra_DataDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>UltraEvalDataSet.Designer.vb</LastGenOutput>
+      <LastGenOutput>Ultra_DataDataSet.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="UltraEvalDataSet.xss">
-      <DependentUpon>UltraEvalDataSet.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="Ultra_DataDataSet.xss">
+      <DependentUpon>Ultra_DataDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="UltraData.accdb">
+    <Content Include="Ultra_Data.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

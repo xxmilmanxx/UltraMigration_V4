@@ -1,12 +1,16 @@
 ﻿Public Class frmNewEval
     Public ClsQry As New ClsQryRunner
-    Dim myNewEval As New DataTable
 
-    Private Sub frmNewEval_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmNewEval_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
-
-        LoadNewEvalCombobox()
-
+        ' Loads Evaluator Name into Combobox
+        LoadNewEvaluatorCombobox()
+        ' Loads Eval Type into Combobox
+        LoadNewTypeCombobox()
+        ' Loads Eval Sub-Type into Combobox
+        LoadNewSubTypeCombobox()
+        ' Reset the combobox and datetimepicker
+        ResetNewEval()
 
     End Sub
 
@@ -20,7 +24,9 @@
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
 
-        ClearNewEval()
+        ResetNewEval()
 
     End Sub
+
+
 End Class
