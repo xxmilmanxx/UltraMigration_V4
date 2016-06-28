@@ -162,6 +162,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ultra_DataDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Ultra_DataDataSet.vb">
+      <DependentUpon>Ultra_DataDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmEvalManagement.resx">
