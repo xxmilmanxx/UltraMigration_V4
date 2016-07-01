@@ -22,10 +22,13 @@ Partial Class frmEvalManagement
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.gpbxFilterContainer = New System.Windows.Forms.GroupBox()
-        Me.lblSubType = New System.Windows.Forms.Label()
-        Me.cmboSubType = New System.Windows.Forms.ComboBox()
-        Me.DTP1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpEnd = New System.Windows.Forms.DateTimePicker()
+        Me.lblEndDate = New System.Windows.Forms.Label()
+        Me.dtpStart = New System.Windows.Forms.DateTimePicker()
         Me.lblByDate = New System.Windows.Forms.Label()
         Me.lblByType = New System.Windows.Forms.Label()
         Me.lblByEval = New System.Windows.Forms.Label()
@@ -36,16 +39,29 @@ Partial Class frmEvalManagement
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnAddEval = New System.Windows.Forms.Button()
         Me.DGVfrmEvalManagement = New System.Windows.Forms.DataGridView()
+        Me.QryTblEvaluationsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Ultra_DataDataSet = New UltraMigration_V4.Ultra_DataDataSet()
         Me.txtRecordsCount = New System.Windows.Forms.TextBox()
+        Me.QryTblEvaluationsTableAdapter = New UltraMigration_V4.Ultra_DataDataSetTableAdapters.qryTblEvaluationsTableAdapter()
+        Me.TableAdapterManager = New UltraMigration_V4.Ultra_DataDataSetTableAdapters.TableAdapterManager()
+        Me.EvaluatorNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EvaluationTypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StartDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EndDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DogsEnrolledDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AddEditDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewLinkColumn()
+        Me.DogEvalsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.gpbxFilterContainer.SuspendLayout()
         CType(Me.DGVfrmEvalManagement, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QryTblEvaluationsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Ultra_DataDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gpbxFilterContainer
         '
-        Me.gpbxFilterContainer.Controls.Add(Me.lblSubType)
-        Me.gpbxFilterContainer.Controls.Add(Me.cmboSubType)
-        Me.gpbxFilterContainer.Controls.Add(Me.DTP1)
+        Me.gpbxFilterContainer.Controls.Add(Me.dtpEnd)
+        Me.gpbxFilterContainer.Controls.Add(Me.lblEndDate)
+        Me.gpbxFilterContainer.Controls.Add(Me.dtpStart)
         Me.gpbxFilterContainer.Controls.Add(Me.lblByDate)
         Me.gpbxFilterContainer.Controls.Add(Me.lblByType)
         Me.gpbxFilterContainer.Controls.Add(Me.lblByEval)
@@ -62,44 +78,44 @@ Partial Class frmEvalManagement
         Me.gpbxFilterContainer.TabStop = False
         Me.gpbxFilterContainer.Text = "FILTER  EVALUATIONS"
         '
-        'lblSubType
+        'dtpEnd
         '
-        Me.lblSubType.AutoSize = True
-        Me.lblSubType.Location = New System.Drawing.Point(634, 58)
-        Me.lblSubType.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblSubType.Name = "lblSubType"
-        Me.lblSubType.Size = New System.Drawing.Size(269, 29)
-        Me.lblSubType.TabIndex = 24
-        Me.lblSubType.Text = "By Evaluation Sub-Type"
+        Me.dtpEnd.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dtpEnd.CustomFormat = "dd-MMM-yyyy"
+        Me.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpEnd.Location = New System.Drawing.Point(949, 92)
+        Me.dtpEnd.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.dtpEnd.Name = "dtpEnd"
+        Me.dtpEnd.Size = New System.Drawing.Size(238, 33)
+        Me.dtpEnd.TabIndex = 25
+        Me.dtpEnd.Value = New Date(2016, 5, 17, 14, 35, 25, 0)
         '
-        'cmboSubType
+        'lblEndDate
         '
-        Me.cmboSubType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmboSubType.DropDownWidth = 200
-        Me.cmboSubType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmboSubType.FormattingEnabled = True
-        Me.cmboSubType.Location = New System.Drawing.Point(640, 91)
-        Me.cmboSubType.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.cmboSubType.Name = "cmboSubType"
-        Me.cmboSubType.Size = New System.Drawing.Size(272, 33)
-        Me.cmboSubType.TabIndex = 23
+        Me.lblEndDate.AutoSize = True
+        Me.lblEndDate.Location = New System.Drawing.Point(944, 58)
+        Me.lblEndDate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblEndDate.Name = "lblEndDate"
+        Me.lblEndDate.Size = New System.Drawing.Size(262, 29)
+        Me.lblEndDate.TabIndex = 24
+        Me.lblEndDate.Text = "By Evaluation End Date"
         '
-        'DTP1
+        'dtpStart
         '
-        Me.DTP1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.DTP1.CustomFormat = "dd-MMM-yyyy"
-        Me.DTP1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DTP1.Location = New System.Drawing.Point(948, 92)
-        Me.DTP1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.DTP1.Name = "DTP1"
-        Me.DTP1.Size = New System.Drawing.Size(242, 33)
-        Me.DTP1.TabIndex = 22
-        Me.DTP1.Value = New Date(2016, 5, 17, 14, 35, 25, 0)
+        Me.dtpStart.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dtpStart.CustomFormat = "dd-MMM-yyyy"
+        Me.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpStart.Location = New System.Drawing.Point(648, 92)
+        Me.dtpStart.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.dtpStart.Name = "dtpStart"
+        Me.dtpStart.Size = New System.Drawing.Size(263, 33)
+        Me.dtpStart.TabIndex = 22
+        Me.dtpStart.Value = New Date(2016, 5, 17, 14, 35, 25, 0)
         '
         'lblByDate
         '
         Me.lblByDate.AutoSize = True
-        Me.lblByDate.Location = New System.Drawing.Point(944, 58)
+        Me.lblByDate.Location = New System.Drawing.Point(643, 58)
         Me.lblByDate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblByDate.Name = "lblByDate"
         Me.lblByDate.Size = New System.Drawing.Size(268, 29)
@@ -120,7 +136,7 @@ Partial Class frmEvalManagement
         '
         Me.lblByEval.AutoSize = True
         Me.lblByEval.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblByEval.Location = New System.Drawing.Point(38, 58)
+        Me.lblByEval.Location = New System.Drawing.Point(23, 58)
         Me.lblByEval.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblByEval.Name = "lblByEval"
         Me.lblByEval.Size = New System.Drawing.Size(217, 29)
@@ -205,7 +221,10 @@ Partial Class frmEvalManagement
         Me.DGVfrmEvalManagement.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DGVfrmEvalManagement.AutoGenerateColumns = False
         Me.DGVfrmEvalManagement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVfrmEvalManagement.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EvaluatorNameDataGridViewTextBoxColumn, Me.EvaluationTypeDataGridViewTextBoxColumn, Me.StartDateDataGridViewTextBoxColumn, Me.EndDateDataGridViewTextBoxColumn, Me.DogsEnrolledDataGridViewTextBoxColumn, Me.AddEditDataGridViewTextBoxColumn, Me.DogEvalsDataGridViewTextBoxColumn})
+        Me.DGVfrmEvalManagement.DataSource = Me.QryTblEvaluationsBindingSource
         Me.DGVfrmEvalManagement.Location = New System.Drawing.Point(72, 423)
         Me.DGVfrmEvalManagement.Name = "DGVfrmEvalManagement"
         Me.DGVfrmEvalManagement.ReadOnly = True
@@ -213,6 +232,16 @@ Partial Class frmEvalManagement
         Me.DGVfrmEvalManagement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGVfrmEvalManagement.Size = New System.Drawing.Size(1508, 635)
         Me.DGVfrmEvalManagement.TabIndex = 22
+        '
+        'QryTblEvaluationsBindingSource
+        '
+        Me.QryTblEvaluationsBindingSource.DataMember = "qryTblEvaluations"
+        Me.QryTblEvaluationsBindingSource.DataSource = Me.Ultra_DataDataSet
+        '
+        'Ultra_DataDataSet
+        '
+        Me.Ultra_DataDataSet.DataSetName = "Ultra_DataDataSet"
+        Me.Ultra_DataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'txtRecordsCount
         '
@@ -228,6 +257,80 @@ Partial Class frmEvalManagement
         Me.txtRecordsCount.TabIndex = 23
         Me.txtRecordsCount.TabStop = False
         Me.txtRecordsCount.WordWrap = False
+        '
+        'QryTblEvaluationsTableAdapter
+        '
+        Me.QryTblEvaluationsTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.UpdateOrder = UltraMigration_V4.Ultra_DataDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'EvaluatorNameDataGridViewTextBoxColumn
+        '
+        Me.EvaluatorNameDataGridViewTextBoxColumn.DataPropertyName = "Evaluator Name"
+        Me.EvaluatorNameDataGridViewTextBoxColumn.HeaderText = "Evaluator Name"
+        Me.EvaluatorNameDataGridViewTextBoxColumn.Name = "EvaluatorNameDataGridViewTextBoxColumn"
+        Me.EvaluatorNameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'EvaluationTypeDataGridViewTextBoxColumn
+        '
+        Me.EvaluationTypeDataGridViewTextBoxColumn.DataPropertyName = "Evaluation Type"
+        Me.EvaluationTypeDataGridViewTextBoxColumn.HeaderText = "Evaluation Type"
+        Me.EvaluationTypeDataGridViewTextBoxColumn.Name = "EvaluationTypeDataGridViewTextBoxColumn"
+        Me.EvaluationTypeDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'StartDateDataGridViewTextBoxColumn
+        '
+        Me.StartDateDataGridViewTextBoxColumn.DataPropertyName = "Start Date"
+        DataGridViewCellStyle1.Format = "dd-MMM-yyyy"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.StartDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
+        Me.StartDateDataGridViewTextBoxColumn.HeaderText = "Start Date"
+        Me.StartDateDataGridViewTextBoxColumn.Name = "StartDateDataGridViewTextBoxColumn"
+        Me.StartDateDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'EndDateDataGridViewTextBoxColumn
+        '
+        Me.EndDateDataGridViewTextBoxColumn.DataPropertyName = "End Date"
+        DataGridViewCellStyle2.Format = "dd-MMM-yyyy"
+        Me.EndDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        Me.EndDateDataGridViewTextBoxColumn.HeaderText = "End Date"
+        Me.EndDateDataGridViewTextBoxColumn.Name = "EndDateDataGridViewTextBoxColumn"
+        Me.EndDateDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DogsEnrolledDataGridViewTextBoxColumn
+        '
+        Me.DogsEnrolledDataGridViewTextBoxColumn.DataPropertyName = "Dogs Enrolled"
+        Me.DogsEnrolledDataGridViewTextBoxColumn.HeaderText = "Dogs Enrolled"
+        Me.DogsEnrolledDataGridViewTextBoxColumn.Name = "DogsEnrolledDataGridViewTextBoxColumn"
+        Me.DogsEnrolledDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'AddEditDataGridViewTextBoxColumn
+        '
+        Me.AddEditDataGridViewTextBoxColumn.ActiveLinkColor = System.Drawing.Color.White
+        Me.AddEditDataGridViewTextBoxColumn.DataPropertyName = "AddEdit"
+        Me.AddEditDataGridViewTextBoxColumn.HeaderText = "AddEdit"
+        Me.AddEditDataGridViewTextBoxColumn.LinkColor = System.Drawing.Color.Blue
+        Me.AddEditDataGridViewTextBoxColumn.Name = "AddEditDataGridViewTextBoxColumn"
+        Me.AddEditDataGridViewTextBoxColumn.ReadOnly = True
+        Me.AddEditDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.AddEditDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.AddEditDataGridViewTextBoxColumn.VisitedLinkColor = System.Drawing.Color.Blue
+        '
+        'DogEvalsDataGridViewTextBoxColumn
+        '
+        Me.DogEvalsDataGridViewTextBoxColumn.ActiveLinkColor = System.Drawing.Color.White
+        Me.DogEvalsDataGridViewTextBoxColumn.DataPropertyName = "Dog Evals"
+        Me.DogEvalsDataGridViewTextBoxColumn.HeaderText = "Dog Evals"
+        Me.DogEvalsDataGridViewTextBoxColumn.LinkColor = System.Drawing.Color.Blue
+        Me.DogEvalsDataGridViewTextBoxColumn.Name = "DogEvalsDataGridViewTextBoxColumn"
+        Me.DogEvalsDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DogEvalsDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DogEvalsDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.DogEvalsDataGridViewTextBoxColumn.VisitedLinkColor = System.Drawing.Color.Blue
         '
         'frmEvalManagement
         '
@@ -246,13 +349,15 @@ Partial Class frmEvalManagement
         Me.gpbxFilterContainer.ResumeLayout(False)
         Me.gpbxFilterContainer.PerformLayout()
         CType(Me.DGVfrmEvalManagement, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QryTblEvaluationsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Ultra_DataDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents gpbxFilterContainer As GroupBox
-    Friend WithEvents DTP1 As DateTimePicker
+    Friend WithEvents dtpStart As DateTimePicker
     Friend WithEvents lblByDate As Label
     Friend WithEvents lblByType As Label
     Friend WithEvents lblByEval As Label
@@ -264,6 +369,17 @@ Partial Class frmEvalManagement
     Friend WithEvents btnAddEval As Button
     Friend WithEvents DGVfrmEvalManagement As DataGridView
     Friend WithEvents txtRecordsCount As TextBox
-    Friend WithEvents lblSubType As Label
-    Friend WithEvents cmboSubType As ComboBox
+    Friend WithEvents lblEndDate As Label
+    Friend WithEvents dtpEnd As DateTimePicker
+    Friend WithEvents Ultra_DataDataSet As Ultra_DataDataSet
+    Friend WithEvents QryTblEvaluationsBindingSource As BindingSource
+    Friend WithEvents QryTblEvaluationsTableAdapter As Ultra_DataDataSetTableAdapters.qryTblEvaluationsTableAdapter
+    Friend WithEvents TableAdapterManager As Ultra_DataDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents EvaluatorNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EvaluationTypeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents StartDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EndDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DogsEnrolledDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents AddEditDataGridViewTextBoxColumn As DataGridViewLinkColumn
+    Friend WithEvents DogEvalsDataGridViewTextBoxColumn As DataGridViewLinkColumn
 End Class

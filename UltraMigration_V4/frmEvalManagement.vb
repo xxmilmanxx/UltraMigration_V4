@@ -5,64 +5,71 @@
         Return Not String.IsNullOrEmpty(text)
     End Function
 
-    Private Sub frmEvalManagement_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+    Public Sub LoadTable()
 
         Try
-            ' Command that loads the data grid
-            ClsQry.ExeQuery("SELECT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name], trefDogBehaviorChecklistCode.wbc_BehaviorChecklistText AS [Eval Type], " &
-                             "trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText AS [Eval Sub-Type], tblEvaluations.evl_DateStart AS [Start Date], tblEvaluations.evl_DateEnd AS [End Date], " &
-                             "tblEvaluations.evl_DogsEnrolled AS [Dogs Enrolled], IIf(tblEvaluations.CompleteFlag, 'View', 'Edit') AS AddEdit, IIf(tblEvaluations.evl_DogsEnrolled, 'Dog Evals', NULL) AS Details " &
-                        "FROM (((tblEvaluations LEFT OUTER JOIN trefDogBehaviorChecklistCode ON tblEvaluations.evl_ReportTypeCode = trefDogBehaviorChecklistCode.wbc_BehaviorChecklistCode) " &
-                             "LEFT OUTER JOIN trefDogBehaviorChecklistSubCode ON tblEvaluations.evl_ReportTypeSubCode = trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistSubCode) LEFT OUTER JOIN " &
-                             "Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId) " &
-                        "WHERE (IIf(tblEvaluations.CompleteFlag, 'View', 'Edit') IS NOT NULL) OR (IIf(tblEvaluations.evl_DogsEnrolled, 'Dog Evals', NULL) > '0') " &
-                        "ORDER BY tblEvaluations.evl_DateStart DESC")
 
-            ' Check for errors before continuung
-            If Not String.IsNullOrEmpty(ClsQry.Exception) Then MsgBox(ClsQry.Exception) : Exit Sub
-
-            'Fill DataGridView
-            DGVfrmEvalManagement.DataSource = ClsQry.DBDT
-            'Loads the table into the DataGridView
-            'LoadDataGrid()
-            ' Loads Evaluator Name into Combobox
-            LoadEvaluatorCombobox()
-            ' Loads Eval Type into Combobox
-            LoadTypeCombobox()
-            ' Loads Eval Sub-Type into Combobox
-            LoadSubTypeCombobox()
-            ' Resets combobox and datetimepicker
-            ResetEvalManagementFilters()
-            ' Counts records and displays number in the txtRecordCount field
-            UpdateEvalMngntTable()
+            Me.QryTblEvaluationsTableAdapter.Fill(Me.Ultra_DataDataSet.qryTblEvaluations)
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+
         End Try
     End Sub
-    Private Sub NameFill()
 
-        ClsQry.ExeQuery("SELECT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name], trefDogBehaviorChecklistCode.wbc_BehaviorChecklistText AS [Eval Type], " &
-                          "trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText AS [Eval Sub-Type], tblEvaluations.evl_DateStart AS [Start Date], tblEvaluations.evl_DateEnd AS [End Date], " &
-                        "tblEvaluations.evl_DogsEnrolled AS [Dogs Enrolled], IIf(tblEvaluations.CompleteFlag, 'View', 'Edit') AS AddEdit, IIf(tblEvaluations.evl_DogsEnrolled, 'Dog Evals', NULL) AS Details " &
-                    "FROM (((tblEvaluations LEFT OUTER JOIN trefDogBehaviorChecklistCode ON tblEvaluations.evl_ReportTypeCode = trefDogBehaviorChecklistCode.wbc_BehaviorChecklistCode) " &
-                         "LEFT OUTER JOIN trefDogBehaviorChecklistSubCode ON tblEvaluations.evl_ReportTypeSubCode = trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistSubCode) LEFT OUTER JOIN " &
-                        "Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId) " &
-                  "WHERE '[Evaluator Name]'= '" & cmboEvaluator.SelectedIndex & "'")
+    Private Sub frmEvalManagement_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
+        'Loads the table into the DataGridView
+        LoadTable()
+        ' Loads Evaluator Name into Combobox
+        LoadEvaluatorCombobox()
+        ' Loads Eval Type into Combobox
+        LoadTypeCombobox()
+        ' Resets combobox and datetimepicker
+        ResetEvalManagementFilters()
+        ' Counts records and displays number in the txtRecordCount field
+        UpdateEvalMngntTable()
 
-        ' Report and Aprot is errors
-        If NotEmpty(ClsQry.Exception) Then MsgBox(ClsQry.Exception) : Exit Sub
-
-        'Fill DataGridView
-        DGVfrmEvalManagement.DataSource = ClsQry.DBDT
     End Sub
+
     Private Sub cmboEvaluator_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmboEvaluator.SelectionChangeCommitted
 
         'Filter data grid based on current selected index in the combobox
-        NameFill()
-        ' FilterName()
+        FilterAll()
+        ' Counts records and displays number in the txtRecordCount field
         UpdateEvalMngntTable()
+
+    End Sub
+
+    Private Sub cmboType_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmboType.SelectionChangeCommitted
+
+        'Filter data grid based on current selected index in the combobox
+        FilterAll()
+        ' Counts records and displays number in the txtRecordCount field
+        UpdateEvalMngntTable()
+
+    End Sub
+
+    Private Sub dtpStart_CloseUp(sender As Object, e As EventArgs) Handles dtpStart.CloseUp
+
+        Dim cTime As String = DateTime.Now.ToString("dd-MMM-yyyy")
+
+        If Me.dtpStart.Value.Date < DateTime.Now Then
+            FilterStart()
+        Else
+            MessageBox.Show("Please select a day that is on or before " & cTime & "")
+            Me.dtpStart.ResetText()
+        End If
+        ' FilterAll()
+
+        UpdateEvalMngntTable()
+
+
+    End Sub
+
+    Private Sub dtpEnd_CloseUp(sender As Object, e As EventArgs) Handles dtpEnd.CloseUp
+
+
 
     End Sub
 
@@ -85,6 +92,7 @@
         ResetEvalManagementFilters()
 
         LoadDataGrid()
+        ' LoadTable()
 
         UpdateEvalMngntTable()
 

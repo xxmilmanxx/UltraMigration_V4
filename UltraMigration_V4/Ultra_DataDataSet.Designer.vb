@@ -25,7 +25,7 @@ Option Explicit On
 Partial Public Class Ultra_DataDataSet
     Inherits Global.System.Data.DataSet
     
-    Private tabletblEvaluations As tblEvaluationsDataTable
+    Private tableqryTblEvaluations As qryTblEvaluationsDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class Ultra_DataDataSet
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("tblEvaluations")) Is Nothing) Then
-                MyBase.Tables.Add(New tblEvaluationsDataTable(ds.Tables("tblEvaluations")))
+            If (Not (ds.Tables("qryTblEvaluations")) Is Nothing) Then
+                MyBase.Tables.Add(New qryTblEvaluationsDataTable(ds.Tables("qryTblEvaluations")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class Ultra_DataDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property tblEvaluations() As tblEvaluationsDataTable
+    Public ReadOnly Property qryTblEvaluations() As qryTblEvaluationsDataTable
         Get
-            Return Me.tabletblEvaluations
+            Return Me.tableqryTblEvaluations
         End Get
     End Property
     
@@ -153,8 +153,8 @@ Partial Public Class Ultra_DataDataSet
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("tblEvaluations")) Is Nothing) Then
-                MyBase.Tables.Add(New tblEvaluationsDataTable(ds.Tables("tblEvaluations")))
+            If (Not (ds.Tables("qryTblEvaluations")) Is Nothing) Then
+                MyBase.Tables.Add(New qryTblEvaluationsDataTable(ds.Tables("qryTblEvaluations")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class Ultra_DataDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tabletblEvaluations = CType(MyBase.Tables("tblEvaluations"),tblEvaluationsDataTable)
+        Me.tableqryTblEvaluations = CType(MyBase.Tables("qryTblEvaluations"),qryTblEvaluationsDataTable)
         If (initTable = true) Then
-            If (Not (Me.tabletblEvaluations) Is Nothing) Then
-                Me.tabletblEvaluations.InitVars
+            If (Not (Me.tableqryTblEvaluations) Is Nothing) Then
+                Me.tableqryTblEvaluations.InitVars
             End If
         End If
     End Sub
@@ -204,13 +204,13 @@ Partial Public Class Ultra_DataDataSet
         Me.Namespace = "http://tempuri.org/Ultra_DataDataSet.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tabletblEvaluations = New tblEvaluationsDataTable()
-        MyBase.Tables.Add(Me.tabletblEvaluations)
+        Me.tableqryTblEvaluations = New qryTblEvaluationsDataTable()
+        MyBase.Tables.Add(Me.tableqryTblEvaluations)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializetblEvaluations() As Boolean
+    Private Function ShouldSerializeqryTblEvaluations() As Boolean
         Return false
     End Function
     
@@ -273,39 +273,35 @@ Partial Public Class Ultra_DataDataSet
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub tblEvaluationsRowChangeEventHandler(ByVal sender As Object, ByVal e As tblEvaluationsRowChangeEvent)
+    Public Delegate Sub qryTblEvaluationsRowChangeEventHandler(ByVal sender As Object, ByVal e As qryTblEvaluationsRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class tblEvaluationsDataTable
-        Inherits Global.System.Data.TypedTableBase(Of tblEvaluationsRow)
+    Partial Public Class qryTblEvaluationsDataTable
+        Inherits Global.System.Data.TypedTableBase(Of qryTblEvaluationsRow)
         
-        Private columnevl_EvaluationCode As Global.System.Data.DataColumn
+        Private columnEvaluator_Name As Global.System.Data.DataColumn
         
-        Private columnevl_DateStart As Global.System.Data.DataColumn
+        Private columnEvaluation_Type As Global.System.Data.DataColumn
         
-        Private columnevl_DateEnd As Global.System.Data.DataColumn
+        Private columnStart_Date As Global.System.Data.DataColumn
         
-        Private columnevl_EvaluatorID As Global.System.Data.DataColumn
+        Private columnEnd_Date As Global.System.Data.DataColumn
         
-        Private columnevl_ReportTypeCode As Global.System.Data.DataColumn
+        Private columnDogs_Enrolled As Global.System.Data.DataColumn
         
-        Private columnevl_ReportTypeSubCode As Global.System.Data.DataColumn
+        Private columnAddEdit As Global.System.Data.DataColumn
         
-        Private columnevl_DogsEnrolled As Global.System.Data.DataColumn
-        
-        Private columnCompleteFlag As Global.System.Data.DataColumn
-        
-        Private columnModifiedDate As Global.System.Data.DataColumn
+        Private columnDog_Evals As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "tblEvaluations"
+            Me.TableName = "qryTblEvaluations"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -338,73 +334,57 @@ Partial Public Class Ultra_DataDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property evl_EvaluationCodeColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Evaluator_NameColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnevl_EvaluationCode
+                Return Me.columnEvaluator_Name
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property evl_DateStartColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Evaluation_TypeColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnevl_DateStart
+                Return Me.columnEvaluation_Type
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property evl_DateEndColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Start_DateColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnevl_DateEnd
+                Return Me.columnStart_Date
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property evl_EvaluatorIDColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property End_DateColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnevl_EvaluatorID
+                Return Me.columnEnd_Date
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property evl_ReportTypeCodeColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Dogs_EnrolledColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnevl_ReportTypeCode
+                Return Me.columnDogs_Enrolled
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property evl_ReportTypeSubCodeColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property AddEditColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnevl_ReportTypeSubCode
+                Return Me.columnAddEdit
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property evl_DogsEnrolledColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Dog_EvalsColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnevl_DogsEnrolled
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CompleteFlagColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCompleteFlag
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ModifiedDateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnModifiedDate
+                Return Me.columnDog_Evals
             End Get
         End Property
         
@@ -419,50 +399,44 @@ Partial Public Class Ultra_DataDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As tblEvaluationsRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As qryTblEvaluationsRow
             Get
-                Return CType(Me.Rows(index),tblEvaluationsRow)
+                Return CType(Me.Rows(index),qryTblEvaluationsRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event tblEvaluationsRowChanging As tblEvaluationsRowChangeEventHandler
+        Public Event qryTblEvaluationsRowChanging As qryTblEvaluationsRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event tblEvaluationsRowChanged As tblEvaluationsRowChangeEventHandler
+        Public Event qryTblEvaluationsRowChanged As qryTblEvaluationsRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event tblEvaluationsRowDeleting As tblEvaluationsRowChangeEventHandler
+        Public Event qryTblEvaluationsRowDeleting As qryTblEvaluationsRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event tblEvaluationsRowDeleted As tblEvaluationsRowChangeEventHandler
+        Public Event qryTblEvaluationsRowDeleted As qryTblEvaluationsRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddtblEvaluationsRow(ByVal row As tblEvaluationsRow)
+        Public Overloads Sub AddqryTblEvaluationsRow(ByVal row As qryTblEvaluationsRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddtblEvaluationsRow(ByVal evl_EvaluationCode As Integer, ByVal evl_DateStart As Date, ByVal evl_DateEnd As Date, ByVal evl_EvaluatorID As Integer, ByVal evl_ReportTypeCode As Integer, ByVal evl_ReportTypeSubCode As Integer, ByVal evl_DogsEnrolled As Integer, ByVal CompleteFlag As Boolean, ByVal ModifiedDate As Date) As tblEvaluationsRow
-            Dim rowtblEvaluationsRow As tblEvaluationsRow = CType(Me.NewRow,tblEvaluationsRow)
-            Dim columnValuesArray() As Object = New Object() {evl_EvaluationCode, evl_DateStart, evl_DateEnd, evl_EvaluatorID, evl_ReportTypeCode, evl_ReportTypeSubCode, evl_DogsEnrolled, CompleteFlag, ModifiedDate}
-            rowtblEvaluationsRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowtblEvaluationsRow)
-            Return rowtblEvaluationsRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByevl_EvaluationCode(ByVal evl_EvaluationCode As Integer) As tblEvaluationsRow
-            Return CType(Me.Rows.Find(New Object() {evl_EvaluationCode}),tblEvaluationsRow)
+        Public Overloads Function AddqryTblEvaluationsRow(ByVal Evaluator_Name As String, ByVal Evaluation_Type As String, ByVal Start_Date As Date, ByVal End_Date As Date, ByVal Dogs_Enrolled As Integer, ByVal AddEdit As String, ByVal Dog_Evals As String) As qryTblEvaluationsRow
+            Dim rowqryTblEvaluationsRow As qryTblEvaluationsRow = CType(Me.NewRow,qryTblEvaluationsRow)
+            Dim columnValuesArray() As Object = New Object() {Evaluator_Name, Evaluation_Type, Start_Date, End_Date, Dogs_Enrolled, AddEdit, Dog_Evals}
+            rowqryTblEvaluationsRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowqryTblEvaluationsRow)
+            Return rowqryTblEvaluationsRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As tblEvaluationsDataTable = CType(MyBase.Clone,tblEvaluationsDataTable)
+            Dim cln As qryTblEvaluationsDataTable = CType(MyBase.Clone,qryTblEvaluationsDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -470,73 +444,71 @@ Partial Public Class Ultra_DataDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New tblEvaluationsDataTable()
+            Return New qryTblEvaluationsDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnevl_EvaluationCode = MyBase.Columns("evl_EvaluationCode")
-            Me.columnevl_DateStart = MyBase.Columns("evl_DateStart")
-            Me.columnevl_DateEnd = MyBase.Columns("evl_DateEnd")
-            Me.columnevl_EvaluatorID = MyBase.Columns("evl_EvaluatorID")
-            Me.columnevl_ReportTypeCode = MyBase.Columns("evl_ReportTypeCode")
-            Me.columnevl_ReportTypeSubCode = MyBase.Columns("evl_ReportTypeSubCode")
-            Me.columnevl_DogsEnrolled = MyBase.Columns("evl_DogsEnrolled")
-            Me.columnCompleteFlag = MyBase.Columns("CompleteFlag")
-            Me.columnModifiedDate = MyBase.Columns("ModifiedDate")
+            Me.columnEvaluator_Name = MyBase.Columns("Evaluator Name")
+            Me.columnEvaluation_Type = MyBase.Columns("Evaluation Type")
+            Me.columnStart_Date = MyBase.Columns("Start Date")
+            Me.columnEnd_Date = MyBase.Columns("End Date")
+            Me.columnDogs_Enrolled = MyBase.Columns("Dogs Enrolled")
+            Me.columnAddEdit = MyBase.Columns("AddEdit")
+            Me.columnDog_Evals = MyBase.Columns("Dog Evals")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnevl_EvaluationCode = New Global.System.Data.DataColumn("evl_EvaluationCode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnevl_EvaluationCode)
-            Me.columnevl_DateStart = New Global.System.Data.DataColumn("evl_DateStart", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnevl_DateStart)
-            Me.columnevl_DateEnd = New Global.System.Data.DataColumn("evl_DateEnd", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnevl_DateEnd)
-            Me.columnevl_EvaluatorID = New Global.System.Data.DataColumn("evl_EvaluatorID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnevl_EvaluatorID)
-            Me.columnevl_ReportTypeCode = New Global.System.Data.DataColumn("evl_ReportTypeCode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnevl_ReportTypeCode)
-            Me.columnevl_ReportTypeSubCode = New Global.System.Data.DataColumn("evl_ReportTypeSubCode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnevl_ReportTypeSubCode)
-            Me.columnevl_DogsEnrolled = New Global.System.Data.DataColumn("evl_DogsEnrolled", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnevl_DogsEnrolled)
-            Me.columnCompleteFlag = New Global.System.Data.DataColumn("CompleteFlag", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCompleteFlag)
-            Me.columnModifiedDate = New Global.System.Data.DataColumn("ModifiedDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnModifiedDate)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnevl_EvaluationCode}, true))
-            Me.columnevl_EvaluationCode.AllowDBNull = false
-            Me.columnevl_EvaluationCode.Unique = true
+            Me.columnEvaluator_Name = New Global.System.Data.DataColumn("Evaluator Name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEvaluator_Name)
+            Me.columnEvaluation_Type = New Global.System.Data.DataColumn("Evaluation Type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEvaluation_Type)
+            Me.columnStart_Date = New Global.System.Data.DataColumn("Start Date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnStart_Date)
+            Me.columnEnd_Date = New Global.System.Data.DataColumn("End Date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEnd_Date)
+            Me.columnDogs_Enrolled = New Global.System.Data.DataColumn("Dogs Enrolled", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDogs_Enrolled)
+            Me.columnAddEdit = New Global.System.Data.DataColumn("AddEdit", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAddEdit)
+            Me.columnDog_Evals = New Global.System.Data.DataColumn("Dog Evals", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDog_Evals)
+            Me.columnEvaluator_Name.ReadOnly = true
+            Me.columnEvaluator_Name.MaxLength = 536870910
+            Me.columnEvaluation_Type.MaxLength = 50
+            Me.columnAddEdit.ReadOnly = true
+            Me.columnAddEdit.MaxLength = 536870910
+            Me.columnDog_Evals.ReadOnly = true
+            Me.columnDog_Evals.MaxLength = 536870910
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewtblEvaluationsRow() As tblEvaluationsRow
-            Return CType(Me.NewRow,tblEvaluationsRow)
+        Public Function NewqryTblEvaluationsRow() As qryTblEvaluationsRow
+            Return CType(Me.NewRow,qryTblEvaluationsRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New tblEvaluationsRow(builder)
+            Return New qryTblEvaluationsRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(tblEvaluationsRow)
+            Return GetType(qryTblEvaluationsRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.tblEvaluationsRowChangedEvent) Is Nothing) Then
-                RaiseEvent tblEvaluationsRowChanged(Me, New tblEvaluationsRowChangeEvent(CType(e.Row,tblEvaluationsRow), e.Action))
+            If (Not (Me.qryTblEvaluationsRowChangedEvent) Is Nothing) Then
+                RaiseEvent qryTblEvaluationsRowChanged(Me, New qryTblEvaluationsRowChangeEvent(CType(e.Row,qryTblEvaluationsRow), e.Action))
             End If
         End Sub
         
@@ -544,8 +516,8 @@ Partial Public Class Ultra_DataDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.tblEvaluationsRowChangingEvent) Is Nothing) Then
-                RaiseEvent tblEvaluationsRowChanging(Me, New tblEvaluationsRowChangeEvent(CType(e.Row,tblEvaluationsRow), e.Action))
+            If (Not (Me.qryTblEvaluationsRowChangingEvent) Is Nothing) Then
+                RaiseEvent qryTblEvaluationsRowChanging(Me, New qryTblEvaluationsRowChangeEvent(CType(e.Row,qryTblEvaluationsRow), e.Action))
             End If
         End Sub
         
@@ -553,8 +525,8 @@ Partial Public Class Ultra_DataDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.tblEvaluationsRowDeletedEvent) Is Nothing) Then
-                RaiseEvent tblEvaluationsRowDeleted(Me, New tblEvaluationsRowChangeEvent(CType(e.Row,tblEvaluationsRow), e.Action))
+            If (Not (Me.qryTblEvaluationsRowDeletedEvent) Is Nothing) Then
+                RaiseEvent qryTblEvaluationsRowDeleted(Me, New qryTblEvaluationsRowChangeEvent(CType(e.Row,qryTblEvaluationsRow), e.Action))
             End If
         End Sub
         
@@ -562,14 +534,14 @@ Partial Public Class Ultra_DataDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.tblEvaluationsRowDeletingEvent) Is Nothing) Then
-                RaiseEvent tblEvaluationsRowDeleting(Me, New tblEvaluationsRowChangeEvent(CType(e.Row,tblEvaluationsRow), e.Action))
+            If (Not (Me.qryTblEvaluationsRowDeletingEvent) Is Nothing) Then
+                RaiseEvent qryTblEvaluationsRowDeleting(Me, New qryTblEvaluationsRowChangeEvent(CType(e.Row,qryTblEvaluationsRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemovetblEvaluationsRow(ByVal row As tblEvaluationsRow)
+        Public Sub RemoveqryTblEvaluationsRow(ByVal row As qryTblEvaluationsRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -596,7 +568,7 @@ Partial Public Class Ultra_DataDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "tblEvaluationsDataTable"
+            attribute2.FixedValue = "qryTblEvaluationsDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -643,244 +615,205 @@ Partial Public Class Ultra_DataDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class tblEvaluationsRow
+    Partial Public Class qryTblEvaluationsRow
         Inherits Global.System.Data.DataRow
         
-        Private tabletblEvaluations As tblEvaluationsDataTable
+        Private tableqryTblEvaluations As qryTblEvaluationsDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tabletblEvaluations = CType(Me.Table,tblEvaluationsDataTable)
+            Me.tableqryTblEvaluations = CType(Me.Table,qryTblEvaluationsDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property evl_EvaluationCode() As Integer
-            Get
-                Return CType(Me(Me.tabletblEvaluations.evl_EvaluationCodeColumn),Integer)
-            End Get
-            Set
-                Me(Me.tabletblEvaluations.evl_EvaluationCodeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property evl_DateStart() As Date
+        Public Property Evaluator_Name() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblEvaluations.evl_DateStartColumn),Date)
+                    Return CType(Me(Me.tableqryTblEvaluations.Evaluator_NameColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'evl_DateStart' in table 'tblEvaluations' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Evaluator Name' in table 'qryTblEvaluations' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblEvaluations.evl_DateStartColumn) = value
+                Me(Me.tableqryTblEvaluations.Evaluator_NameColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property evl_DateEnd() As Date
+        Public Property Evaluation_Type() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblEvaluations.evl_DateEndColumn),Date)
+                    Return CType(Me(Me.tableqryTblEvaluations.Evaluation_TypeColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'evl_DateEnd' in table 'tblEvaluations' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Evaluation Type' in table 'qryTblEvaluations' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblEvaluations.evl_DateEndColumn) = value
+                Me(Me.tableqryTblEvaluations.Evaluation_TypeColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property evl_EvaluatorID() As Integer
+        Public Property Start_Date() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tabletblEvaluations.evl_EvaluatorIDColumn),Integer)
+                    Return CType(Me(Me.tableqryTblEvaluations.Start_DateColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'evl_EvaluatorID' in table 'tblEvaluations' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Start Date' in table 'qryTblEvaluations' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblEvaluations.evl_EvaluatorIDColumn) = value
+                Me(Me.tableqryTblEvaluations.Start_DateColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property evl_ReportTypeCode() As Integer
+        Public Property End_Date() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tabletblEvaluations.evl_ReportTypeCodeColumn),Integer)
+                    Return CType(Me(Me.tableqryTblEvaluations.End_DateColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'evl_ReportTypeCode' in table 'tblEvaluations' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'End Date' in table 'qryTblEvaluations' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblEvaluations.evl_ReportTypeCodeColumn) = value
+                Me(Me.tableqryTblEvaluations.End_DateColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property evl_ReportTypeSubCode() As Integer
+        Public Property Dogs_Enrolled() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tabletblEvaluations.evl_ReportTypeSubCodeColumn),Integer)
+                    Return CType(Me(Me.tableqryTblEvaluations.Dogs_EnrolledColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'evl_ReportTypeSubCode' in table 'tblEvaluations' is DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Dogs Enrolled' in table 'qryTblEvaluations' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblEvaluations.evl_ReportTypeSubCodeColumn) = value
+                Me(Me.tableqryTblEvaluations.Dogs_EnrolledColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property evl_DogsEnrolled() As Integer
+        Public Property AddEdit() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblEvaluations.evl_DogsEnrolledColumn),Integer)
+                    Return CType(Me(Me.tableqryTblEvaluations.AddEditColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'evl_DogsEnrolled' in table 'tblEvaluations' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'AddEdit' in table 'qryTblEvaluations' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblEvaluations.evl_DogsEnrolledColumn) = value
+                Me(Me.tableqryTblEvaluations.AddEditColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CompleteFlag() As Boolean
+        Public Property Dog_Evals() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblEvaluations.CompleteFlagColumn),Boolean)
+                    Return CType(Me(Me.tableqryTblEvaluations.Dog_EvalsColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CompleteFlag' in table 'tblEvaluations' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Dog Evals' in table 'qryTblEvaluations' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblEvaluations.CompleteFlagColumn) = value
+                Me(Me.tableqryTblEvaluations.Dog_EvalsColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ModifiedDate() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tabletblEvaluations.ModifiedDateColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ModifiedDate' in table 'tblEvaluations' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletblEvaluations.ModifiedDateColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Isevl_DateStartNull() As Boolean
-            Return Me.IsNull(Me.tabletblEvaluations.evl_DateStartColumn)
+        Public Function IsEvaluator_NameNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblEvaluations.Evaluator_NameColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Setevl_DateStartNull()
-            Me(Me.tabletblEvaluations.evl_DateStartColumn) = Global.System.Convert.DBNull
+        Public Sub SetEvaluator_NameNull()
+            Me(Me.tableqryTblEvaluations.Evaluator_NameColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Isevl_DateEndNull() As Boolean
-            Return Me.IsNull(Me.tabletblEvaluations.evl_DateEndColumn)
+        Public Function IsEvaluation_TypeNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblEvaluations.Evaluation_TypeColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Setevl_DateEndNull()
-            Me(Me.tabletblEvaluations.evl_DateEndColumn) = Global.System.Convert.DBNull
+        Public Sub SetEvaluation_TypeNull()
+            Me(Me.tableqryTblEvaluations.Evaluation_TypeColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Isevl_EvaluatorIDNull() As Boolean
-            Return Me.IsNull(Me.tabletblEvaluations.evl_EvaluatorIDColumn)
+        Public Function IsStart_DateNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblEvaluations.Start_DateColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Setevl_EvaluatorIDNull()
-            Me(Me.tabletblEvaluations.evl_EvaluatorIDColumn) = Global.System.Convert.DBNull
+        Public Sub SetStart_DateNull()
+            Me(Me.tableqryTblEvaluations.Start_DateColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Isevl_ReportTypeCodeNull() As Boolean
-            Return Me.IsNull(Me.tabletblEvaluations.evl_ReportTypeCodeColumn)
+        Public Function IsEnd_DateNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblEvaluations.End_DateColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Setevl_ReportTypeCodeNull()
-            Me(Me.tabletblEvaluations.evl_ReportTypeCodeColumn) = Global.System.Convert.DBNull
+        Public Sub SetEnd_DateNull()
+            Me(Me.tableqryTblEvaluations.End_DateColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Isevl_ReportTypeSubCodeNull() As Boolean
-            Return Me.IsNull(Me.tabletblEvaluations.evl_ReportTypeSubCodeColumn)
+        Public Function IsDogs_EnrolledNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblEvaluations.Dogs_EnrolledColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Setevl_ReportTypeSubCodeNull()
-            Me(Me.tabletblEvaluations.evl_ReportTypeSubCodeColumn) = Global.System.Convert.DBNull
+        Public Sub SetDogs_EnrolledNull()
+            Me(Me.tableqryTblEvaluations.Dogs_EnrolledColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Isevl_DogsEnrolledNull() As Boolean
-            Return Me.IsNull(Me.tabletblEvaluations.evl_DogsEnrolledColumn)
+        Public Function IsAddEditNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblEvaluations.AddEditColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Setevl_DogsEnrolledNull()
-            Me(Me.tabletblEvaluations.evl_DogsEnrolledColumn) = Global.System.Convert.DBNull
+        Public Sub SetAddEditNull()
+            Me(Me.tableqryTblEvaluations.AddEditColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsCompleteFlagNull() As Boolean
-            Return Me.IsNull(Me.tabletblEvaluations.CompleteFlagColumn)
+        Public Function IsDog_EvalsNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblEvaluations.Dog_EvalsColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetCompleteFlagNull()
-            Me(Me.tabletblEvaluations.CompleteFlagColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsModifiedDateNull() As Boolean
-            Return Me.IsNull(Me.tabletblEvaluations.ModifiedDateColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetModifiedDateNull()
-            Me(Me.tabletblEvaluations.ModifiedDateColumn) = Global.System.Convert.DBNull
+        Public Sub SetDog_EvalsNull()
+            Me(Me.tableqryTblEvaluations.Dog_EvalsColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -888,16 +821,16 @@ Partial Public Class Ultra_DataDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class tblEvaluationsRowChangeEvent
+    Public Class qryTblEvaluationsRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As tblEvaluationsRow
+        Private eventRow As qryTblEvaluationsRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As tblEvaluationsRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As qryTblEvaluationsRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -905,7 +838,7 @@ Partial Public Class Ultra_DataDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As tblEvaluationsRow
+        Public ReadOnly Property Row() As qryTblEvaluationsRow
             Get
                 Return Me.eventRow
             End Get
@@ -932,7 +865,7 @@ Namespace Ultra_DataDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class tblEvaluationsTableAdapter
+    Partial Public Class qryTblEvaluationsTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
@@ -1049,100 +982,15 @@ Namespace Ultra_DataDataSetTableAdapters
             Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "tblEvaluations"
-            tableMapping.ColumnMappings.Add("evl_EvaluationCode", "evl_EvaluationCode")
-            tableMapping.ColumnMappings.Add("evl_DateStart", "evl_DateStart")
-            tableMapping.ColumnMappings.Add("evl_DateEnd", "evl_DateEnd")
-            tableMapping.ColumnMappings.Add("evl_EvaluatorID", "evl_EvaluatorID")
-            tableMapping.ColumnMappings.Add("evl_ReportTypeCode", "evl_ReportTypeCode")
-            tableMapping.ColumnMappings.Add("evl_ReportTypeSubCode", "evl_ReportTypeSubCode")
-            tableMapping.ColumnMappings.Add("evl_DogsEnrolled", "evl_DogsEnrolled")
-            tableMapping.ColumnMappings.Add("CompleteFlag", "CompleteFlag")
-            tableMapping.ColumnMappings.Add("ModifiedDate", "ModifiedDate")
+            tableMapping.DataSetTable = "qryTblEvaluations"
+            tableMapping.ColumnMappings.Add("Evaluator Name", "Evaluator Name")
+            tableMapping.ColumnMappings.Add("Evaluation Type", "Evaluation Type")
+            tableMapping.ColumnMappings.Add("Start Date", "Start Date")
+            tableMapping.ColumnMappings.Add("End Date", "End Date")
+            tableMapping.ColumnMappings.Add("Dogs Enrolled", "Dogs Enrolled")
+            tableMapping.ColumnMappings.Add("AddEdit", "AddEdit")
+            tableMapping.ColumnMappings.Add("Dog Evals", "Dog Evals")
             Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `tblEvaluations` WHERE ((`evl_EvaluationCode` = ?) AND ((? = 1 AND `e"& _ 
-                "vl_DateStart` IS NULL) OR (`evl_DateStart` = ?)) AND ((? = 1 AND `evl_DateEnd` I"& _ 
-                "S NULL) OR (`evl_DateEnd` = ?)) AND ((? = 1 AND `evl_EvaluatorID` IS NULL) OR (`"& _ 
-                "evl_EvaluatorID` = ?)) AND ((? = 1 AND `evl_ReportTypeCode` IS NULL) OR (`evl_Re"& _ 
-                "portTypeCode` = ?)) AND ((? = 1 AND `evl_ReportTypeSubCode` IS NULL) OR (`evl_Re"& _ 
-                "portTypeSubCode` = ?)) AND ((? = 1 AND `evl_DogsEnrolled` IS NULL) OR (`evl_Dogs"& _ 
-                "Enrolled` = ?)) AND ((? = 1 AND `CompleteFlag` IS NULL) OR (`CompleteFlag` = ?))"& _ 
-                " AND ((? = 1 AND `ModifiedDate` IS NULL) OR (`ModifiedDate` = ?)))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_EvaluationCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_EvaluationCode", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_evl_DateStart", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DateStart", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_DateStart", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DateStart", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_evl_DateEnd", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DateEnd", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_DateEnd", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DateEnd", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_evl_EvaluatorID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_EvaluatorID", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_EvaluatorID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_EvaluatorID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_evl_ReportTypeCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_ReportTypeCode", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_ReportTypeCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_ReportTypeCode", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_evl_ReportTypeSubCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_ReportTypeSubCode", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_ReportTypeSubCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_ReportTypeSubCode", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_evl_DogsEnrolled", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DogsEnrolled", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_DogsEnrolled", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DogsEnrolled", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CompleteFlag", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CompleteFlag", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CompleteFlag", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CompleteFlag", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ModifiedDate", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ModifiedDate", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ModifiedDate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ModifiedDate", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `tblEvaluations` (`evl_EvaluationCode`, `evl_DateStart`, `evl_DateEnd"& _ 
-                "`, `evl_EvaluatorID`, `evl_ReportTypeCode`, `evl_ReportTypeSubCode`, `evl_DogsEn"& _ 
-                "rolled`, `CompleteFlag`, `ModifiedDate`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_EvaluationCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_EvaluationCode", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_DateStart", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DateStart", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_DateEnd", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DateEnd", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_EvaluatorID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_EvaluatorID", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_ReportTypeCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_ReportTypeCode", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_ReportTypeSubCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_ReportTypeSubCode", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_DogsEnrolled", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DogsEnrolled", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CompleteFlag", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CompleteFlag", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ModifiedDate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ModifiedDate", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `tblEvaluations` SET `evl_EvaluationCode` = ?, `evl_DateStart` = ?, `evl_D"& _ 
-                "ateEnd` = ?, `evl_EvaluatorID` = ?, `evl_ReportTypeCode` = ?, `evl_ReportTypeSub"& _ 
-                "Code` = ?, `evl_DogsEnrolled` = ?, `CompleteFlag` = ?, `ModifiedDate` = ? WHERE "& _ 
-                "((`evl_EvaluationCode` = ?) AND ((? = 1 AND `evl_DateStart` IS NULL) OR (`evl_Da"& _ 
-                "teStart` = ?)) AND ((? = 1 AND `evl_DateEnd` IS NULL) OR (`evl_DateEnd` = ?)) AN"& _ 
-                "D ((? = 1 AND `evl_EvaluatorID` IS NULL) OR (`evl_EvaluatorID` = ?)) AND ((? = 1"& _ 
-                " AND `evl_ReportTypeCode` IS NULL) OR (`evl_ReportTypeCode` = ?)) AND ((? = 1 AN"& _ 
-                "D `evl_ReportTypeSubCode` IS NULL) OR (`evl_ReportTypeSubCode` = ?)) AND ((? = 1"& _ 
-                " AND `evl_DogsEnrolled` IS NULL) OR (`evl_DogsEnrolled` = ?)) AND ((? = 1 AND `C"& _ 
-                "ompleteFlag` IS NULL) OR (`CompleteFlag` = ?)) AND ((? = 1 AND `ModifiedDate` IS"& _ 
-                " NULL) OR (`ModifiedDate` = ?)))"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_EvaluationCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_EvaluationCode", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_DateStart", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DateStart", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_DateEnd", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DateEnd", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_EvaluatorID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_EvaluatorID", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_ReportTypeCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_ReportTypeCode", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_ReportTypeSubCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_ReportTypeSubCode", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("evl_DogsEnrolled", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DogsEnrolled", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CompleteFlag", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CompleteFlag", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ModifiedDate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ModifiedDate", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_EvaluationCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_EvaluationCode", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_evl_DateStart", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DateStart", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_DateStart", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DateStart", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_evl_DateEnd", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DateEnd", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_DateEnd", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DateEnd", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_evl_EvaluatorID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_EvaluatorID", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_EvaluatorID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_EvaluatorID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_evl_ReportTypeCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_ReportTypeCode", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_ReportTypeCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_ReportTypeCode", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_evl_ReportTypeSubCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_ReportTypeSubCode", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_ReportTypeSubCode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_ReportTypeSubCode", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_evl_DogsEnrolled", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DogsEnrolled", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_evl_DogsEnrolled", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "evl_DogsEnrolled", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CompleteFlag", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CompleteFlag", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CompleteFlag", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CompleteFlag", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ModifiedDate", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ModifiedDate", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ModifiedDate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ModifiedDate", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1158,9 +1006,18 @@ Namespace Ultra_DataDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT evl_EvaluationCode, evl_DateStart, evl_DateEnd, evl_EvaluatorID, evl_Repor"& _ 
-                "tTypeCode, evl_ReportTypeSubCode, evl_DogsEnrolled, CompleteFlag, ModifiedDate F"& _ 
-                "ROM tblEvaluations"
+            Me._commandCollection(0).CommandText = "SELECT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name]"& _ 
+                ", trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText AS [Evaluation Type]"& _ 
+                ", tblEvaluations.evl_DateStart AS [Start Date], tblEvaluations.evl_DateEnd AS [E"& _ 
+                "nd Date], "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblEvaluations.evl_DogsEnrolled AS [Dogs Enrolled], IIf"& _ 
+                "(tblEvaluations.CompleteFlag, 'Edit', 'View') AS AddEdit, IIf(tblEvaluations.evl"& _ 
+                "_DogsEnrolled, 'Dog Evals', NULL) AS [Dog Evals]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM   (((tblEvaluations LEFT "& _ 
+                "OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             trefDogBehaviorChecklistCode ON tblEvaluations.evl_Repo"& _ 
+                "rtTypeCode = trefDogBehaviorChecklistCode.wbc_BehaviorChecklistCode) LEFT OUTER "& _ 
+                "JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             trefDogBehaviorChecklistSubCode ON tblEvaluations.evl_ReportT"& _ 
+                "ypeSubCode = trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistSubCode) LEFT "& _ 
+                "OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             Person_Person ON tblEvaluations.evl_EvaluatorID = Perso"& _ 
+                "n_Person.BusinessEntityId)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY tblEvaluations.evl_DateStart DESC"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1168,7 +1025,7 @@ Namespace Ultra_DataDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As Ultra_DataDataSet.tblEvaluationsDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As Ultra_DataDataSet.qryTblEvaluationsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -1181,336 +1038,11 @@ Namespace Ultra_DataDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As Ultra_DataDataSet.tblEvaluationsDataTable
+        Public Overloads Overridable Function GetData() As Ultra_DataDataSet.qryTblEvaluationsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As Ultra_DataDataSet.tblEvaluationsDataTable = New Ultra_DataDataSet.tblEvaluationsDataTable()
+            Dim dataTable As Ultra_DataDataSet.qryTblEvaluationsDataTable = New Ultra_DataDataSet.qryTblEvaluationsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As Ultra_DataDataSet.tblEvaluationsDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As Ultra_DataDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "tblEvaluations")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_evl_EvaluationCode As Global.System.Nullable(Of Integer), ByVal Original_evl_DateStart As Global.System.Nullable(Of Date), ByVal Original_evl_DateEnd As Global.System.Nullable(Of Date), ByVal Original_evl_EvaluatorID As Global.System.Nullable(Of Integer), ByVal Original_evl_ReportTypeCode As Global.System.Nullable(Of Integer), ByVal Original_evl_ReportTypeSubCode As Global.System.Nullable(Of Integer), ByVal Original_evl_DogsEnrolled As Global.System.Nullable(Of Integer), ByVal Original_CompleteFlag As Boolean, ByVal Original_ModifiedDate As Global.System.Nullable(Of Date)) As Integer
-            If (Original_evl_EvaluationCode.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_evl_EvaluationCode.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
-            If (Original_evl_DateStart.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_evl_DateStart.Value,Date)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (Original_evl_DateEnd.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_evl_DateEnd.Value,Date)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
-            End If
-            If (Original_evl_EvaluatorID.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_evl_EvaluatorID.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            If (Original_evl_ReportTypeCode.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_evl_ReportTypeCode.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (Original_evl_ReportTypeSubCode.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_evl_ReportTypeSubCode.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (Original_evl_DogsEnrolled.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_evl_DogsEnrolled.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-            Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_CompleteFlag,Boolean)
-            If (Original_ModifiedDate.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_ModifiedDate.Value,Date)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal evl_EvaluationCode As Global.System.Nullable(Of Integer), ByVal evl_DateStart As Global.System.Nullable(Of Date), ByVal evl_DateEnd As Global.System.Nullable(Of Date), ByVal evl_EvaluatorID As Global.System.Nullable(Of Integer), ByVal evl_ReportTypeCode As Global.System.Nullable(Of Integer), ByVal evl_ReportTypeSubCode As Global.System.Nullable(Of Integer), ByVal evl_DogsEnrolled As Global.System.Nullable(Of Integer), ByVal CompleteFlag As Boolean, ByVal ModifiedDate As Global.System.Nullable(Of Date)) As Integer
-            If (evl_EvaluationCode.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(evl_EvaluationCode.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
-            If (evl_DateStart.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(evl_DateStart.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
-            If (evl_DateEnd.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(evl_DateEnd.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (evl_EvaluatorID.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(evl_EvaluatorID.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
-            End If
-            If (evl_ReportTypeCode.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(evl_ReportTypeCode.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
-            End If
-            If (evl_ReportTypeSubCode.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(evl_ReportTypeSubCode.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
-            If (evl_DogsEnrolled.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(evl_DogsEnrolled.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.InsertCommand.Parameters(7).Value = CType(CompleteFlag,Boolean)
-            If (ModifiedDate.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(ModifiedDate.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal evl_EvaluationCode As Global.System.Nullable(Of Integer),  _
-                    ByVal evl_DateStart As Global.System.Nullable(Of Date),  _
-                    ByVal evl_DateEnd As Global.System.Nullable(Of Date),  _
-                    ByVal evl_EvaluatorID As Global.System.Nullable(Of Integer),  _
-                    ByVal evl_ReportTypeCode As Global.System.Nullable(Of Integer),  _
-                    ByVal evl_ReportTypeSubCode As Global.System.Nullable(Of Integer),  _
-                    ByVal evl_DogsEnrolled As Global.System.Nullable(Of Integer),  _
-                    ByVal CompleteFlag As Boolean,  _
-                    ByVal ModifiedDate As Global.System.Nullable(Of Date),  _
-                    ByVal Original_evl_EvaluationCode As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_evl_DateStart As Global.System.Nullable(Of Date),  _
-                    ByVal Original_evl_DateEnd As Global.System.Nullable(Of Date),  _
-                    ByVal Original_evl_EvaluatorID As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_evl_ReportTypeCode As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_evl_ReportTypeSubCode As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_evl_DogsEnrolled As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CompleteFlag As Boolean,  _
-                    ByVal Original_ModifiedDate As Global.System.Nullable(Of Date)) As Integer
-            If (evl_EvaluationCode.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(evl_EvaluationCode.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
-            If (evl_DateStart.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(evl_DateStart.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
-            If (evl_DateEnd.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(evl_DateEnd.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (evl_EvaluatorID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(evl_EvaluatorID.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
-            End If
-            If (evl_ReportTypeCode.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(evl_ReportTypeCode.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
-            End If
-            If (evl_ReportTypeSubCode.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(evl_ReportTypeSubCode.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
-            If (evl_DogsEnrolled.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(evl_DogsEnrolled.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(CompleteFlag,Boolean)
-            If (ModifiedDate.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(ModifiedDate.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (Original_evl_EvaluationCode.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_evl_EvaluationCode.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
-            End If
-            If (Original_evl_DateStart.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_evl_DateStart.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            End If
-            If (Original_evl_DateEnd.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_evl_DateEnd.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
-            End If
-            If (Original_evl_EvaluatorID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_evl_EvaluatorID.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
-            End If
-            If (Original_evl_ReportTypeCode.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_evl_ReportTypeCode.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
-            End If
-            If (Original_evl_ReportTypeSubCode.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_evl_ReportTypeSubCode.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
-            End If
-            If (Original_evl_DogsEnrolled.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_evl_DogsEnrolled.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_CompleteFlag,Boolean)
-            If (Original_ModifiedDate.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_ModifiedDate.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal evl_DateStart As Global.System.Nullable(Of Date),  _
-                    ByVal evl_DateEnd As Global.System.Nullable(Of Date),  _
-                    ByVal evl_EvaluatorID As Global.System.Nullable(Of Integer),  _
-                    ByVal evl_ReportTypeCode As Global.System.Nullable(Of Integer),  _
-                    ByVal evl_ReportTypeSubCode As Global.System.Nullable(Of Integer),  _
-                    ByVal evl_DogsEnrolled As Global.System.Nullable(Of Integer),  _
-                    ByVal CompleteFlag As Boolean,  _
-                    ByVal ModifiedDate As Global.System.Nullable(Of Date),  _
-                    ByVal Original_evl_EvaluationCode As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_evl_DateStart As Global.System.Nullable(Of Date),  _
-                    ByVal Original_evl_DateEnd As Global.System.Nullable(Of Date),  _
-                    ByVal Original_evl_EvaluatorID As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_evl_ReportTypeCode As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_evl_ReportTypeSubCode As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_evl_DogsEnrolled As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CompleteFlag As Boolean,  _
-                    ByVal Original_ModifiedDate As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(Original_evl_EvaluationCode, evl_DateStart, evl_DateEnd, evl_EvaluatorID, evl_ReportTypeCode, evl_ReportTypeSubCode, evl_DogsEnrolled, CompleteFlag, ModifiedDate, Original_evl_EvaluationCode, Original_evl_DateStart, Original_evl_DateEnd, Original_evl_EvaluatorID, Original_evl_ReportTypeCode, Original_evl_ReportTypeSubCode, Original_evl_DogsEnrolled, Original_CompleteFlag, Original_ModifiedDate)
         End Function
     End Class
     
@@ -1527,8 +1059,6 @@ Namespace Ultra_DataDataSetTableAdapters
         
         Private _updateOrder As UpdateOrderOption
         
-        Private _tblEvaluationsTableAdapter As tblEvaluationsTableAdapter
-        
         Private _backupDataSetBeforeUpdate As Boolean
         
         Private _connection As Global.System.Data.IDbConnection
@@ -1541,20 +1071,6 @@ Namespace Ultra_DataDataSetTableAdapters
             End Get
             Set
                 Me._updateOrder = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property tblEvaluationsTableAdapter() As tblEvaluationsTableAdapter
-            Get
-                Return Me._tblEvaluationsTableAdapter
-            End Get
-            Set
-                Me._tblEvaluationsTableAdapter = value
             End Set
         End Property
         
@@ -1577,10 +1093,6 @@ Namespace Ultra_DataDataSetTableAdapters
                 If (Not (Me._connection) Is Nothing) Then
                     Return Me._connection
                 End If
-                If ((Not (Me._tblEvaluationsTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._tblEvaluationsTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._tblEvaluationsTableAdapter.Connection
-                End If
                 Return Nothing
             End Get
             Set
@@ -1594,9 +1106,6 @@ Namespace Ultra_DataDataSetTableAdapters
         Public ReadOnly Property TableAdapterInstanceCount() As Integer
             Get
                 Dim count As Integer = 0
-                If (Not (Me._tblEvaluationsTableAdapter) Is Nothing) Then
-                    count = (count + 1)
-                End If
                 Return count
             End Get
         End Property
@@ -1608,15 +1117,6 @@ Namespace Ultra_DataDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As Ultra_DataDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._tblEvaluationsTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.tblEvaluations.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tblEvaluationsTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             Return result
         End Function
         
@@ -1627,14 +1127,6 @@ Namespace Ultra_DataDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As Ultra_DataDataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._tblEvaluationsTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.tblEvaluations.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tblEvaluationsTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             Return result
         End Function
         
@@ -1645,14 +1137,6 @@ Namespace Ultra_DataDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As Ultra_DataDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._tblEvaluationsTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.tblEvaluations.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._tblEvaluationsTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             Return result
         End Function
         
@@ -1694,11 +1178,6 @@ Namespace Ultra_DataDataSetTableAdapters
             If (dataSet.HasChanges = false) Then
                 Return 0
             End If
-            If ((Not (Me._tblEvaluationsTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._tblEvaluationsTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
-                        "tring.")
-            End If
             Dim workConnection As Global.System.Data.IDbConnection = Me.Connection
             If (workConnection Is Nothing) Then
                 Throw New Global.System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana"& _ 
@@ -1731,15 +1210,6 @@ Namespace Ultra_DataDataSetTableAdapters
             Try 
                 '---- Prepare for update -----------
                 '
-                If (Not (Me._tblEvaluationsTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._tblEvaluationsTableAdapter, Me._tblEvaluationsTableAdapter.Connection)
-                    Me._tblEvaluationsTableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
-                    Me._tblEvaluationsTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OleDb.OleDbTransaction)
-                    If Me._tblEvaluationsTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._tblEvaluationsTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._tblEvaluationsTableAdapter.Adapter)
-                    End If
-                End If
                 '
                 '---- Perform updates -----------
                 '
@@ -1799,10 +1269,6 @@ Namespace Ultra_DataDataSetTableAdapters
             Finally
                 If workConnOpened Then
                     workConnection.Close
-                End If
-                If (Not (Me._tblEvaluationsTableAdapter) Is Nothing) Then
-                    Me._tblEvaluationsTableAdapter.Connection = CType(revertConnections(Me._tblEvaluationsTableAdapter),Global.System.Data.OleDb.OleDbConnection)
-                    Me._tblEvaluationsTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

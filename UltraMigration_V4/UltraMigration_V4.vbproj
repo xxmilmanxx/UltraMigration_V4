@@ -162,9 +162,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ultra_DataDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Ultra_DataDataSet.vb">
-      <DependentUpon>Ultra_DataDataSet.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmEvalManagement.resx">
@@ -222,6 +219,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

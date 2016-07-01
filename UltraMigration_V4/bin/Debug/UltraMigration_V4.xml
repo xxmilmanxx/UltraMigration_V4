@@ -27,22 +27,22 @@ UltraMigration_V4
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
-<member name="T:UltraMigration_V4.Ultra_DataDataSet.tblEvaluationsDataTable">
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.qryTblEvaluationsDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:UltraMigration_V4.Ultra_DataDataSet.tblEvaluationsRow">
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.qryTblEvaluationsRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:UltraMigration_V4.Ultra_DataDataSet.tblEvaluationsRowChangeEvent">
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.qryTblEvaluationsRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:UltraMigration_V4.Ultra_DataDataSetTableAdapters.tblEvaluationsTableAdapter">
+<member name="T:UltraMigration_V4.Ultra_DataDataSetTableAdapters.qryTblEvaluationsTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

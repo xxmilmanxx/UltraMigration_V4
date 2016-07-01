@@ -82,7 +82,7 @@ Partial Class frmNewEval
         'btnClear
         '
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(553, 414)
+        Me.btnClear.Location = New System.Drawing.Point(814, 414)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(188, 82)
@@ -104,13 +104,14 @@ Partial Class frmNewEval
         'btnSave
         '
         Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(814, 414)
+        Me.btnSave.Location = New System.Drawing.Point(1068, 555)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(188, 82)
         Me.btnSave.TabIndex = 13
         Me.btnSave.Text = "&Save"
         Me.btnSave.UseVisualStyleBackColor = True
+        Me.btnSave.Visible = False
         '
         'cmboAddEvalStatus
         '
