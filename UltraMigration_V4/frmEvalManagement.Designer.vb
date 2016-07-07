@@ -23,8 +23,8 @@ Partial Class frmEvalManagement
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.gpbxFilterContainer = New System.Windows.Forms.GroupBox()
         Me.dtpEnd = New System.Windows.Forms.DateTimePicker()
         Me.lblEndDate = New System.Windows.Forms.Label()
@@ -39,11 +39,6 @@ Partial Class frmEvalManagement
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnAddEval = New System.Windows.Forms.Button()
         Me.DGVfrmEvalManagement = New System.Windows.Forms.DataGridView()
-        Me.QryTblEvaluationsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Ultra_DataDataSet = New UltraMigration_V4.Ultra_DataDataSet()
-        Me.txtRecordsCount = New System.Windows.Forms.TextBox()
-        Me.QryTblEvaluationsTableAdapter = New UltraMigration_V4.Ultra_DataDataSetTableAdapters.qryTblEvaluationsTableAdapter()
-        Me.TableAdapterManager = New UltraMigration_V4.Ultra_DataDataSetTableAdapters.TableAdapterManager()
         Me.EvaluatorNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EvaluationTypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StartDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -51,6 +46,11 @@ Partial Class frmEvalManagement
         Me.DogsEnrolledDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AddEditDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.DogEvalsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewLinkColumn()
+        Me.QryTblEvaluationsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Ultra_DataDataSet = New UltraMigration_V4.Ultra_DataDataSet()
+        Me.txtRecordsCount = New System.Windows.Forms.TextBox()
+        Me.QryTblEvaluationsTableAdapter = New UltraMigration_V4.Ultra_DataDataSetTableAdapters.qryTblEvaluationsTableAdapter()
+        Me.TableAdapterManager = New UltraMigration_V4.Ultra_DataDataSetTableAdapters.TableAdapterManager()
         Me.gpbxFilterContainer.SuspendLayout()
         CType(Me.DGVfrmEvalManagement, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QryTblEvaluationsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,7 +88,7 @@ Partial Class frmEvalManagement
         Me.dtpEnd.Name = "dtpEnd"
         Me.dtpEnd.Size = New System.Drawing.Size(238, 33)
         Me.dtpEnd.TabIndex = 25
-        Me.dtpEnd.Value = New Date(2016, 5, 17, 14, 35, 25, 0)
+        Me.dtpEnd.Value = New Date(2016, 5, 17, 0, 0, 0, 0)
         '
         'lblEndDate
         '
@@ -110,7 +110,8 @@ Partial Class frmEvalManagement
         Me.dtpStart.Name = "dtpStart"
         Me.dtpStart.Size = New System.Drawing.Size(263, 33)
         Me.dtpStart.TabIndex = 22
-        Me.dtpStart.Value = New Date(2016, 5, 17, 14, 35, 25, 0)
+        Me.dtpStart.TabStop = False
+        Me.dtpStart.Value = New Date(2016, 5, 17, 0, 0, 0, 0)
         '
         'lblByDate
         '
@@ -233,41 +234,6 @@ Partial Class frmEvalManagement
         Me.DGVfrmEvalManagement.Size = New System.Drawing.Size(1508, 635)
         Me.DGVfrmEvalManagement.TabIndex = 22
         '
-        'QryTblEvaluationsBindingSource
-        '
-        Me.QryTblEvaluationsBindingSource.DataMember = "qryTblEvaluations"
-        Me.QryTblEvaluationsBindingSource.DataSource = Me.Ultra_DataDataSet
-        '
-        'Ultra_DataDataSet
-        '
-        Me.Ultra_DataDataSet.DataSetName = "Ultra_DataDataSet"
-        Me.Ultra_DataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'txtRecordsCount
-        '
-        Me.txtRecordsCount.AcceptsReturn = True
-        Me.txtRecordsCount.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtRecordsCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRecordsCount.Location = New System.Drawing.Point(944, 186)
-        Me.txtRecordsCount.Margin = New System.Windows.Forms.Padding(15)
-        Me.txtRecordsCount.Name = "txtRecordsCount"
-        Me.txtRecordsCount.ReadOnly = True
-        Me.txtRecordsCount.ShortcutsEnabled = False
-        Me.txtRecordsCount.Size = New System.Drawing.Size(452, 26)
-        Me.txtRecordsCount.TabIndex = 23
-        Me.txtRecordsCount.TabStop = False
-        Me.txtRecordsCount.WordWrap = False
-        '
-        'QryTblEvaluationsTableAdapter
-        '
-        Me.QryTblEvaluationsTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.UpdateOrder = UltraMigration_V4.Ultra_DataDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
         'EvaluatorNameDataGridViewTextBoxColumn
         '
         Me.EvaluatorNameDataGridViewTextBoxColumn.DataPropertyName = "Evaluator Name"
@@ -285,9 +251,9 @@ Partial Class frmEvalManagement
         'StartDateDataGridViewTextBoxColumn
         '
         Me.StartDateDataGridViewTextBoxColumn.DataPropertyName = "Start Date"
-        DataGridViewCellStyle1.Format = "dd-MMM-yyyy"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.StartDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle9.Format = "dd-MMM-yyyy"
+        DataGridViewCellStyle9.NullValue = Nothing
+        Me.StartDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle9
         Me.StartDateDataGridViewTextBoxColumn.HeaderText = "Start Date"
         Me.StartDateDataGridViewTextBoxColumn.Name = "StartDateDataGridViewTextBoxColumn"
         Me.StartDateDataGridViewTextBoxColumn.ReadOnly = True
@@ -295,8 +261,8 @@ Partial Class frmEvalManagement
         'EndDateDataGridViewTextBoxColumn
         '
         Me.EndDateDataGridViewTextBoxColumn.DataPropertyName = "End Date"
-        DataGridViewCellStyle2.Format = "dd-MMM-yyyy"
-        Me.EndDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle10.Format = "dd-MMM-yyyy"
+        Me.EndDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle10
         Me.EndDateDataGridViewTextBoxColumn.HeaderText = "End Date"
         Me.EndDateDataGridViewTextBoxColumn.Name = "EndDateDataGridViewTextBoxColumn"
         Me.EndDateDataGridViewTextBoxColumn.ReadOnly = True
@@ -331,6 +297,41 @@ Partial Class frmEvalManagement
         Me.DogEvalsDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DogEvalsDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.DogEvalsDataGridViewTextBoxColumn.VisitedLinkColor = System.Drawing.Color.Blue
+        '
+        'QryTblEvaluationsBindingSource
+        '
+        Me.QryTblEvaluationsBindingSource.DataMember = "qryTblEvaluations"
+        Me.QryTblEvaluationsBindingSource.DataSource = Me.Ultra_DataDataSet
+        '
+        'Ultra_DataDataSet
+        '
+        Me.Ultra_DataDataSet.DataSetName = "Ultra_DataDataSet"
+        Me.Ultra_DataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'txtRecordsCount
+        '
+        Me.txtRecordsCount.AcceptsReturn = True
+        Me.txtRecordsCount.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtRecordsCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRecordsCount.Location = New System.Drawing.Point(944, 186)
+        Me.txtRecordsCount.Margin = New System.Windows.Forms.Padding(15)
+        Me.txtRecordsCount.Name = "txtRecordsCount"
+        Me.txtRecordsCount.ReadOnly = True
+        Me.txtRecordsCount.ShortcutsEnabled = False
+        Me.txtRecordsCount.Size = New System.Drawing.Size(452, 26)
+        Me.txtRecordsCount.TabIndex = 23
+        Me.txtRecordsCount.TabStop = False
+        Me.txtRecordsCount.WordWrap = False
+        '
+        'QryTblEvaluationsTableAdapter
+        '
+        Me.QryTblEvaluationsTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.UpdateOrder = UltraMigration_V4.Ultra_DataDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'frmEvalManagement
         '

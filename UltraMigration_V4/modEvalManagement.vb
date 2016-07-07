@@ -70,30 +70,35 @@ WHERE (((trefDogBehaviorChecklistSubCode.bcs_Evaluations)=True))")
     End Sub
 
     Public Sub FilterStart()
-        Dim sDate As String = frmEvalManagement.dtpStart.Value.Date
-        ' Dim cTime As String = DateTime.Now.ToString("dd-MMM-yyyy")
+
+        Dim sDate As String = frmEvalManagement.dtpStart.Value.Date.ToString("dd-MMM-yyyy")
+        Dim cTime As String = DateTime.Now.ToString("dd-MMM-yyyy")
+        'Dim messBoxResult As Integer = MessageBox.Show("message", "caption", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Try
-            ' If frmEvalManagement.dtpStart.Value.Date < DateTime.Now Then
-            ClsQry.ExeQuery("SELECT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name], trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText AS [Evaluation Type], tblEvaluations.evl_DateStart AS [Start Date], tblEvaluations.evl_DateEnd AS [End Date], 
+            If frmEvalManagement.dtpStart.Value.Date < DateTime.Now Then
+                ClsQry.ExeQuery("SELECT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name], trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText AS [Evaluation Type], tblEvaluations.evl_DateStart AS [Start Date], tblEvaluations.evl_DateEnd AS [End Date], 
                             tblEvaluations.evl_DogsEnrolled AS [Dogs Enrolled], IIf(tblEvaluations.CompleteFlag, 'Edit', 'View') AS AddEdit, IIf(tblEvaluations.evl_DogsEnrolled, 'Dog Evals', NULL) AS [Dog Evals]
                         FROM   (((tblEvaluations LEFT OUTER JOIN
                             trefDogBehaviorChecklistCode ON tblEvaluations.evl_ReportTypeCode = trefDogBehaviorChecklistCode.wbc_BehaviorChecklistCode) LEFT OUTER JOIN
                             trefDogBehaviorChecklistSubCode ON tblEvaluations.evl_ReportTypeSubCode = trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistSubCode) LEFT OUTER JOIN
                             Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId)
                         WHERE tblEvaluations.evl_DateStart LIKE '" & sDate & "'")
-            'Else
+            Else
 
-            '   MessageBox.Show("Please select a day that is on or before " & cTime & "")
-            '  frmEvalManagement.dtpStart.ResetText()
-            ' End If
+                MessageBox.Show("Please select a day that is on or before " & cTime & "", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                If DialogResult.OK = True Then
+                    frmEvalManagement.dtpStart.ResetText()
+                End If
+
+            End If
 
 
             ' Report and Aprot is errors
             If NotEmpty(ClsQry.Exception) Then MsgBox(ClsQry.Exception) : Exit Sub
 
             'Fill DataGridView
-            frmEvalManagement.DGVfrmEvalManagement.DataSource = ClsQry.DBDT.DefaultView
+            frmEvalManagement.DGVfrmEvalManagement.DataSource = ClsQry.DBDT
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -101,12 +106,48 @@ WHERE (((trefDogBehaviorChecklistSubCode.bcs_Evaluations)=True))")
         End Try
     End Sub
 
+    Public Sub FilterEnd()
+
+        Dim eDate As String = frmEvalManagement.dtpEnd.Value.Date.ToString("dd-MMM-yyyy")
+        Dim eTime As String = DateTime.Now.ToString("dd-MMM-yyyy")
+        'Dim messBoxResult As Integer = MessageBox.Show("message", "caption", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Try
+            If frmEvalManagement.dtpEnd.Value.Date < DateTime.Now Then
+                ClsQry.ExeQuery("SELECT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name], trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText AS [Evaluation Type], tblEvaluations.evl_DateStart AS [Start Date], tblEvaluations.evl_DateEnd AS [End Date], 
+                            tblEvaluations.evl_DogsEnrolled AS [Dogs Enrolled], IIf(tblEvaluations.CompleteFlag, 'Edit', 'View') AS AddEdit, IIf(tblEvaluations.evl_DogsEnrolled, 'Dog Evals', NULL) AS [Dog Evals]
+                        FROM   (((tblEvaluations LEFT OUTER JOIN
+                            trefDogBehaviorChecklistCode ON tblEvaluations.evl_ReportTypeCode = trefDogBehaviorChecklistCode.wbc_BehaviorChecklistCode) LEFT OUTER JOIN
+                            trefDogBehaviorChecklistSubCode ON tblEvaluations.evl_ReportTypeSubCode = trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistSubCode) LEFT OUTER JOIN
+                            Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId)
+                        WHERE tblEvaluations.evl_DateEnd LIKE '" & eDate & "'")
+            Else
+
+                MessageBox.Show("Please select a day that is on or before " & eTime & "", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                If DialogResult.OK = True Then
+                    frmEvalManagement.dtpEnd.ResetText()
+                End If
+
+            End If
+
+
+            ' Report and Aprot is errors
+            If NotEmpty(ClsQry.Exception) Then MsgBox(ClsQry.Exception) : Exit Sub
+
+            'Fill DataGridView
+            frmEvalManagement.DGVfrmEvalManagement.DataSource = ClsQry.DBDT
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+
+        End Try
+
+
+    End Sub
+
     Public Sub FilterAll()
         Dim evalName As String = frmEvalManagement.cmboEvaluator.Text
         Dim evalType As String = frmEvalManagement.cmboType.Text
-        '  Dim startDate As Object = frmEvalManagement.dtpStart.Value.Date = Nothing
-        'Dim endDate As New DateTimePicker
-
 
         Try
 
@@ -117,7 +158,8 @@ WHERE (((trefDogBehaviorChecklistSubCode.bcs_Evaluations)=True))")
                             trefDogBehaviorChecklistCode ON tblEvaluations.evl_ReportTypeCode = trefDogBehaviorChecklistCode.wbc_BehaviorChecklistCode) LEFT OUTER JOIN
                             trefDogBehaviorChecklistSubCode ON tblEvaluations.evl_ReportTypeSubCode = trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistSubCode) LEFT OUTER JOIN
                             Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId)
-                        WHERE Person_Person.FirstName & ' ' & Person_Person.LastName= '" & evalName & "'")
+                        WHERE Person_Person.FirstName & ' ' & Person_Person.LastName= '" & evalName & "'
+                        ORDER BY tblEvaluations.evl_DateStart DESC")
             ElseIf frmEvalManagement.cmboEvaluator.SelectedIndex = -1 And frmEvalManagement.cmboType.SelectedIndex > -1 Then
                 ClsQry.ExeQuery("SELECT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name], trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText AS [Evaluation Type], tblEvaluations.evl_DateStart AS [Start Date], tblEvaluations.evl_DateEnd AS [End Date], 
                             tblEvaluations.evl_DogsEnrolled AS [Dogs Enrolled], IIf(tblEvaluations.CompleteFlag, 'Edit', 'View') AS AddEdit, IIf(tblEvaluations.evl_DogsEnrolled, 'Dog Evals', NULL) AS [Dog Evals]
@@ -125,15 +167,8 @@ WHERE (((trefDogBehaviorChecklistSubCode.bcs_Evaluations)=True))")
                             trefDogBehaviorChecklistCode ON tblEvaluations.evl_ReportTypeCode = trefDogBehaviorChecklistCode.wbc_BehaviorChecklistCode) LEFT OUTER JOIN
                             trefDogBehaviorChecklistSubCode ON tblEvaluations.evl_ReportTypeSubCode = trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistSubCode) LEFT OUTER JOIN
                             Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId)
-                        WHERE trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText= '" & evalType & "'")
-                '     ElseIf frmEvalManagement.dtpStart.Equals(Now) = False Then
-                '        ClsQry.ExeQuery("SELECT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name], trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText AS [Evaluation Type], tblEvaluations.evl_DateStart AS [Start Date], tblEvaluations.evl_DateEnd AS [End Date], 
-                '       tblEvaluations.evl_DogsEnrolled AS [Dogs Enrolled], IIf(tblEvaluations.CompleteFlag, 'Edit', 'View') AS AddEdit, IIf(tblEvaluations.evl_DogsEnrolled, 'Dog Evals', NULL) AS [Dog Evals]
-                '      FROM   (((tblEvaluations LEFT OUTER JOIN
-                '     trefDogBehaviorChecklistCode ON tblEvaluations.evl_ReportTypeCode = trefDogBehaviorChecklistCode.wbc_BehaviorChecklistCode) LEFT OUTER JOIN
-                '    trefDogBehaviorChecklistSubCode ON tblEvaluations.evl_ReportTypeSubCode = trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistSubCode) LEFT OUTER JOIN
-                '   Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId)
-                '  WHERE tblEvaluations.evl_DateStart LIKE '#" & startDate & "#'")
+                        WHERE trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText= '" & evalType & "'
+                        ORDER BY tblEvaluations.evl_DateStart DESC")
             ElseIf frmEvalManagement.cmboEvaluator.SelectedIndex > -1 And frmEvalManagement.cmboType.SelectedIndex > -1 Then
                 ClsQry.ExeQuery("SELECT Person_Person.FirstName & ' ' & Person_Person.LastName AS [Evaluator Name], trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText AS [Evaluation Type], tblEvaluations.evl_DateStart AS [Start Date], tblEvaluations.evl_DateEnd AS [End Date], 
                             tblEvaluations.evl_DogsEnrolled AS [Dogs Enrolled], IIf(tblEvaluations.CompleteFlag, 'Edit', 'View') AS AddEdit, IIf(tblEvaluations.evl_DogsEnrolled, 'Dog Evals', NULL) AS [Dog Evals]
@@ -141,14 +176,15 @@ WHERE (((trefDogBehaviorChecklistSubCode.bcs_Evaluations)=True))")
                             trefDogBehaviorChecklistCode ON tblEvaluations.evl_ReportTypeCode = trefDogBehaviorChecklistCode.wbc_BehaviorChecklistCode) LEFT OUTER JOIN
                             trefDogBehaviorChecklistSubCode ON tblEvaluations.evl_ReportTypeSubCode = trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistSubCode) LEFT OUTER JOIN
                             Person_Person ON tblEvaluations.evl_EvaluatorID = Person_Person.BusinessEntityId)
-                        WHERE Person_Person.FirstName & ' ' & Person_Person.LastName= '" & evalName & "' AND trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText= '" & evalType & "'")
+                        WHERE Person_Person.FirstName & ' ' & Person_Person.LastName= '" & evalName & "' AND trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText= '" & evalType & "'
+                        ORDER BY tblEvaluations.evl_DateStart DESC")
             End If
 
             ' Report and Aprot is errors
             If NotEmpty(ClsQry.Exception) Then MsgBox(ClsQry.Exception) : Exit Sub
 
             'Fill DataGridView
-            frmEvalManagement.DGVfrmEvalManagement.DataSource = ClsQry.DBDT.DefaultView
+            frmEvalManagement.DGVfrmEvalManagement.DataSource = ClsQry.DBDT
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -174,6 +210,8 @@ WHERE (((trefDogBehaviorChecklistSubCode.bcs_Evaluations)=True))")
     End Sub
 
     Public Sub UpdateEvalMngntTable()
+
+
 
         Try
 
