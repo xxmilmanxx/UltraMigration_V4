@@ -5,22 +5,8 @@
         Return Not String.IsNullOrEmpty(text)
     End Function
 
-    Public Sub LoadTable()
-
-        '  Try
-        '
-        'Me.QryTblEvaluationsTableAdapter.Fill(Me.Ultra_DataDataSet.qryTblEvaluations)
-
-        '    Catch ex As Exception
-        '   MessageBox.Show(ex.Message)
-        '
-        ' End Try
-    End Sub
-
     Private Sub frmEvalManagement_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
-        '  dtpStart.ResetText()
-        ' dtpEnd.ResetText()
         ResetEvalManagementFilters()
 
         'Loads the table into the DataGridView
@@ -54,20 +40,17 @@
 
     Private Sub dtpStart_CloseUp(sender As Object, e As EventArgs) Handles dtpStart.CloseUp
 
-
         FilterStart()
 
-
         UpdateEvalMngntTable()
-
 
     End Sub
 
     Private Sub dtpEnd_CloseUp(sender As Object, e As EventArgs) Handles dtpEnd.CloseUp
 
         FilterEnd()
-        UpdateEvalMngntTable()
 
+        UpdateEvalMngntTable()
 
     End Sub
 
@@ -87,10 +70,8 @@
 
     Private Sub btnClearFilter_Click(sender As Object, e As EventArgs) Handles btnClearFilter.Click
 
-
-
-        LoadDataGrid()
         ResetEvalManagementFilters()
+        LoadDataGrid()
         UpdateEvalMngntTable()
 
     End Sub

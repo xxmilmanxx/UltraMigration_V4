@@ -57,7 +57,7 @@
             ' Command that loads the Eval Sub-Type Combobox
             ClsQry.ExeQuery("SELECT DISTINCT trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistText AS [Eval Sub-Type] " &
                             "FROM (tblEvaluations LEFT OUTER JOIN trefDogBehaviorChecklistSubCode ON tblEvaluations.evl_ReportTypeSubCode = trefDogBehaviorChecklistSubCode.bcs_BehaviorChecklistSubCode)")
-            frmNewEval.cmboAddEvalSubType.Items.Clear()
+
             ' If records are found load them into the combobox
             If ClsQry.RecordCount > 0 Then
                 For Each R As DataRow In ClsQry.DBDT.Rows
@@ -72,15 +72,36 @@
     End Sub
 
     Public Sub ResetNewEval()
-
-        ' Make sure no item is selected in combobox and Date Time Picker
-        frmNewEval.cmboAddEvalType.SelectedIndex = -1
-        frmNewEval.cmboAddEvalSubType.SelectedIndex = -1
-        frmNewEval.dtpAddEvalDateStarted.Text = ""
-        frmNewEval.dtpAddEvalDateEnded.Text = ""
-        frmNewEval.cmboAddEvaluator.SelectedIndex = -1
-        frmNewEval.cmboAddEvalStatus.SelectedIndex = -1
+        Try
+            ' Make sure no item is selected in combobox and Date Time Picker
+            frmNewEval.cmboAddEvalType.SelectedIndex = -1
+            frmNewEval.cmboAddEvalSubType.SelectedIndex = -1
+            frmNewEval.dtpAddEvalDateStarted.ResetText()
+            frmNewEval.dtpAddEvalDateEnded.ResetText()
+            frmNewEval.cmboAddEvaluator.SelectedIndex = -1
+            frmNewEval.cmboAddEvalStatus.SelectedIndex = -1
+            ' Make button hidden again
+            frmNewEval.btnAddDogs.Visible = False
+            ' Report errors
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
 
+    Public Sub ShowAddDogButton()
+        Try
+            If frmNewEval.cmboAddEvalType.SelectedIndex = -1 And frmNewEval.cmboAddEvalSubType.SelectedIndex = -1 And frmNewEval.dtpAddEvalDateStarted.Value.Date > DateTime.Now And frmNewEval.dtpAddEvalDateEnded.Value.Date > DateTime.Now And frmNewEval.cmboAddEvaluator.SelectedIndex = -1 And frmNewEval.cmboAddEvalStatus.SelectedIndex = -1 Then
+
+                frmNewEval.btnAddDogs.Visible = False
+            Else
+
+                frmNewEval.btnAddDogs.Visible = True
+            End If
+
+            ' Report errors
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 End Module

@@ -35,6 +35,32 @@ ORDER BY tblEvaluations.evl_DateStart DESC</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblAddDogListTableAdapter" GeneratorDataComponentClassName="tblAddDogListTableAdapter" Name="tblAddDogList" UserDataComponentName="tblAddDogListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="UltraDataConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT HumanResources_TrainingTeam.TeamName AS Team, tblDog.dog_CallName AS Dog, tblDog.dog_Tattoo AS Tattoo
+FROM   ((tblDog INNER JOIN
+             ((HumanResources_TrainingTeam RIGHT OUTER JOIN
+             (trefDogEvaluationStatusCode RIGHT OUTER JOIN
+             tblDogClassAssignment ON trefDogEvaluationStatusCode.esc_EvaluationStatusCode = tblDogClassAssignment.QualificationStatusId) ON HumanResources_TrainingTeam.TrainingTeamId = tblDogClassAssignment.TeamId) INNER JOIN
+             tblDogTrngBlock ON tblDogClassAssignment.DogClassAssignmentId = tblDogTrngBlock.DogClassEnrollmentId) ON tblDog.dog_DogID = tblDogClassAssignment.DogId) LEFT OUTER JOIN
+             tblDogEvaluations ON tblDogTrngBlock.BlockId = tblDogEvaluations.DogBlockId)
+WHERE (tblDogTrngBlock.BlockOfInstruction &lt;&gt; 1) AND (tblDogTrngBlock.Status = 1) AND (tblDogTrngBlock.StartDate IS NOT NULL) AND (tblDogClassAssignment.DateCompleted IS NULL)
+ORDER BY HumanResources_TrainingTeam.TeamName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Team" DataSetColumn="Team" />
+              <Mapping SourceColumn="Dog" DataSetColumn="Dog" />
+              <Mapping SourceColumn="Tattoo" DataSetColumn="Tattoo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -43,7 +69,7 @@ ORDER BY tblEvaluations.evl_DateStart DESC</CommandText>
   <xs:element name="Ultra_DataDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Ultra_DataDataSet" msprop:Generator_UserDSName="Ultra_DataDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="qryTblEvaluations" msprop:Generator_TableClassName="qryTblEvaluationsDataTable" msprop:Generator_TableVarName="tableqryTblEvaluations" msprop:Generator_TablePropName="qryTblEvaluations" msprop:Generator_RowDeletingName="qryTblEvaluationsRowDeleting" msprop:Generator_RowChangingName="qryTblEvaluationsRowChanging" msprop:Generator_RowEvHandlerName="qryTblEvaluationsRowChangeEventHandler" msprop:Generator_RowDeletedName="qryTblEvaluationsRowDeleted" msprop:Generator_UserTableName="qryTblEvaluations" msprop:Generator_RowChangedName="qryTblEvaluationsRowChanged" msprop:Generator_RowEvArgName="qryTblEvaluationsRowChangeEvent" msprop:Generator_RowClassName="qryTblEvaluationsRow">
+        <xs:element name="qryTblEvaluations" msprop:Generator_TableClassName="qryTblEvaluationsDataTable" msprop:Generator_TableVarName="tableqryTblEvaluations" msprop:Generator_RowChangedName="qryTblEvaluationsRowChanged" msprop:Generator_TablePropName="qryTblEvaluations" msprop:Generator_RowDeletingName="qryTblEvaluationsRowDeleting" msprop:Generator_RowChangingName="qryTblEvaluationsRowChanging" msprop:Generator_RowEvHandlerName="qryTblEvaluationsRowChangeEventHandler" msprop:Generator_RowDeletedName="qryTblEvaluationsRowDeleted" msprop:Generator_RowClassName="qryTblEvaluationsRow" msprop:Generator_UserTableName="qryTblEvaluations" msprop:Generator_RowEvArgName="qryTblEvaluationsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Evaluator_x0020_Name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEvaluator_Name" msprop:Generator_ColumnPropNameInRow="Evaluator_Name" msprop:Generator_ColumnPropNameInTable="Evaluator_NameColumn" msprop:Generator_UserColumnName="Evaluator Name" minOccurs="0">
@@ -74,6 +100,33 @@ ORDER BY tblEvaluations.evl_DateStart DESC</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblAddDogList" msprop:Generator_TableClassName="tblAddDogListDataTable" msprop:Generator_TableVarName="tabletblAddDogList" msprop:Generator_TablePropName="tblAddDogList" msprop:Generator_RowDeletingName="tblAddDogListRowDeleting" msprop:Generator_RowChangingName="tblAddDogListRowChanging" msprop:Generator_RowEvHandlerName="tblAddDogListRowChangeEventHandler" msprop:Generator_RowDeletedName="tblAddDogListRowDeleted" msprop:Generator_UserTableName="tblAddDogList" msprop:Generator_RowChangedName="tblAddDogListRowChanged" msprop:Generator_RowEvArgName="tblAddDogListRowChangeEvent" msprop:Generator_RowClassName="tblAddDogListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Team" msprop:Generator_ColumnVarNameInTable="columnTeam" msprop:Generator_ColumnPropNameInRow="Team" msprop:Generator_ColumnPropNameInTable="TeamColumn" msprop:Generator_UserColumnName="Team" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dog" msprop:Generator_ColumnVarNameInTable="columnDog" msprop:Generator_ColumnPropNameInRow="Dog" msprop:Generator_ColumnPropNameInTable="DogColumn" msprop:Generator_UserColumnName="Dog" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tattoo" msprop:Generator_ColumnVarNameInTable="columnTattoo" msprop:Generator_ColumnPropNameInRow="Tattoo" msprop:Generator_ColumnPropNameInTable="TattooColumn" msprop:Generator_UserColumnName="Tattoo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

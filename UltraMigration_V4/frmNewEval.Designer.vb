@@ -61,19 +61,19 @@ Partial Class frmNewEval
         Me.pnlNewEval.Controls.Add(Me.lblEvalEvaluator)
         Me.pnlNewEval.Controls.Add(Me.lblEvalDateStart)
         Me.pnlNewEval.Controls.Add(Me.lblEvalType)
-        Me.pnlNewEval.Location = New System.Drawing.Point(30, 165)
+        Me.pnlNewEval.Location = New System.Drawing.Point(30, 119)
         Me.pnlNewEval.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pnlNewEval.Name = "pnlNewEval"
-        Me.pnlNewEval.Size = New System.Drawing.Size(1418, 709)
+        Me.pnlNewEval.Size = New System.Drawing.Size(1250, 528)
         Me.pnlNewEval.TabIndex = 4
         '
         'btnAddDogs
         '
         Me.btnAddDogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddDogs.Location = New System.Drawing.Point(814, 555)
+        Me.btnAddDogs.Location = New System.Drawing.Point(684, 422)
         Me.btnAddDogs.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnAddDogs.Name = "btnAddDogs"
-        Me.btnAddDogs.Size = New System.Drawing.Size(188, 82)
+        Me.btnAddDogs.Size = New System.Drawing.Size(192, 62)
         Me.btnAddDogs.TabIndex = 16
         Me.btnAddDogs.Text = "Add Dogs"
         Me.btnAddDogs.UseVisualStyleBackColor = True
@@ -82,10 +82,10 @@ Partial Class frmNewEval
         'btnClear
         '
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(814, 414)
+        Me.btnClear.Location = New System.Drawing.Point(430, 304)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(188, 82)
+        Me.btnClear.Size = New System.Drawing.Size(192, 62)
         Me.btnClear.TabIndex = 15
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = True
@@ -93,10 +93,10 @@ Partial Class frmNewEval
         'btnCancel
         '
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(1068, 414)
+        Me.btnCancel.Location = New System.Drawing.Point(684, 304)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(188, 82)
+        Me.btnCancel.Size = New System.Drawing.Size(192, 62)
         Me.btnCancel.TabIndex = 14
         Me.btnCancel.Text = "&Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -104,10 +104,10 @@ Partial Class frmNewEval
         'btnSave
         '
         Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(1068, 555)
+        Me.btnSave.Location = New System.Drawing.Point(939, 304)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(188, 82)
+        Me.btnSave.Size = New System.Drawing.Size(192, 62)
         Me.btnSave.TabIndex = 13
         Me.btnSave.Text = "&Save"
         Me.btnSave.UseVisualStyleBackColor = True
@@ -116,79 +116,79 @@ Partial Class frmNewEval
         'cmboAddEvalStatus
         '
         Me.cmboAddEvalStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmboAddEvalStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmboAddEvalStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmboAddEvalStatus.FormattingEnabled = True
         Me.cmboAddEvalStatus.Items.AddRange(New Object() {"In Progress", "Complete"})
-        Me.cmboAddEvalStatus.Location = New System.Drawing.Point(894, 272)
+        Me.cmboAddEvalStatus.Location = New System.Drawing.Point(826, 192)
         Me.cmboAddEvalStatus.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cmboAddEvalStatus.Name = "cmboAddEvalStatus"
-        Me.cmboAddEvalStatus.Size = New System.Drawing.Size(360, 37)
+        Me.cmboAddEvalStatus.Size = New System.Drawing.Size(360, 33)
         Me.cmboAddEvalStatus.TabIndex = 11
         '
         'cmboAddEvalSubType
         '
         Me.cmboAddEvalSubType.DisplayMember = "bcs_BehaviorChecklistText"
         Me.cmboAddEvalSubType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmboAddEvalSubType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmboAddEvalSubType.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmboAddEvalSubType.FormattingEnabled = True
-        Me.cmboAddEvalSubType.Location = New System.Drawing.Point(894, 129)
+        Me.cmboAddEvalSubType.Location = New System.Drawing.Point(826, 49)
         Me.cmboAddEvalSubType.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cmboAddEvalSubType.Name = "cmboAddEvalSubType"
-        Me.cmboAddEvalSubType.Size = New System.Drawing.Size(360, 37)
+        Me.cmboAddEvalSubType.Size = New System.Drawing.Size(360, 33)
         Me.cmboAddEvalSubType.TabIndex = 10
         Me.cmboAddEvalSubType.ValueMember = "bcs_BehaviorChecklistText"
         '
         'cmboAddEvaluator
         '
         Me.cmboAddEvaluator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmboAddEvaluator.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmboAddEvaluator.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmboAddEvaluator.FormattingEnabled = True
-        Me.cmboAddEvaluator.Location = New System.Drawing.Point(309, 268)
+        Me.cmboAddEvaluator.Location = New System.Drawing.Point(241, 188)
         Me.cmboAddEvaluator.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cmboAddEvaluator.Name = "cmboAddEvaluator"
-        Me.cmboAddEvaluator.Size = New System.Drawing.Size(360, 37)
+        Me.cmboAddEvaluator.Size = New System.Drawing.Size(360, 33)
         Me.cmboAddEvaluator.TabIndex = 9
         '
         'cmboAddEvalType
         '
         Me.cmboAddEvalType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmboAddEvalType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmboAddEvalType.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmboAddEvalType.FormattingEnabled = True
-        Me.cmboAddEvalType.Location = New System.Drawing.Point(309, 125)
+        Me.cmboAddEvalType.Location = New System.Drawing.Point(241, 45)
         Me.cmboAddEvalType.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cmboAddEvalType.Name = "cmboAddEvalType"
-        Me.cmboAddEvalType.Size = New System.Drawing.Size(360, 37)
+        Me.cmboAddEvalType.Size = New System.Drawing.Size(360, 33)
         Me.cmboAddEvalType.TabIndex = 8
         '
         'dtpAddEvalDateEnded
         '
         Me.dtpAddEvalDateEnded.CustomFormat = "dd-MMM-yyyy"
-        Me.dtpAddEvalDateEnded.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpAddEvalDateEnded.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpAddEvalDateEnded.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpAddEvalDateEnded.Location = New System.Drawing.Point(894, 202)
+        Me.dtpAddEvalDateEnded.Location = New System.Drawing.Point(826, 122)
         Me.dtpAddEvalDateEnded.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.dtpAddEvalDateEnded.Name = "dtpAddEvalDateEnded"
-        Me.dtpAddEvalDateEnded.Size = New System.Drawing.Size(360, 35)
+        Me.dtpAddEvalDateEnded.Size = New System.Drawing.Size(360, 30)
         Me.dtpAddEvalDateEnded.TabIndex = 7
         Me.dtpAddEvalDateEnded.Value = New Date(2016, 3, 23, 0, 0, 0, 0)
         '
         'dtpAddEvalDateStarted
         '
         Me.dtpAddEvalDateStarted.CustomFormat = "dd-MMM-yyyy"
-        Me.dtpAddEvalDateStarted.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpAddEvalDateStarted.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpAddEvalDateStarted.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpAddEvalDateStarted.ImeMode = System.Windows.Forms.ImeMode.Katakana
-        Me.dtpAddEvalDateStarted.Location = New System.Drawing.Point(310, 197)
+        Me.dtpAddEvalDateStarted.Location = New System.Drawing.Point(242, 117)
         Me.dtpAddEvalDateStarted.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.dtpAddEvalDateStarted.Name = "dtpAddEvalDateStarted"
-        Me.dtpAddEvalDateStarted.Size = New System.Drawing.Size(358, 35)
+        Me.dtpAddEvalDateStarted.Size = New System.Drawing.Size(358, 30)
         Me.dtpAddEvalDateStarted.TabIndex = 6
         Me.dtpAddEvalDateStarted.Value = New Date(2016, 3, 23, 0, 0, 0, 0)
         '
         'lblEvalEvalStatus
         '
         Me.lblEvalEvalStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEvalEvalStatus.Location = New System.Drawing.Point(704, 263)
+        Me.lblEvalEvalStatus.Location = New System.Drawing.Point(636, 183)
         Me.lblEvalEvalStatus.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEvalEvalStatus.Name = "lblEvalEvalStatus"
         Me.lblEvalEvalStatus.Size = New System.Drawing.Size(182, 48)
@@ -199,7 +199,7 @@ Partial Class frmNewEval
         'lblEvalDateEnd
         '
         Me.lblEvalDateEnd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEvalDateEnd.Location = New System.Drawing.Point(710, 192)
+        Me.lblEvalDateEnd.Location = New System.Drawing.Point(642, 112)
         Me.lblEvalDateEnd.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEvalDateEnd.Name = "lblEvalDateEnd"
         Me.lblEvalDateEnd.Size = New System.Drawing.Size(176, 46)
@@ -210,7 +210,7 @@ Partial Class frmNewEval
         'lblEvalEvalSubType
         '
         Me.lblEvalEvalSubType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEvalEvalSubType.Location = New System.Drawing.Point(680, 132)
+        Me.lblEvalEvalSubType.Location = New System.Drawing.Point(612, 52)
         Me.lblEvalEvalSubType.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEvalEvalSubType.Name = "lblEvalEvalSubType"
         Me.lblEvalEvalSubType.Size = New System.Drawing.Size(206, 35)
@@ -221,7 +221,7 @@ Partial Class frmNewEval
         'lblEvalEvaluator
         '
         Me.lblEvalEvaluator.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEvalEvaluator.Location = New System.Drawing.Point(88, 263)
+        Me.lblEvalEvaluator.Location = New System.Drawing.Point(20, 183)
         Me.lblEvalEvaluator.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEvalEvaluator.Name = "lblEvalEvaluator"
         Me.lblEvalEvaluator.Size = New System.Drawing.Size(212, 48)
@@ -233,7 +233,7 @@ Partial Class frmNewEval
         '
         Me.lblEvalDateStart.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblEvalDateStart.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEvalDateStart.Location = New System.Drawing.Point(88, 192)
+        Me.lblEvalDateStart.Location = New System.Drawing.Point(20, 112)
         Me.lblEvalDateStart.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEvalDateStart.Name = "lblEvalDateStart"
         Me.lblEvalDateStart.Size = New System.Drawing.Size(212, 46)
@@ -244,7 +244,7 @@ Partial Class frmNewEval
         'lblEvalType
         '
         Me.lblEvalType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEvalType.Location = New System.Drawing.Point(88, 132)
+        Me.lblEvalType.Location = New System.Drawing.Point(20, 52)
         Me.lblEvalType.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEvalType.Name = "lblEvalType"
         Me.lblEvalType.Size = New System.Drawing.Size(212, 35)
@@ -256,7 +256,7 @@ Partial Class frmNewEval
         '
         Me.lblNewEvalTitle.AutoSize = True
         Me.lblNewEvalTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNewEvalTitle.Location = New System.Drawing.Point(22, 116)
+        Me.lblNewEvalTitle.Location = New System.Drawing.Point(23, 45)
         Me.lblNewEvalTitle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblNewEvalTitle.Name = "lblNewEvalTitle"
         Me.lblNewEvalTitle.Size = New System.Drawing.Size(341, 40)
@@ -267,7 +267,7 @@ Partial Class frmNewEval
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1470, 1204)
+        Me.ClientSize = New System.Drawing.Size(1351, 678)
         Me.Controls.Add(Me.pnlNewEval)
         Me.Controls.Add(Me.lblNewEvalTitle)
         Me.Name = "frmNewEval"

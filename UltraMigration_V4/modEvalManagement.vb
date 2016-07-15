@@ -86,8 +86,7 @@ WHERE (((trefDogBehaviorChecklistSubCode.bcs_Evaluations)=True))")
                         WHERE tblEvaluations.evl_DateStart LIKE '" & sDate & "'")
             Else
 
-                MessageBox.Show("Please select a day that is on or before " & cTime & "", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                If DialogResult.OK = True Then
+                If MessageBox.Show("Please select a day that is on or before " & cTime & "", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Information) = DialogResult.OK Then
                     frmEvalManagement.dtpStart.ResetText()
                 End If
 
@@ -123,8 +122,7 @@ WHERE (((trefDogBehaviorChecklistSubCode.bcs_Evaluations)=True))")
                         WHERE tblEvaluations.evl_DateEnd LIKE '" & eDate & "'")
             Else
 
-                MessageBox.Show("Please select a day that is on or before " & eTime & "", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                If DialogResult.OK = True Then
+                If MessageBox.Show("Please select a day that is on or before " & eTime & "", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Information) = DialogResult.OK Then
                     frmEvalManagement.dtpEnd.ResetText()
                 End If
 
@@ -141,8 +139,6 @@ WHERE (((trefDogBehaviorChecklistSubCode.bcs_Evaluations)=True))")
             MessageBox.Show(ex.Message)
 
         End Try
-
-
     End Sub
 
     Public Sub FilterAll()
@@ -210,8 +206,6 @@ WHERE (((trefDogBehaviorChecklistSubCode.bcs_Evaluations)=True))")
     End Sub
 
     Public Sub UpdateEvalMngntTable()
-
-
 
         Try
 

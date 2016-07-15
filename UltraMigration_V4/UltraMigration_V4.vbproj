@@ -123,6 +123,12 @@
     <Compile Include="ClsQryRunner.vb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="frmAddDogs.Designer.vb">
+      <DependentUpon>frmAddDogs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddDogs.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmEvalManagement.vb">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -138,6 +144,7 @@
     <Compile Include="frmNewEval.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="modAddDogs.vb" />
     <Compile Include="modAddNewEval.vb" />
     <Compile Include="modEvalManagement.vb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -162,8 +169,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ultra_DataDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Ultra_DataDataSet.vb">
+      <DependentUpon>Ultra_DataDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAddDogs.resx">
+      <DependentUpon>frmAddDogs.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEvalManagement.resx">
       <DependentUpon>frmEvalManagement.vb</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

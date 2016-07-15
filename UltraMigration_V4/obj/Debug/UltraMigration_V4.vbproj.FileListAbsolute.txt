@@ -64,3 +64,4 @@ C:\Users\Breeding Program\Source\Repos\UltraMigration_V4\UltraMigration_V4\obj\D
 C:\Users\Breeding Program\Source\Repos\UltraMigration_V4\UltraMigration_V4\obj\Debug\UltraMigration_V4.xml
 C:\Users\Breeding Program\Source\Repos\UltraMigration_V4\UltraMigration_V4\obj\Debug\UltraMigration_V4.pdb
 C:\Users\Breeding Program\Source\Repos\UltraMigration_V4\UltraMigration_V4\obj\Debug\UltraMigration_V4.vbprojResolveAssemblyReference.cache
+C:\Users\Breeding Program\Source\Repos\UltraMigration_V4\UltraMigration_V4\obj\Debug\UltraMigration_V4.frmAddDogs.resources

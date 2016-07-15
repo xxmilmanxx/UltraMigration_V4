@@ -23,8 +23,8 @@ Partial Class frmEvalManagement
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.gpbxFilterContainer = New System.Windows.Forms.GroupBox()
         Me.dtpEnd = New System.Windows.Forms.DateTimePicker()
         Me.lblEndDate = New System.Windows.Forms.Label()
@@ -82,11 +82,12 @@ Partial Class frmEvalManagement
         '
         Me.dtpEnd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.dtpEnd.CustomFormat = "dd-MMM-yyyy"
+        Me.dtpEnd.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpEnd.Location = New System.Drawing.Point(949, 92)
         Me.dtpEnd.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.dtpEnd.Name = "dtpEnd"
-        Me.dtpEnd.Size = New System.Drawing.Size(238, 33)
+        Me.dtpEnd.Size = New System.Drawing.Size(238, 30)
         Me.dtpEnd.TabIndex = 25
         Me.dtpEnd.Value = New Date(2016, 5, 17, 0, 0, 0, 0)
         '
@@ -104,11 +105,12 @@ Partial Class frmEvalManagement
         '
         Me.dtpStart.Cursor = System.Windows.Forms.Cursors.Hand
         Me.dtpStart.CustomFormat = "dd-MMM-yyyy"
+        Me.dtpStart.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpStart.Location = New System.Drawing.Point(648, 92)
         Me.dtpStart.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.dtpStart.Name = "dtpStart"
-        Me.dtpStart.Size = New System.Drawing.Size(263, 33)
+        Me.dtpStart.Size = New System.Drawing.Size(263, 30)
         Me.dtpStart.TabIndex = 22
         Me.dtpStart.TabStop = False
         Me.dtpStart.Value = New Date(2016, 5, 17, 0, 0, 0, 0)
@@ -251,9 +253,9 @@ Partial Class frmEvalManagement
         'StartDateDataGridViewTextBoxColumn
         '
         Me.StartDateDataGridViewTextBoxColumn.DataPropertyName = "Start Date"
-        DataGridViewCellStyle9.Format = "dd-MMM-yyyy"
-        DataGridViewCellStyle9.NullValue = Nothing
-        Me.StartDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle1.Format = "dd-MMM-yyyy"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.StartDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
         Me.StartDateDataGridViewTextBoxColumn.HeaderText = "Start Date"
         Me.StartDateDataGridViewTextBoxColumn.Name = "StartDateDataGridViewTextBoxColumn"
         Me.StartDateDataGridViewTextBoxColumn.ReadOnly = True
@@ -261,8 +263,8 @@ Partial Class frmEvalManagement
         'EndDateDataGridViewTextBoxColumn
         '
         Me.EndDateDataGridViewTextBoxColumn.DataPropertyName = "End Date"
-        DataGridViewCellStyle10.Format = "dd-MMM-yyyy"
-        Me.EndDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle2.Format = "dd-MMM-yyyy"
+        Me.EndDateDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
         Me.EndDateDataGridViewTextBoxColumn.HeaderText = "End Date"
         Me.EndDateDataGridViewTextBoxColumn.Name = "EndDateDataGridViewTextBoxColumn"
         Me.EndDateDataGridViewTextBoxColumn.ReadOnly = True
