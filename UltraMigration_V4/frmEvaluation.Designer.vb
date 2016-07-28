@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmNewEval
+Partial Class frmEvaluation
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,10 +23,12 @@ Partial Class frmNewEval
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.pnlNewEval = New System.Windows.Forms.Panel()
+        Me.btnViewAidsArea = New System.Windows.Forms.Button()
+        Me.btnEvalResults = New System.Windows.Forms.Button()
         Me.btnAddDogs = New System.Windows.Forms.Button()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnClearNewEval = New System.Windows.Forms.Button()
+        Me.btnCancelNewEval = New System.Windows.Forms.Button()
+        Me.btnSaveNewEval = New System.Windows.Forms.Button()
         Me.cmboAddEvalStatus = New System.Windows.Forms.ComboBox()
         Me.cmboAddEvalSubType = New System.Windows.Forms.ComboBox()
         Me.cmboAddEvaluator = New System.Windows.Forms.ComboBox()
@@ -40,15 +42,23 @@ Partial Class frmNewEval
         Me.lblEvalDateStart = New System.Windows.Forms.Label()
         Me.lblEvalType = New System.Windows.Forms.Label()
         Me.lblNewEvalTitle = New System.Windows.Forms.Label()
+        Me.sfrmEvaluationDogIndex = New System.Windows.Forms.Panel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Ultra_DataDataSet = New UltraMigration_V4.Ultra_DataDataSet()
         Me.pnlNewEval.SuspendLayout()
+        Me.sfrmEvaluationDogIndex.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Ultra_DataDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlNewEval
         '
+        Me.pnlNewEval.Controls.Add(Me.btnViewAidsArea)
+        Me.pnlNewEval.Controls.Add(Me.btnEvalResults)
         Me.pnlNewEval.Controls.Add(Me.btnAddDogs)
-        Me.pnlNewEval.Controls.Add(Me.btnClear)
-        Me.pnlNewEval.Controls.Add(Me.btnCancel)
-        Me.pnlNewEval.Controls.Add(Me.btnSave)
+        Me.pnlNewEval.Controls.Add(Me.btnClearNewEval)
+        Me.pnlNewEval.Controls.Add(Me.btnCancelNewEval)
+        Me.pnlNewEval.Controls.Add(Me.btnSaveNewEval)
         Me.pnlNewEval.Controls.Add(Me.cmboAddEvalStatus)
         Me.pnlNewEval.Controls.Add(Me.cmboAddEvalSubType)
         Me.pnlNewEval.Controls.Add(Me.cmboAddEvaluator)
@@ -61,57 +71,77 @@ Partial Class frmNewEval
         Me.pnlNewEval.Controls.Add(Me.lblEvalEvaluator)
         Me.pnlNewEval.Controls.Add(Me.lblEvalDateStart)
         Me.pnlNewEval.Controls.Add(Me.lblEvalType)
-        Me.pnlNewEval.Location = New System.Drawing.Point(30, 119)
+        Me.pnlNewEval.Location = New System.Drawing.Point(273, 122)
         Me.pnlNewEval.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pnlNewEval.Name = "pnlNewEval"
-        Me.pnlNewEval.Size = New System.Drawing.Size(1250, 528)
+        Me.pnlNewEval.Size = New System.Drawing.Size(1250, 554)
         Me.pnlNewEval.TabIndex = 4
+        '
+        'btnViewAidsArea
+        '
+        Me.btnViewAidsArea.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnViewAidsArea.Location = New System.Drawing.Point(430, 429)
+        Me.btnViewAidsArea.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnViewAidsArea.Name = "btnViewAidsArea"
+        Me.btnViewAidsArea.Size = New System.Drawing.Size(192, 75)
+        Me.btnViewAidsArea.TabIndex = 18
+        Me.btnViewAidsArea.Text = "View Aids by Area"
+        Me.btnViewAidsArea.UseVisualStyleBackColor = True
+        '
+        'btnEvalResults
+        '
+        Me.btnEvalResults.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEvalResults.Location = New System.Drawing.Point(684, 429)
+        Me.btnEvalResults.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnEvalResults.Name = "btnEvalResults"
+        Me.btnEvalResults.Size = New System.Drawing.Size(192, 75)
+        Me.btnEvalResults.TabIndex = 17
+        Me.btnEvalResults.Text = "View Eval Results"
+        Me.btnEvalResults.UseVisualStyleBackColor = True
         '
         'btnAddDogs
         '
         Me.btnAddDogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddDogs.Location = New System.Drawing.Point(684, 422)
+        Me.btnAddDogs.Location = New System.Drawing.Point(939, 429)
         Me.btnAddDogs.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnAddDogs.Name = "btnAddDogs"
-        Me.btnAddDogs.Size = New System.Drawing.Size(192, 62)
+        Me.btnAddDogs.Size = New System.Drawing.Size(192, 75)
         Me.btnAddDogs.TabIndex = 16
         Me.btnAddDogs.Text = "Add Dogs"
         Me.btnAddDogs.UseVisualStyleBackColor = True
-        Me.btnAddDogs.Visible = False
         '
-        'btnClear
+        'btnClearNewEval
         '
-        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(430, 304)
-        Me.btnClear.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(192, 62)
-        Me.btnClear.TabIndex = 15
-        Me.btnClear.Text = "Clear"
-        Me.btnClear.UseVisualStyleBackColor = True
+        Me.btnClearNewEval.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClearNewEval.Location = New System.Drawing.Point(430, 304)
+        Me.btnClearNewEval.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnClearNewEval.Name = "btnClearNewEval"
+        Me.btnClearNewEval.Size = New System.Drawing.Size(192, 75)
+        Me.btnClearNewEval.TabIndex = 15
+        Me.btnClearNewEval.Text = "Clear"
+        Me.btnClearNewEval.UseVisualStyleBackColor = True
         '
-        'btnCancel
+        'btnCancelNewEval
         '
-        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(684, 304)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(192, 62)
-        Me.btnCancel.TabIndex = 14
-        Me.btnCancel.Text = "&Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
+        Me.btnCancelNewEval.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelNewEval.Location = New System.Drawing.Point(684, 304)
+        Me.btnCancelNewEval.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnCancelNewEval.Name = "btnCancelNewEval"
+        Me.btnCancelNewEval.Size = New System.Drawing.Size(192, 75)
+        Me.btnCancelNewEval.TabIndex = 14
+        Me.btnCancelNewEval.Text = "&Cancel"
+        Me.btnCancelNewEval.UseVisualStyleBackColor = True
         '
-        'btnSave
+        'btnSaveNewEval
         '
-        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(939, 304)
-        Me.btnSave.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(192, 62)
-        Me.btnSave.TabIndex = 13
-        Me.btnSave.Text = "&Save"
-        Me.btnSave.UseVisualStyleBackColor = True
-        Me.btnSave.Visible = False
+        Me.btnSaveNewEval.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaveNewEval.Location = New System.Drawing.Point(939, 304)
+        Me.btnSaveNewEval.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnSaveNewEval.Name = "btnSaveNewEval"
+        Me.btnSaveNewEval.Size = New System.Drawing.Size(192, 75)
+        Me.btnSaveNewEval.TabIndex = 13
+        Me.btnSaveNewEval.Text = "&Save"
+        Me.btnSaveNewEval.UseVisualStyleBackColor = True
         '
         'cmboAddEvalStatus
         '
@@ -127,7 +157,6 @@ Partial Class frmNewEval
         '
         'cmboAddEvalSubType
         '
-        Me.cmboAddEvalSubType.DisplayMember = "bcs_BehaviorChecklistText"
         Me.cmboAddEvalSubType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmboAddEvalSubType.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmboAddEvalSubType.FormattingEnabled = True
@@ -136,7 +165,6 @@ Partial Class frmNewEval
         Me.cmboAddEvalSubType.Name = "cmboAddEvalSubType"
         Me.cmboAddEvalSubType.Size = New System.Drawing.Size(360, 33)
         Me.cmboAddEvalSubType.TabIndex = 10
-        Me.cmboAddEvalSubType.ValueMember = "bcs_BehaviorChecklistText"
         '
         'cmboAddEvaluator
         '
@@ -259,29 +287,55 @@ Partial Class frmNewEval
         Me.lblNewEvalTitle.Location = New System.Drawing.Point(23, 45)
         Me.lblNewEvalTitle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblNewEvalTitle.Name = "lblNewEvalTitle"
-        Me.lblNewEvalTitle.Size = New System.Drawing.Size(341, 40)
+        Me.lblNewEvalTitle.Size = New System.Drawing.Size(363, 40)
         Me.lblNewEvalTitle.TabIndex = 3
-        Me.lblNewEvalTitle.Text = "Add New Evaluation"
+        Me.lblNewEvalTitle.Text = "Enter New Evaluation"
         '
-        'frmNewEval
+        'sfrmEvaluationDogIndex
+        '
+        Me.sfrmEvaluationDogIndex.Controls.Add(Me.DataGridView1)
+        Me.sfrmEvaluationDogIndex.Location = New System.Drawing.Point(65, 727)
+        Me.sfrmEvaluationDogIndex.Name = "sfrmEvaluationDogIndex"
+        Me.sfrmEvaluationDogIndex.Size = New System.Drawing.Size(1801, 583)
+        Me.sfrmEvaluationDogIndex.TabIndex = 5
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(3, 76)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowTemplate.Height = 28
+        Me.DataGridView1.Size = New System.Drawing.Size(1432, 447)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'Ultra_DataDataSet
+        '
+        Me.Ultra_DataDataSet.DataSetName = "Ultra_DataDataSet"
+        Me.Ultra_DataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'frmEvaluation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1351, 678)
+        Me.ClientSize = New System.Drawing.Size(1940, 1325)
+        Me.Controls.Add(Me.sfrmEvaluationDogIndex)
         Me.Controls.Add(Me.pnlNewEval)
         Me.Controls.Add(Me.lblNewEvalTitle)
-        Me.Name = "frmNewEval"
+        Me.Name = "frmEvaluation"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Add New Evaluation"
+        Me.Text = "Evaluation"
         Me.pnlNewEval.ResumeLayout(False)
+        Me.sfrmEvaluationDogIndex.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Ultra_DataDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents pnlNewEval As Panel
-    Friend WithEvents btnCancel As Button
-    Friend WithEvents btnSave As Button
+    Friend WithEvents btnCancelNewEval As Button
+    Friend WithEvents btnSaveNewEval As Button
     Friend WithEvents cmboAddEvalStatus As ComboBox
     Friend WithEvents cmboAddEvalSubType As ComboBox
     Friend WithEvents cmboAddEvaluator As ComboBox
@@ -295,6 +349,11 @@ Partial Class frmNewEval
     Friend WithEvents lblEvalDateStart As Label
     Friend WithEvents lblEvalType As Label
     Friend WithEvents lblNewEvalTitle As Label
-    Friend WithEvents btnClear As Button
+    Friend WithEvents btnClearNewEval As Button
     Friend WithEvents btnAddDogs As Button
+    Friend WithEvents sfrmEvaluationDogIndex As Panel
+    Friend WithEvents btnViewAidsArea As Button
+    Friend WithEvents btnEvalResults As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Ultra_DataDataSet As Ultra_DataDataSet
 End Class

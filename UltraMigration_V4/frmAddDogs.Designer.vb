@@ -28,33 +28,45 @@ Partial Class frmAddDogs
         Me.txtTattoo = New System.Windows.Forms.TextBox()
         Me.txtDogs = New System.Windows.Forms.TextBox()
         Me.cmboTeam = New System.Windows.Forms.ComboBox()
+        Me.btnClearDogsFilter = New System.Windows.Forms.Button()
         Me.lblByDog = New System.Windows.Forms.Label()
         Me.lblByTattoo = New System.Windows.Forms.Label()
         Me.lblByTeam = New System.Windows.Forms.Label()
         Me.lblAddDogs = New System.Windows.Forms.Label()
-        Me.DGVAddDogs = New System.Windows.Forms.DataGridView()
+        Me.DGVSelectDogs = New System.Windows.Forms.DataGridView()
+        Me.TblAddDogListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Ultra_DataDataSet = New UltraMigration_V4.Ultra_DataDataSet()
+        Me.btnSubmitDogs = New System.Windows.Forms.Button()
+        Me.btnCancelDogs = New System.Windows.Forms.Button()
+        Me.txtDogCount = New System.Windows.Forms.TextBox()
+        Me.lblAddeddogs = New System.Windows.Forms.Label()
+        Me.DGVReadyDogs = New System.Windows.Forms.DataGridView()
+        Me.AddedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.AddedTeamDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AddedDogDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AddedTattooDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TblReadyDogsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.btnReset = New System.Windows.Forms.Button()
+        Me.btnAddSelected = New System.Windows.Forms.Button()
+        Me.TblAddDogListTableAdapter = New UltraMigration_V4.Ultra_DataDataSetTableAdapters.tblAddDogListTableAdapter()
+        Me.txtSelectCount = New System.Windows.Forms.TextBox()
+        Me.SelectedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.TeamDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DogDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TattooDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TblAddDogListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Ultra_DataDataSet = New UltraMigration_V4.Ultra_DataDataSet()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.TblAddDogListTableAdapter = New UltraMigration_V4.Ultra_DataDataSetTableAdapters.tblAddDogListTableAdapter()
-        Me.txtDogCount = New System.Windows.Forms.TextBox()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.gpbxFilterDogs.SuspendLayout()
-        CType(Me.DGVAddDogs, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGVSelectDogs, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblAddDogListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Ultra_DataDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGVReadyDogs, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblReadyDogsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblSelectDogs
         '
         Me.lblSelectDogs.AutoSize = True
         Me.lblSelectDogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSelectDogs.Location = New System.Drawing.Point(34, 258)
+        Me.lblSelectDogs.Location = New System.Drawing.Point(34, 329)
         Me.lblSelectDogs.Name = "lblSelectDogs"
         Me.lblSelectDogs.Size = New System.Drawing.Size(150, 29)
         Me.lblSelectDogs.TabIndex = 1
@@ -66,27 +78,28 @@ Partial Class frmAddDogs
         Me.gpbxFilterDogs.Controls.Add(Me.txtTattoo)
         Me.gpbxFilterDogs.Controls.Add(Me.txtDogs)
         Me.gpbxFilterDogs.Controls.Add(Me.cmboTeam)
+        Me.gpbxFilterDogs.Controls.Add(Me.btnClearDogsFilter)
         Me.gpbxFilterDogs.Controls.Add(Me.lblByDog)
         Me.gpbxFilterDogs.Controls.Add(Me.lblByTattoo)
         Me.gpbxFilterDogs.Controls.Add(Me.lblByTeam)
         Me.gpbxFilterDogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gpbxFilterDogs.Location = New System.Drawing.Point(39, 117)
+        Me.gpbxFilterDogs.Location = New System.Drawing.Point(39, 94)
         Me.gpbxFilterDogs.Name = "gpbxFilterDogs"
-        Me.gpbxFilterDogs.Size = New System.Drawing.Size(1075, 111)
+        Me.gpbxFilterDogs.Size = New System.Drawing.Size(1316, 152)
         Me.gpbxFilterDogs.TabIndex = 2
         Me.gpbxFilterDogs.TabStop = False
         Me.gpbxFilterDogs.Text = "FILTER DOGS"
         '
         'txtTattoo
         '
-        Me.txtTattoo.Location = New System.Drawing.Point(818, 47)
+        Me.txtTattoo.Location = New System.Drawing.Point(841, 47)
         Me.txtTattoo.Name = "txtTattoo"
         Me.txtTattoo.Size = New System.Drawing.Size(142, 35)
         Me.txtTattoo.TabIndex = 5
         '
         'txtDogs
         '
-        Me.txtDogs.Location = New System.Drawing.Point(493, 47)
+        Me.txtDogs.Location = New System.Drawing.Point(538, 47)
         Me.txtDogs.Name = "txtDogs"
         Me.txtDogs.Size = New System.Drawing.Size(142, 35)
         Me.txtDogs.TabIndex = 4
@@ -98,15 +111,26 @@ Partial Class frmAddDogs
         Me.cmboTeam.DropDownWidth = 170
         Me.cmboTeam.FormattingEnabled = True
         Me.cmboTeam.IntegralHeight = False
-        Me.cmboTeam.Location = New System.Drawing.Point(180, 47)
+        Me.cmboTeam.Location = New System.Drawing.Point(202, 47)
         Me.cmboTeam.Name = "cmboTeam"
-        Me.cmboTeam.Size = New System.Drawing.Size(165, 37)
+        Me.cmboTeam.Size = New System.Drawing.Size(196, 37)
         Me.cmboTeam.TabIndex = 3
+        '
+        'btnClearDogsFilter
+        '
+        Me.btnClearDogsFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClearDogsFilter.ForeColor = System.Drawing.Color.Navy
+        Me.btnClearDogsFilter.Location = New System.Drawing.Point(1030, 47)
+        Me.btnClearDogsFilter.Name = "btnClearDogsFilter"
+        Me.btnClearDogsFilter.Size = New System.Drawing.Size(169, 58)
+        Me.btnClearDogsFilter.TabIndex = 5
+        Me.btnClearDogsFilter.Text = "&Clear Filter"
+        Me.btnClearDogsFilter.UseVisualStyleBackColor = True
         '
         'lblByDog
         '
         Me.lblByDog.AutoSize = True
-        Me.lblByDog.Location = New System.Drawing.Point(390, 50)
+        Me.lblByDog.Location = New System.Drawing.Point(435, 50)
         Me.lblByDog.Name = "lblByDog"
         Me.lblByDog.Size = New System.Drawing.Size(97, 29)
         Me.lblByDog.TabIndex = 2
@@ -115,7 +139,7 @@ Partial Class frmAddDogs
         'lblByTattoo
         '
         Me.lblByTattoo.AutoSize = True
-        Me.lblByTattoo.Location = New System.Drawing.Point(691, 50)
+        Me.lblByTattoo.Location = New System.Drawing.Point(714, 50)
         Me.lblByTattoo.Name = "lblByTattoo"
         Me.lblByTattoo.Size = New System.Drawing.Size(121, 29)
         Me.lblByTattoo.TabIndex = 1
@@ -124,7 +148,7 @@ Partial Class frmAddDogs
         'lblByTeam
         '
         Me.lblByTeam.AutoSize = True
-        Me.lblByTeam.Location = New System.Drawing.Point(59, 50)
+        Me.lblByTeam.Location = New System.Drawing.Point(81, 55)
         Me.lblByTeam.Name = "lblByTeam"
         Me.lblByTeam.Size = New System.Drawing.Size(115, 29)
         Me.lblByTeam.TabIndex = 0
@@ -140,21 +164,167 @@ Partial Class frmAddDogs
         Me.lblAddDogs.TabIndex = 3
         Me.lblAddDogs.Text = "Add Dogs To Evaluation"
         '
-        'DGVAddDogs
+        'DGVSelectDogs
         '
-        Me.DGVAddDogs.AllowUserToAddRows = False
-        Me.DGVAddDogs.AllowUserToDeleteRows = False
-        Me.DGVAddDogs.AutoGenerateColumns = False
-        Me.DGVAddDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVAddDogs.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TeamDataGridViewTextBoxColumn, Me.DogDataGridViewTextBoxColumn, Me.TattooDataGridViewTextBoxColumn})
-        Me.DGVAddDogs.DataSource = Me.TblAddDogListBindingSource
-        Me.DGVAddDogs.Location = New System.Drawing.Point(190, 258)
-        Me.DGVAddDogs.Name = "DGVAddDogs"
-        Me.DGVAddDogs.ReadOnly = True
-        Me.DGVAddDogs.RowHeadersVisible = False
-        Me.DGVAddDogs.RowTemplate.Height = 28
-        Me.DGVAddDogs.Size = New System.Drawing.Size(924, 409)
-        Me.DGVAddDogs.TabIndex = 4
+        Me.DGVSelectDogs.AllowUserToAddRows = False
+        Me.DGVSelectDogs.AllowUserToDeleteRows = False
+        Me.DGVSelectDogs.AllowUserToResizeRows = False
+        Me.DGVSelectDogs.AutoGenerateColumns = False
+        Me.DGVSelectDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVSelectDogs.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SelectedDataGridViewTextBoxColumn, Me.TeamDataGridViewTextBoxColumn, Me.DogDataGridViewTextBoxColumn, Me.TattooDataGridViewTextBoxColumn})
+        Me.DGVSelectDogs.DataSource = Me.TblAddDogListBindingSource
+        Me.DGVSelectDogs.Location = New System.Drawing.Point(190, 317)
+        Me.DGVSelectDogs.Name = "DGVSelectDogs"
+        Me.DGVSelectDogs.RowHeadersVisible = False
+        Me.DGVSelectDogs.RowTemplate.Height = 28
+        Me.DGVSelectDogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DGVSelectDogs.Size = New System.Drawing.Size(656, 409)
+        Me.DGVSelectDogs.TabIndex = 4
+        '
+        'TblAddDogListBindingSource
+        '
+        Me.TblAddDogListBindingSource.DataMember = "tblAddDogList"
+        Me.TblAddDogListBindingSource.DataSource = Me.Ultra_DataDataSet
+        '
+        'Ultra_DataDataSet
+        '
+        Me.Ultra_DataDataSet.DataSetName = "Ultra_DataDataSet"
+        Me.Ultra_DataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'btnSubmitDogs
+        '
+        Me.btnSubmitDogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSubmitDogs.Location = New System.Drawing.Point(1259, 810)
+        Me.btnSubmitDogs.Name = "btnSubmitDogs"
+        Me.btnSubmitDogs.Size = New System.Drawing.Size(192, 62)
+        Me.btnSubmitDogs.TabIndex = 6
+        Me.btnSubmitDogs.Text = "Submit Dogs"
+        Me.btnSubmitDogs.UseVisualStyleBackColor = True
+        '
+        'btnCancelDogs
+        '
+        Me.btnCancelDogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelDogs.Location = New System.Drawing.Point(1511, 810)
+        Me.btnCancelDogs.Name = "btnCancelDogs"
+        Me.btnCancelDogs.Size = New System.Drawing.Size(192, 62)
+        Me.btnCancelDogs.TabIndex = 7
+        Me.btnCancelDogs.Text = "Cancel"
+        Me.btnCancelDogs.UseVisualStyleBackColor = True
+        '
+        'txtDogCount
+        '
+        Me.txtDogCount.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtDogCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDogCount.Location = New System.Drawing.Point(337, 264)
+        Me.txtDogCount.Name = "txtDogCount"
+        Me.txtDogCount.ReadOnly = True
+        Me.txtDogCount.Size = New System.Drawing.Size(355, 28)
+        Me.txtDogCount.TabIndex = 8
+        Me.txtDogCount.WordWrap = False
+        '
+        'lblAddeddogs
+        '
+        Me.lblAddeddogs.AutoSize = True
+        Me.lblAddeddogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAddeddogs.Location = New System.Drawing.Point(888, 329)
+        Me.lblAddeddogs.Name = "lblAddeddogs"
+        Me.lblAddeddogs.Size = New System.Drawing.Size(153, 29)
+        Me.lblAddeddogs.TabIndex = 10
+        Me.lblAddeddogs.Text = "Added Dogs:"
+        Me.lblAddeddogs.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'DGVReadyDogs
+        '
+        Me.DGVReadyDogs.AllowUserToAddRows = False
+        Me.DGVReadyDogs.AllowUserToDeleteRows = False
+        Me.DGVReadyDogs.AutoGenerateColumns = False
+        Me.DGVReadyDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVReadyDogs.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AddedDataGridViewTextBoxColumn, Me.AddedTeamDataGridViewTextBoxColumn, Me.AddedDogDataGridViewTextBoxColumn, Me.AddedTattooDataGridViewTextBoxColumn})
+        Me.DGVReadyDogs.DataSource = Me.TblReadyDogsBindingSource
+        Me.DGVReadyDogs.Location = New System.Drawing.Point(1047, 317)
+        Me.DGVReadyDogs.Name = "DGVReadyDogs"
+        Me.DGVReadyDogs.RowHeadersVisible = False
+        Me.DGVReadyDogs.RowTemplate.Height = 28
+        Me.DGVReadyDogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DGVReadyDogs.Size = New System.Drawing.Size(656, 409)
+        Me.DGVReadyDogs.TabIndex = 11
+        '
+        'AddedDataGridViewTextBoxColumn
+        '
+        Me.AddedDataGridViewTextBoxColumn.DataPropertyName = "Added"
+        Me.AddedDataGridViewTextBoxColumn.HeaderText = "Added"
+        Me.AddedDataGridViewTextBoxColumn.Name = "AddedDataGridViewTextBoxColumn"
+        Me.AddedDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.AddedDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'AddedTeamDataGridViewTextBoxColumn
+        '
+        Me.AddedTeamDataGridViewTextBoxColumn.DataPropertyName = "AddedTeam"
+        Me.AddedTeamDataGridViewTextBoxColumn.HeaderText = "Team"
+        Me.AddedTeamDataGridViewTextBoxColumn.Name = "AddedTeamDataGridViewTextBoxColumn"
+        Me.AddedTeamDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'AddedDogDataGridViewTextBoxColumn
+        '
+        Me.AddedDogDataGridViewTextBoxColumn.DataPropertyName = "AddedDog"
+        Me.AddedDogDataGridViewTextBoxColumn.HeaderText = "Dog"
+        Me.AddedDogDataGridViewTextBoxColumn.Name = "AddedDogDataGridViewTextBoxColumn"
+        Me.AddedDogDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'AddedTattooDataGridViewTextBoxColumn
+        '
+        Me.AddedTattooDataGridViewTextBoxColumn.DataPropertyName = "AddedTattoo"
+        Me.AddedTattooDataGridViewTextBoxColumn.HeaderText = "Tattoo"
+        Me.AddedTattooDataGridViewTextBoxColumn.Name = "AddedTattooDataGridViewTextBoxColumn"
+        Me.AddedTattooDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TblReadyDogsBindingSource
+        '
+        Me.TblReadyDogsBindingSource.DataMember = "tblReadyDogs"
+        Me.TblReadyDogsBindingSource.DataSource = Me.Ultra_DataDataSet
+        '
+        'btnReset
+        '
+        Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReset.Location = New System.Drawing.Point(654, 810)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(192, 62)
+        Me.btnReset.TabIndex = 12
+        Me.btnReset.Text = "Reset List"
+        Me.btnReset.UseVisualStyleBackColor = True
+        '
+        'btnAddSelected
+        '
+        Me.btnAddSelected.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddSelected.Location = New System.Drawing.Point(423, 810)
+        Me.btnAddSelected.Name = "btnAddSelected"
+        Me.btnAddSelected.Size = New System.Drawing.Size(192, 62)
+        Me.btnAddSelected.TabIndex = 13
+        Me.btnAddSelected.Text = "Add Selected"
+        Me.btnAddSelected.UseVisualStyleBackColor = True
+        '
+        'TblAddDogListTableAdapter
+        '
+        Me.TblAddDogListTableAdapter.ClearBeforeFill = True
+        '
+        'txtSelectCount
+        '
+        Me.txtSelectCount.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtSelectCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSelectCount.Location = New System.Drawing.Point(1177, 264)
+        Me.txtSelectCount.Name = "txtSelectCount"
+        Me.txtSelectCount.ReadOnly = True
+        Me.txtSelectCount.Size = New System.Drawing.Size(355, 28)
+        Me.txtSelectCount.TabIndex = 14
+        Me.txtSelectCount.WordWrap = False
+        '
+        'SelectedDataGridViewTextBoxColumn
+        '
+        Me.SelectedDataGridViewTextBoxColumn.DataPropertyName = "Selected"
+        Me.SelectedDataGridViewTextBoxColumn.HeaderText = "Selected"
+        Me.SelectedDataGridViewTextBoxColumn.Name = "SelectedDataGridViewTextBoxColumn"
+        Me.SelectedDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.SelectedDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'TeamDataGridViewTextBoxColumn
         '
@@ -177,83 +347,20 @@ Partial Class frmAddDogs
         Me.TattooDataGridViewTextBoxColumn.Name = "TattooDataGridViewTextBoxColumn"
         Me.TattooDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'TblAddDogListBindingSource
-        '
-        Me.TblAddDogListBindingSource.DataMember = "tblAddDogList"
-        Me.TblAddDogListBindingSource.DataSource = Me.Ultra_DataDataSet
-        '
-        'Ultra_DataDataSet
-        '
-        Me.Ultra_DataDataSet.DataSetName = "Ultra_DataDataSet"
-        Me.Ultra_DataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'btnClear
-        '
-        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(248, 700)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(192, 62)
-        Me.btnClear.TabIndex = 5
-        Me.btnClear.Text = "Clear Filter"
-        Me.btnClear.UseVisualStyleBackColor = True
-        '
-        'btnSave
-        '
-        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(558, 700)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(192, 62)
-        Me.btnSave.TabIndex = 6
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnCancel
-        '
-        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(857, 700)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(192, 62)
-        Me.btnCancel.TabIndex = 7
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
-        '
-        'TblAddDogListTableAdapter
-        '
-        Me.TblAddDogListTableAdapter.ClearBeforeFill = True
-        '
-        'txtDogCount
-        '
-        Me.txtDogCount.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtDogCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDogCount.Location = New System.Drawing.Point(644, 72)
-        Me.txtDogCount.Name = "txtDogCount"
-        Me.txtDogCount.ReadOnly = True
-        Me.txtDogCount.Size = New System.Drawing.Size(355, 28)
-        Me.txtDogCount.TabIndex = 8
-        Me.txtDogCount.WordWrap = False
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(751, 38)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(133, 24)
-        Me.RadioButton1.TabIndex = 9
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "RadioButton1"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
         'frmAddDogs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1144, 788)
-        Me.Controls.Add(Me.RadioButton1)
+        Me.ClientSize = New System.Drawing.Size(1847, 952)
+        Me.Controls.Add(Me.txtSelectCount)
+        Me.Controls.Add(Me.btnAddSelected)
+        Me.Controls.Add(Me.btnReset)
+        Me.Controls.Add(Me.DGVReadyDogs)
+        Me.Controls.Add(Me.lblAddeddogs)
         Me.Controls.Add(Me.txtDogCount)
-        Me.Controls.Add(Me.btnCancel)
-        Me.Controls.Add(Me.btnSave)
-        Me.Controls.Add(Me.btnClear)
-        Me.Controls.Add(Me.DGVAddDogs)
+        Me.Controls.Add(Me.btnCancelDogs)
+        Me.Controls.Add(Me.btnSubmitDogs)
+        Me.Controls.Add(Me.DGVSelectDogs)
         Me.Controls.Add(Me.lblAddDogs)
         Me.Controls.Add(Me.gpbxFilterDogs)
         Me.Controls.Add(Me.lblSelectDogs)
@@ -262,9 +369,11 @@ Partial Class frmAddDogs
         Me.Text = "Add Dogs To Evaluation"
         Me.gpbxFilterDogs.ResumeLayout(False)
         Me.gpbxFilterDogs.PerformLayout()
-        CType(Me.DGVAddDogs, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGVSelectDogs, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblAddDogListBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Ultra_DataDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGVReadyDogs, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblReadyDogsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -272,16 +381,10 @@ Partial Class frmAddDogs
     Friend WithEvents lblSelectDogs As Label
     Friend WithEvents gpbxFilterDogs As GroupBox
     Friend WithEvents lblAddDogs As Label
-    Friend WithEvents DGVAddDogs As DataGridView
     Friend WithEvents Ultra_DataDataSet As Ultra_DataDataSet
-    Friend WithEvents TblAddDogListBindingSource As BindingSource
-    Friend WithEvents TblAddDogListTableAdapter As Ultra_DataDataSetTableAdapters.tblAddDogListTableAdapter
-    Friend WithEvents TeamDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DogDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TattooDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents btnClear As Button
-    Friend WithEvents btnSave As Button
-    Friend WithEvents btnCancel As Button
+    Friend WithEvents btnClearDogsFilter As Button
+    Friend WithEvents btnSubmitDogs As Button
+    Friend WithEvents btnCancelDogs As Button
     Friend WithEvents lblByTeam As Label
     Friend WithEvents txtTattoo As TextBox
     Friend WithEvents txtDogs As TextBox
@@ -289,5 +392,21 @@ Partial Class frmAddDogs
     Friend WithEvents lblByDog As Label
     Friend WithEvents lblByTattoo As Label
     Friend WithEvents txtDogCount As TextBox
-    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents lblAddeddogs As Label
+    Friend WithEvents DGVReadyDogs As DataGridView
+    Friend WithEvents btnReset As Button
+    Friend WithEvents btnAddSelected As Button
+    Friend WithEvents TblReadyDogsBindingSource As BindingSource
+    Friend WithEvents TblAddDogListBindingSource As BindingSource
+    Friend WithEvents TblAddDogListTableAdapter As Ultra_DataDataSetTableAdapters.tblAddDogListTableAdapter
+    Friend WithEvents AddedDataGridViewTextBoxColumn As DataGridViewCheckBoxColumn
+    Friend WithEvents AddedTeamDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents AddedDogDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents AddedTattooDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DGVSelectDogs As DataGridView
+    Friend WithEvents txtSelectCount As TextBox
+    Friend WithEvents SelectedDataGridViewTextBoxColumn As DataGridViewCheckBoxColumn
+    Friend WithEvents TeamDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DogDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TattooDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

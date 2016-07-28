@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.UltraMigration_V4.frmEvalManagement
+            Me.MainForm = Global.UltraMigration_V4.frmAddDogs
         End Sub
     End Class
 End Namespace

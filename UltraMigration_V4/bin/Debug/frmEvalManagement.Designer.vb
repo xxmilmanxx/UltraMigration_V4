@@ -26,15 +26,13 @@ Partial Class frmEvalManagement
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.gpbxFilterContainer = New System.Windows.Forms.GroupBox()
-        Me.dtpEnd = New System.Windows.Forms.DateTimePicker()
-        Me.lblEndDate = New System.Windows.Forms.Label()
         Me.dtpStart = New System.Windows.Forms.DateTimePicker()
         Me.lblByDate = New System.Windows.Forms.Label()
         Me.lblByType = New System.Windows.Forms.Label()
         Me.lblByEval = New System.Windows.Forms.Label()
         Me.cmboEvaluator = New System.Windows.Forms.ComboBox()
         Me.cmboType = New System.Windows.Forms.ComboBox()
-        Me.btnClearFilter = New System.Windows.Forms.Button()
+        Me.btnClearEvalFilter = New System.Windows.Forms.Button()
         Me.lblEvalMngmntTitle = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnAddEval = New System.Windows.Forms.Button()
@@ -59,17 +57,15 @@ Partial Class frmEvalManagement
         '
         'gpbxFilterContainer
         '
-        Me.gpbxFilterContainer.Controls.Add(Me.dtpEnd)
-        Me.gpbxFilterContainer.Controls.Add(Me.lblEndDate)
         Me.gpbxFilterContainer.Controls.Add(Me.dtpStart)
         Me.gpbxFilterContainer.Controls.Add(Me.lblByDate)
         Me.gpbxFilterContainer.Controls.Add(Me.lblByType)
         Me.gpbxFilterContainer.Controls.Add(Me.lblByEval)
         Me.gpbxFilterContainer.Controls.Add(Me.cmboEvaluator)
         Me.gpbxFilterContainer.Controls.Add(Me.cmboType)
-        Me.gpbxFilterContainer.Controls.Add(Me.btnClearFilter)
+        Me.gpbxFilterContainer.Controls.Add(Me.btnClearEvalFilter)
         Me.gpbxFilterContainer.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gpbxFilterContainer.Location = New System.Drawing.Point(72, 232)
+        Me.gpbxFilterContainer.Location = New System.Drawing.Point(67, 169)
         Me.gpbxFilterContainer.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.gpbxFilterContainer.Name = "gpbxFilterContainer"
         Me.gpbxFilterContainer.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
@@ -78,36 +74,13 @@ Partial Class frmEvalManagement
         Me.gpbxFilterContainer.TabStop = False
         Me.gpbxFilterContainer.Text = "FILTER  EVALUATIONS"
         '
-        'dtpEnd
-        '
-        Me.dtpEnd.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.dtpEnd.CustomFormat = "dd-MMM-yyyy"
-        Me.dtpEnd.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpEnd.Location = New System.Drawing.Point(949, 92)
-        Me.dtpEnd.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.dtpEnd.Name = "dtpEnd"
-        Me.dtpEnd.Size = New System.Drawing.Size(238, 30)
-        Me.dtpEnd.TabIndex = 25
-        Me.dtpEnd.Value = New Date(2016, 5, 17, 0, 0, 0, 0)
-        '
-        'lblEndDate
-        '
-        Me.lblEndDate.AutoSize = True
-        Me.lblEndDate.Location = New System.Drawing.Point(944, 58)
-        Me.lblEndDate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblEndDate.Name = "lblEndDate"
-        Me.lblEndDate.Size = New System.Drawing.Size(262, 29)
-        Me.lblEndDate.TabIndex = 24
-        Me.lblEndDate.Text = "By Evaluation End Date"
-        '
         'dtpStart
         '
         Me.dtpStart.Cursor = System.Windows.Forms.Cursors.Hand
         Me.dtpStart.CustomFormat = "dd-MMM-yyyy"
         Me.dtpStart.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpStart.Location = New System.Drawing.Point(648, 92)
+        Me.dtpStart.Location = New System.Drawing.Point(820, 92)
         Me.dtpStart.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.dtpStart.Name = "dtpStart"
         Me.dtpStart.Size = New System.Drawing.Size(263, 30)
@@ -118,7 +91,7 @@ Partial Class frmEvalManagement
         'lblByDate
         '
         Me.lblByDate.AutoSize = True
-        Me.lblByDate.Location = New System.Drawing.Point(643, 58)
+        Me.lblByDate.Location = New System.Drawing.Point(815, 58)
         Me.lblByDate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblByDate.Name = "lblByDate"
         Me.lblByDate.Size = New System.Drawing.Size(268, 29)
@@ -128,7 +101,7 @@ Partial Class frmEvalManagement
         'lblByType
         '
         Me.lblByType.AutoSize = True
-        Me.lblByType.Location = New System.Drawing.Point(332, 58)
+        Me.lblByType.Location = New System.Drawing.Point(424, 58)
         Me.lblByType.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblByType.Name = "lblByType"
         Me.lblByType.Size = New System.Drawing.Size(218, 29)
@@ -166,29 +139,29 @@ Partial Class frmEvalManagement
         Me.cmboType.DropDownWidth = 200
         Me.cmboType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmboType.FormattingEnabled = True
-        Me.cmboType.Location = New System.Drawing.Point(338, 92)
+        Me.cmboType.Location = New System.Drawing.Point(430, 92)
         Me.cmboType.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cmboType.Name = "cmboType"
         Me.cmboType.Size = New System.Drawing.Size(272, 33)
         Me.cmboType.TabIndex = 6
         '
-        'btnClearFilter
+        'btnClearEvalFilter
         '
-        Me.btnClearFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClearFilter.ForeColor = System.Drawing.Color.Navy
-        Me.btnClearFilter.Location = New System.Drawing.Point(1280, 69)
-        Me.btnClearFilter.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.btnClearFilter.Name = "btnClearFilter"
-        Me.btnClearFilter.Size = New System.Drawing.Size(183, 54)
-        Me.btnClearFilter.TabIndex = 12
-        Me.btnClearFilter.Text = "&Clear Filter"
-        Me.btnClearFilter.UseVisualStyleBackColor = True
+        Me.btnClearEvalFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClearEvalFilter.ForeColor = System.Drawing.Color.Navy
+        Me.btnClearEvalFilter.Location = New System.Drawing.Point(1269, 71)
+        Me.btnClearEvalFilter.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnClearEvalFilter.Name = "btnClearEvalFilter"
+        Me.btnClearEvalFilter.Size = New System.Drawing.Size(183, 54)
+        Me.btnClearEvalFilter.TabIndex = 12
+        Me.btnClearEvalFilter.Text = "&Clear Filter"
+        Me.btnClearEvalFilter.UseVisualStyleBackColor = True
         '
         'lblEvalMngmntTitle
         '
         Me.lblEvalMngmntTitle.AutoSize = True
         Me.lblEvalMngmntTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
-        Me.lblEvalMngmntTitle.Location = New System.Drawing.Point(64, 111)
+        Me.lblEvalMngmntTitle.Location = New System.Drawing.Point(59, 48)
         Me.lblEvalMngmntTitle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEvalMngmntTitle.Name = "lblEvalMngmntTitle"
         Me.lblEvalMngmntTitle.Size = New System.Drawing.Size(405, 40)
@@ -198,7 +171,7 @@ Partial Class frmEvalManagement
         'btnExit
         '
         Me.btnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.Location = New System.Drawing.Point(1282, 89)
+        Me.btnExit.Location = New System.Drawing.Point(1327, 41)
         Me.btnExit.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(192, 62)
@@ -209,7 +182,7 @@ Partial Class frmEvalManagement
         'btnAddEval
         '
         Me.btnAddEval.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddEval.Location = New System.Drawing.Point(992, 89)
+        Me.btnAddEval.Location = New System.Drawing.Point(1021, 41)
         Me.btnAddEval.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnAddEval.Name = "btnAddEval"
         Me.btnAddEval.Size = New System.Drawing.Size(192, 62)
@@ -228,12 +201,12 @@ Partial Class frmEvalManagement
         Me.DGVfrmEvalManagement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVfrmEvalManagement.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EvaluatorNameDataGridViewTextBoxColumn, Me.EvaluationTypeDataGridViewTextBoxColumn, Me.StartDateDataGridViewTextBoxColumn, Me.EndDateDataGridViewTextBoxColumn, Me.DogsEnrolledDataGridViewTextBoxColumn, Me.AddEditDataGridViewTextBoxColumn, Me.DogEvalsDataGridViewTextBoxColumn})
         Me.DGVfrmEvalManagement.DataSource = Me.QryTblEvaluationsBindingSource
-        Me.DGVfrmEvalManagement.Location = New System.Drawing.Point(72, 423)
+        Me.DGVfrmEvalManagement.Location = New System.Drawing.Point(67, 360)
         Me.DGVfrmEvalManagement.Name = "DGVfrmEvalManagement"
         Me.DGVfrmEvalManagement.ReadOnly = True
         Me.DGVfrmEvalManagement.RowTemplate.Height = 28
         Me.DGVfrmEvalManagement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGVfrmEvalManagement.Size = New System.Drawing.Size(1508, 635)
+        Me.DGVfrmEvalManagement.Size = New System.Drawing.Size(1508, 664)
         Me.DGVfrmEvalManagement.TabIndex = 22
         '
         'EvaluatorNameDataGridViewTextBoxColumn
@@ -315,7 +288,7 @@ Partial Class frmEvalManagement
         Me.txtRecordsCount.AcceptsReturn = True
         Me.txtRecordsCount.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtRecordsCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRecordsCount.Location = New System.Drawing.Point(944, 186)
+        Me.txtRecordsCount.Location = New System.Drawing.Point(938, 135)
         Me.txtRecordsCount.Margin = New System.Windows.Forms.Padding(15)
         Me.txtRecordsCount.Name = "txtRecordsCount"
         Me.txtRecordsCount.ReadOnly = True
@@ -339,7 +312,7 @@ Partial Class frmEvalManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1654, 1075)
+        Me.ClientSize = New System.Drawing.Size(1654, 1055)
         Me.Controls.Add(Me.txtRecordsCount)
         Me.Controls.Add(Me.DGVfrmEvalManagement)
         Me.Controls.Add(Me.btnExit)
@@ -366,14 +339,12 @@ Partial Class frmEvalManagement
     Friend WithEvents lblByEval As Label
     Friend WithEvents cmboEvaluator As ComboBox
     Friend WithEvents cmboType As ComboBox
-    Friend WithEvents btnClearFilter As Button
+    Friend WithEvents btnClearEvalFilter As Button
     Friend WithEvents lblEvalMngmntTitle As Label
     Friend WithEvents btnExit As Button
     Friend WithEvents btnAddEval As Button
     Friend WithEvents DGVfrmEvalManagement As DataGridView
     Friend WithEvents txtRecordsCount As TextBox
-    Friend WithEvents lblEndDate As Label
-    Friend WithEvents dtpEnd As DateTimePicker
     Friend WithEvents Ultra_DataDataSet As Ultra_DataDataSet
     Friend WithEvents QryTblEvaluationsBindingSource As BindingSource
     Friend WithEvents QryTblEvaluationsTableAdapter As Ultra_DataDataSetTableAdapters.qryTblEvaluationsTableAdapter

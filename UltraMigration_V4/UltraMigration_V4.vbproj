@@ -120,7 +120,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClsQryRunner.vb">
+    <Compile Include="modUltraUtilities.vb" />
+    <Compile Include="qryRunner.vb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="frmAddDogs.Designer.vb">
@@ -138,14 +139,26 @@
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="frmNewEval.Designer.vb">
-      <DependentUpon>frmNewEval.vb</DependentUpon>
+    <Compile Include="frmEvaluation.Designer.vb">
+      <DependentUpon>frmEvaluation.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmNewEval.vb">
+    <Compile Include="frmEvaluation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEvaluationSubstanceByArea.Designer.vb">
+      <DependentUpon>frmEvaluationSubstanceByArea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEvaluationSubstanceByArea.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEvaluationSummaryRpt.Designer.vb">
+      <DependentUpon>frmEvaluationSummaryRpt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEvaluationSummaryRpt.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="modAddDogs.vb" />
-    <Compile Include="modAddNewEval.vb" />
+    <Compile Include="modEvaluation.vb" />
     <Compile Include="modEvalManagement.vb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
@@ -181,8 +194,8 @@
       <DependentUpon>frmEvalManagement.vb</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNewEval.resx">
-      <DependentUpon>frmNewEval.vb</DependentUpon>
+    <EmbeddedResource Include="frmEvaluation.resx">
+      <DependentUpon>frmEvaluation.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -192,6 +205,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

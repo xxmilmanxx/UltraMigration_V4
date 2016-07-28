@@ -37,12 +37,62 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.qryEvaluationDogIndexDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.Person_BusinessEntityDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.trefDogBehaviorChecklistCodeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.trefDogBehaviorChecklistSubCodeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.tblReadyDogsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:UltraMigration_V4.Ultra_DataDataSet.qryTblEvaluationsRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:UltraMigration_V4.Ultra_DataDataSet.tblAddDogListRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.qryEvaluationDogIndexRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.Person_BusinessEntityRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.trefDogBehaviorChecklistCodeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.trefDogBehaviorChecklistSubCodeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.tblReadyDogsRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -57,12 +107,57 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.qryEvaluationDogIndexRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.Person_BusinessEntityRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.trefDogBehaviorChecklistCodeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.trefDogBehaviorChecklistSubCodeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSet.tblReadyDogsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:UltraMigration_V4.Ultra_DataDataSetTableAdapters.qryTblEvaluationsTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
 <member name="T:UltraMigration_V4.Ultra_DataDataSetTableAdapters.tblAddDogListTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSetTableAdapters.qryEvaluationDogIndexTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSetTableAdapters.Person_BusinessEntityTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSetTableAdapters.trefDogBehaviorChecklistCodeTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:UltraMigration_V4.Ultra_DataDataSetTableAdapters.trefDogBehaviorChecklistSubCodeTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

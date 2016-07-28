@@ -1,4 +1,4 @@
-﻿Public Class ClsQryRunner
+﻿Public Class qryRunner
     'Connection to database
     Private connection As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; " & "Data Source=ULTRA_Data.accdb;")
     Private DBCmd As OleDbCommand
