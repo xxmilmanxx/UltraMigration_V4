@@ -1,6 +1,7 @@
 ﻿Public Class frmAddDogs
 
     Public ClsQry As New qryRunner
+
     ' Dim sel As Object
 
     Public Function NotEmpty(text As String) As Boolean
@@ -8,22 +9,29 @@
     End Function
     Private Sub frmAddDogs_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
-        LoadDogs()
-        'LoadAdded()
+        Me.TblAddDogListTableAdapter.Fill(Me.Ultra_DataDataSet.tblAddDogList)
+
+        ' LoadDogs()
+        'LoadReadyDogs()
         LoadDogCombobox()
         UpdateDogCount()
+
 
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancelDogs.Click
 
-        If MessageBox.Show("WAIT A SECOND! Are you sure you want to cancel? This cannot be undone.", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
+        Try
+            If MessageBox.Show("WAIT A SECOND! Are you sure you want to cancel? This cannot be undone.", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
 
-            Me.Close()
-            frmEvaluation.Show()
+                Me.Close()
+                frmEvaluation.Show()
 
-        End If
-
+            End If
+            ' Report errors
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Private Sub cmbxTeam_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmboTeam.SelectionChangeCommitted
@@ -61,30 +69,33 @@
 
     End Sub
 
-    Private Sub DGVSelectDogs_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVSelectDogs.CellDoubleClick
-        Try
-            '  Dim sel As Object = 0
-            'Exclude Row selectors and column headers
+    Private Sub DGVSelectDogs_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DGVSelectDogs.CellMouseDoubleClick
 
+        Try
             If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
                 Dim selectedRow = DGVSelectDogs.Rows(e.RowIndex)
             End If
-
-
-
-            For Each sel As DataGridViewRow In DGVSelectDogs.Rows
-                If CBool(sel.Cells(0).Value) = True Then
-                    sel.Cells(0).Value = False
-                End If
-                If CBool(sel.Cells(0).Value) = True Then
-                    sel.Cells(0).Value = False
-                End If
-            Next
-
-
+            ' Report errors
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 
+    Private Sub DGVSelectDogs_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVSelectDogs.CellDoubleClick
+
+        Try
+
+            Dim cellChecked As DataGridViewCheckBoxCell = CType(DGVSelectDogs.Rows(e.RowIndex).Cells(0), DataGridViewCheckBoxCell)
+
+            If cellChecked.Value = True Then
+                cellChecked.Value = False
+            Else
+                cellChecked.Value = True
+            End If
+
+            ' Report errors
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
         End Try
     End Sub
 End Class

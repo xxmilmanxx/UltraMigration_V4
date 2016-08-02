@@ -2,7 +2,6 @@
 
     Public ClsQry As New qryRunner
 
-
     Public Function NotEmpty(text As String) As Boolean
         Return Not String.IsNullOrEmpty(text)
     End Function
@@ -10,13 +9,13 @@
     Public Sub LoadDogs()
 
         Try
-            ClsQry.ExeQuery("SELECT DISTINCT HumanResources_TrainingTeam.TeamName AS Team, tblDog.dog_CallName AS Dog, tblDog.dog_Tattoo AS Tattoo
-                             FROM   ((tblDog INNER JOIN
-             ((HumanResources_TrainingTeam RIGHT OUTER JOIN
-             (trefDogEvaluationStatusCode RIGHT OUTER JOIN
-             tblDogClassAssignment ON trefDogEvaluationStatusCode.esc_EvaluationStatusCode = tblDogClassAssignment.QualificationStatusId) ON HumanResources_TrainingTeam.TrainingTeamId = tblDogClassAssignment.TeamId) INNER JOIN
-             tblDogTrngBlock ON tblDogClassAssignment.DogClassAssignmentId = tblDogTrngBlock.DogClassEnrollmentId) ON tblDog.dog_DogID = tblDogClassAssignment.DogId) LEFT OUTER JOIN
-             tblDogEvaluations ON tblDogTrngBlock.BlockId = tblDogEvaluations.DogBlockId)
+            ClsQry.ExeQuery("SELECT DISTINCT False AS Selected, HumanResources_TrainingTeam.TeamName AS Team, tblDog.dog_CallName AS Dog, tblDog.dog_Tattoo AS Tattoo
+                            FROM    ((tblDog INNER JOIN
+                                    ((HumanResources_TrainingTeam RIGHT OUTER JOIN
+                                    (trefDogEvaluationStatusCode RIGHT OUTER JOIN
+                                    tblDogClassAssignment ON trefDogEvaluationStatusCode.esc_EvaluationStatusCode = tblDogClassAssignment.QualificationStatusId) ON HumanResources_TrainingTeam.TrainingTeamId = tblDogClassAssignment.TeamId) INNER JOIN
+                                    tblDogTrngBlock ON tblDogClassAssignment.DogClassAssignmentId = tblDogTrngBlock.DogClassEnrollmentId) ON tblDog.dog_DogID = tblDogClassAssignment.DogId) LEFT OUTER JOIN
+                                    tblDogEvaluations ON tblDogTrngBlock.BlockId = tblDogEvaluations.DogBlockId)
                             WHERE (tblDogTrngBlock.BlockOfInstruction <> 1) AND (tblDogTrngBlock.Status = 1) AND (tblDogTrngBlock.StartDate IS NOT NULL) AND (tblDogClassAssignment.DateCompleted IS NULL)
                             ORDER BY HumanResources_TrainingTeam.TeamName")
             ' Check for errors before continuung
@@ -30,21 +29,11 @@
         End Try
     End Sub
 
-    Public Sub LoadAdded()
+    Public Sub LoadReadyDogs()
 
-        Try
-            ClsQry.ExeQuery("SELECT * FROM [tblReadyDogs]")
-
-            ' Check for errors before continuung
-            If Not String.IsNullOrEmpty(ClsQry.Exception) Then MsgBox(ClsQry.Exception) : Exit Sub
-
-            frmAddDogs.DGVReadyDogs.DataSource = ClsQry.DBDT.DefaultView
-            ' Report errors
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
 
     End Sub
+
     Public Sub LoadDogCombobox()
 
         ' Clears the Team combobox before running command
@@ -160,6 +149,7 @@ WHERE(tblDogTrngBlock.BlockOfInstruction <> 1) And (tblDogTrngBlock.Status = 1) 
 
         End Try
     End Sub
+
     Public Sub SubmitSelectedDogs()
         Try
             Dim e As DataGridViewCellEventArgs = New DataGridViewCellEventArgs(0, -1)
@@ -219,6 +209,7 @@ WHERE(tblDogTrngBlock.BlockOfInstruction <> 1) And (tblDogTrngBlock.Status = 1) 
             Dim dogRowCount As String = frmAddDogs.DGVSelectDogs.Rows.Count
             ' Show the number of dogs currently in data grid
             frmAddDogs.txtDogCount.Text = dogRowCount & " DOGS SHOWING"
+
             ' Update the current Table in the frmEvalManagement Form
             Dim addCount As String = frmAddDogs.DGVReadyDogs.Rows.Count
             ' Show the number of dogs currently in data grid

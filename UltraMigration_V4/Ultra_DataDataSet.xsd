@@ -37,10 +37,10 @@ ORDER BY tblEvaluations.evl_DateStart DESC</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblAddDogListTableAdapter" GeneratorDataComponentClassName="tblAddDogListTableAdapter" Name="tblAddDogList" UserDataComponentName="tblAddDogListTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="UltraDataConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="UltraDataConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT DISTINCT HumanResources_TrainingTeam.TeamName AS Team, tblDog.dog_CallName AS Dog, tblDog.dog_Tattoo AS Tattoo
+                    <CommandText>SELECT DISTINCT False AS Selected, HumanResources_TrainingTeam.TeamName AS Team, tblDog.dog_CallName AS Dog, tblDog.dog_Tattoo AS Tattoo
 FROM   ((tblDog INNER JOIN
              ((HumanResources_TrainingTeam RIGHT OUTER JOIN
              (trefDogEvaluationStatusCode RIGHT OUTER JOIN
@@ -58,12 +58,13 @@ ORDER BY HumanResources_TrainingTeam.TeamName</CommandText>
               <Mapping SourceColumn="Team" DataSetColumn="Team" />
               <Mapping SourceColumn="Dog" DataSetColumn="Dog" />
               <Mapping SourceColumn="Tattoo" DataSetColumn="Tattoo" />
+              <Mapping SourceColumn="Selected" DataSetColumn="Selected" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="UltraDataConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT DISTINCT HumanResources_TrainingTeam.TeamName AS Team, tblDog.dog_CallName AS Dog, tblDog.dog_Tattoo AS Tattoo
+                    <CommandText>SELECT DISTINCT False AS Selected, HumanResources_TrainingTeam.TeamName AS Team, tblDog.dog_CallName AS Dog, tblDog.dog_Tattoo AS Tattoo
 FROM   ((tblDog INNER JOIN
              ((HumanResources_TrainingTeam RIGHT OUTER JOIN
              (trefDogEvaluationStatusCode RIGHT OUTER JOIN
@@ -77,22 +78,6 @@ ORDER BY HumanResources_TrainingTeam.TeamName</CommandText>
                 </SelectCommand>
               </DbSource>
             </Sources>
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="qryEvaluationDogIndexTableAdapter" GeneratorDataComponentClassName="qryEvaluationDogIndexTableAdapter" Name="qryEvaluationDogIndex" UserDataComponentName="qryEvaluationDogIndexTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="UltraDataConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT tblDogEvaluations.dev_EvaluationID, tblDogEvaluations.dev_DogEvaluationID, tblDog.dog_DogID, [dog_CallName] &amp; " / " &amp; IIf(Not IsNull([dog_tattoo]),[dog_Tattoo],[dog_ControlNumber]) AS NameTattoo, HumanResources_TrainingTeam.TeamName, Person_Person.LastName, tblDogEvaluations.dev_DaysTrained, trefDogEvaluationStatusCode.esc_EvaluationStatusText, tblDogEvaluations.dev_Notes, IIf(IsNull([dev_PassFailElimReshoot]) Or [dev_PassFailElimReshoot]=0,"In Progress","Complete") AS Status, IIf([Status]="Complete",Null,"Remove") AS Complete, IIf([Status]="Complete","Test Results","Test Results") AS TestResult
-FROM (tblDog INNER JOIN (((trefDogEvaluationStatusCode RIGHT JOIN tblDogClassAssignment ON trefDogEvaluationStatusCode.esc_EvaluationStatusCode = tblDogClassAssignment.QualificationStatusId) LEFT JOIN HumanResources_TrainingTeam ON tblDogClassAssignment.TeamId = HumanResources_TrainingTeam.TrainingTeamId) INNER JOIN tblDogTrngBlock ON tblDogClassAssignment.DogClassAssignmentId = tblDogTrngBlock.DogClassEnrollmentId) ON tblDog.dog_DogID = tblDogClassAssignment.DogId) INNER JOIN (tblDogEvaluations LEFT JOIN Person_Person ON tblDogEvaluations.dev_TrainerID = Person_Person.BusinessEntityId) ON tblDogTrngBlock.BlockId = tblDogEvaluations.DogBlockId
-</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings />
-            <Sources />
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Person_BusinessEntityTableAdapter" GeneratorDataComponentClassName="Person_BusinessEntityTableAdapter" Name="Person_BusinessEntity" UserDataComponentName="Person_BusinessEntityTableAdapter">
             <MainSource>
@@ -271,33 +256,29 @@ WHERE (bcs_BehaviorChecklistCode = 2)</CommandText>
         <xs:element name="tblAddDogList" msprop:Generator_TableClassName="tblAddDogListDataTable" msprop:Generator_TableVarName="tabletblAddDogList" msprop:Generator_TablePropName="tblAddDogList" msprop:Generator_RowDeletingName="tblAddDogListRowDeleting" msprop:Generator_RowChangingName="tblAddDogListRowChanging" msprop:Generator_RowEvHandlerName="tblAddDogListRowChangeEventHandler" msprop:Generator_RowDeletedName="tblAddDogListRowDeleted" msprop:Generator_UserTableName="tblAddDogList" msprop:Generator_RowChangedName="tblAddDogListRowChanged" msprop:Generator_RowEvArgName="tblAddDogListRowChangeEvent" msprop:Generator_RowClassName="tblAddDogListRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Team" msprop:Generator_ColumnVarNameInTable="columnTeam" msprop:Generator_ColumnPropNameInRow="Team" msprop:Generator_ColumnPropNameInTable="TeamColumn" msprop:Generator_UserColumnName="Team" minOccurs="0">
+              <xs:element name="Team" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTeam" msprop:Generator_ColumnPropNameInRow="Team" msprop:Generator_ColumnPropNameInTable="TeamColumn" msprop:Generator_UserColumnName="Team" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Dog" msprop:Generator_ColumnVarNameInTable="columnDog" msprop:Generator_ColumnPropNameInRow="Dog" msprop:Generator_ColumnPropNameInTable="DogColumn" msprop:Generator_UserColumnName="Dog" minOccurs="0">
+              <xs:element name="Dog" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDog" msprop:Generator_ColumnPropNameInRow="Dog" msprop:Generator_ColumnPropNameInTable="DogColumn" msprop:Generator_UserColumnName="Dog" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Tattoo" msprop:Generator_ColumnVarNameInTable="columnTattoo" msprop:Generator_ColumnPropNameInRow="Tattoo" msprop:Generator_ColumnPropNameInTable="TattooColumn" msprop:Generator_UserColumnName="Tattoo" minOccurs="0">
+              <xs:element name="Tattoo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTattoo" msprop:Generator_ColumnPropNameInRow="Tattoo" msprop:Generator_ColumnPropNameInTable="TattooColumn" msprop:Generator_UserColumnName="Tattoo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Selected" msprop:Generator_ColumnVarNameInTable="columnSelected" msprop:Generator_ColumnPropNameInRow="Selected" msprop:Generator_ColumnPropNameInTable="SelectedColumn" msprop:Generator_UserColumnName="Selected" type="xs:string" minOccurs="0" />
+              <xs:element name="Selected" msprop:Generator_ColumnVarNameInTable="columnSelected" msprop:Generator_ColumnPropNameInRow="Selected" msprop:Generator_ColumnPropNameInTable="SelectedColumn" msprop:Generator_UserColumnName="Selected" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="qryEvaluationDogIndex" msprop:Generator_TableClassName="qryEvaluationDogIndexDataTable" msprop:Generator_TableVarName="tableqryEvaluationDogIndex" msprop:Generator_RowChangedName="qryEvaluationDogIndexRowChanged" msprop:Generator_TablePropName="qryEvaluationDogIndex" msprop:Generator_RowDeletingName="qryEvaluationDogIndexRowDeleting" msprop:Generator_RowChangingName="qryEvaluationDogIndexRowChanging" msprop:Generator_RowEvHandlerName="qryEvaluationDogIndexRowChangeEventHandler" msprop:Generator_RowDeletedName="qryEvaluationDogIndexRowDeleted" msprop:Generator_RowClassName="qryEvaluationDogIndexRow" msprop:Generator_UserTableName="qryEvaluationDogIndex" msprop:Generator_RowEvArgName="qryEvaluationDogIndexRowChangeEvent">
-          <xs:complexType>
           </xs:complexType>
         </xs:element>
         <xs:element name="Person_BusinessEntity" msprop:Generator_TableClassName="Person_BusinessEntityDataTable" msprop:Generator_TableVarName="tablePerson_BusinessEntity" msprop:Generator_RowChangedName="Person_BusinessEntityRowChanged" msprop:Generator_TablePropName="Person_BusinessEntity" msprop:Generator_RowDeletingName="Person_BusinessEntityRowDeleting" msprop:Generator_RowChangingName="Person_BusinessEntityRowChanging" msprop:Generator_RowEvHandlerName="Person_BusinessEntityRowChangeEventHandler" msprop:Generator_RowDeletedName="Person_BusinessEntityRowDeleted" msprop:Generator_RowClassName="Person_BusinessEntityRow" msprop:Generator_UserTableName="Person_BusinessEntity" msprop:Generator_RowEvArgName="Person_BusinessEntityRowChangeEvent">
@@ -344,16 +325,6 @@ WHERE (bcs_BehaviorChecklistCode = 2)</CommandText>
               </xs:element>
               <xs:element name="bcs_BehaviorChecklistCode" msprop:Generator_ColumnVarNameInTable="columnbcs_BehaviorChecklistCode" msprop:Generator_ColumnPropNameInRow="bcs_BehaviorChecklistCode" msprop:Generator_ColumnPropNameInTable="bcs_BehaviorChecklistCodeColumn" msprop:Generator_UserColumnName="bcs_BehaviorChecklistCode" type="xs:int" minOccurs="0" />
               <xs:element name="bcs_EvalSuccessCode" msprop:Generator_ColumnVarNameInTable="columnbcs_EvalSuccessCode" msprop:Generator_ColumnPropNameInRow="bcs_EvalSuccessCode" msprop:Generator_ColumnPropNameInTable="bcs_EvalSuccessCodeColumn" msprop:Generator_UserColumnName="bcs_EvalSuccessCode" type="xs:int" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="tblReadyDogs" msprop:Generator_TableClassName="tblReadyDogsDataTable" msprop:Generator_TableVarName="tabletblReadyDogs" msprop:Generator_TablePropName="tblReadyDogs" msprop:Generator_RowDeletingName="tblReadyDogsRowDeleting" msprop:Generator_RowChangingName="tblReadyDogsRowChanging" msprop:Generator_RowEvHandlerName="tblReadyDogsRowChangeEventHandler" msprop:Generator_RowDeletedName="tblReadyDogsRowDeleted" msprop:Generator_UserTableName="tblReadyDogs" msprop:Generator_RowChangedName="tblReadyDogsRowChanged" msprop:Generator_RowEvArgName="tblReadyDogsRowChangeEvent" msprop:Generator_RowClassName="tblReadyDogsRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Added" msprop:Generator_ColumnVarNameInTable="columnAdded" msprop:Generator_ColumnPropNameInRow="Added" msprop:Generator_ColumnPropNameInTable="AddedColumn" msprop:Generator_UserColumnName="Added" type="xs:string" minOccurs="0" />
-              <xs:element name="AddedTeam" msprop:Generator_ColumnVarNameInTable="columnAddedTeam" msprop:Generator_ColumnPropNameInRow="AddedTeam" msprop:Generator_ColumnPropNameInTable="AddedTeamColumn" msprop:Generator_UserColumnName="AddedTeam" type="xs:string" minOccurs="0" />
-              <xs:element name="AddedDog" msprop:Generator_ColumnVarNameInTable="columnAddedDog" msprop:Generator_ColumnPropNameInRow="AddedDog" msprop:Generator_ColumnPropNameInTable="AddedDogColumn" msprop:Generator_UserColumnName="AddedDog" type="xs:string" minOccurs="0" />
-              <xs:element name="AddedTattoo" msprop:Generator_ColumnVarNameInTable="columnAddedTattoo" msprop:Generator_ColumnPropNameInRow="AddedTattoo" msprop:Generator_ColumnPropNameInTable="AddedTattooColumn" msprop:Generator_UserColumnName="AddedTattoo" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

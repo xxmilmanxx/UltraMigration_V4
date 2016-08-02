@@ -29,15 +29,11 @@ Partial Public Class Ultra_DataDataSet
     
     Private tabletblAddDogList As tblAddDogListDataTable
     
-    Private tableqryEvaluationDogIndex As qryEvaluationDogIndexDataTable
-    
     Private tablePerson_BusinessEntity As Person_BusinessEntityDataTable
     
     Private tabletrefDogBehaviorChecklistCode As trefDogBehaviorChecklistCodeDataTable
     
     Private tabletrefDogBehaviorChecklistSubCode As trefDogBehaviorChecklistSubCodeDataTable
-    
-    Private tabletblReadyDogs As tblReadyDogsDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -74,9 +70,6 @@ Partial Public Class Ultra_DataDataSet
             If (Not (ds.Tables("tblAddDogList")) Is Nothing) Then
                 MyBase.Tables.Add(New tblAddDogListDataTable(ds.Tables("tblAddDogList")))
             End If
-            If (Not (ds.Tables("qryEvaluationDogIndex")) Is Nothing) Then
-                MyBase.Tables.Add(New qryEvaluationDogIndexDataTable(ds.Tables("qryEvaluationDogIndex")))
-            End If
             If (Not (ds.Tables("Person_BusinessEntity")) Is Nothing) Then
                 MyBase.Tables.Add(New Person_BusinessEntityDataTable(ds.Tables("Person_BusinessEntity")))
             End If
@@ -85,9 +78,6 @@ Partial Public Class Ultra_DataDataSet
             End If
             If (Not (ds.Tables("trefDogBehaviorChecklistSubCode")) Is Nothing) Then
                 MyBase.Tables.Add(New trefDogBehaviorChecklistSubCodeDataTable(ds.Tables("trefDogBehaviorChecklistSubCode")))
-            End If
-            If (Not (ds.Tables("tblReadyDogs")) Is Nothing) Then
-                MyBase.Tables.Add(New tblReadyDogsDataTable(ds.Tables("tblReadyDogs")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -130,16 +120,6 @@ Partial Public Class Ultra_DataDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property qryEvaluationDogIndex() As qryEvaluationDogIndexDataTable
-        Get
-            Return Me.tableqryEvaluationDogIndex
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
     Public ReadOnly Property Person_BusinessEntity() As Person_BusinessEntityDataTable
         Get
             Return Me.tablePerson_BusinessEntity
@@ -163,16 +143,6 @@ Partial Public Class Ultra_DataDataSet
     Public ReadOnly Property trefDogBehaviorChecklistSubCode() As trefDogBehaviorChecklistSubCodeDataTable
         Get
             Return Me.tabletrefDogBehaviorChecklistSubCode
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property tblReadyDogs() As tblReadyDogsDataTable
-        Get
-            Return Me.tabletblReadyDogs
         End Get
     End Property
     
@@ -249,9 +219,6 @@ Partial Public Class Ultra_DataDataSet
             If (Not (ds.Tables("tblAddDogList")) Is Nothing) Then
                 MyBase.Tables.Add(New tblAddDogListDataTable(ds.Tables("tblAddDogList")))
             End If
-            If (Not (ds.Tables("qryEvaluationDogIndex")) Is Nothing) Then
-                MyBase.Tables.Add(New qryEvaluationDogIndexDataTable(ds.Tables("qryEvaluationDogIndex")))
-            End If
             If (Not (ds.Tables("Person_BusinessEntity")) Is Nothing) Then
                 MyBase.Tables.Add(New Person_BusinessEntityDataTable(ds.Tables("Person_BusinessEntity")))
             End If
@@ -260,9 +227,6 @@ Partial Public Class Ultra_DataDataSet
             End If
             If (Not (ds.Tables("trefDogBehaviorChecklistSubCode")) Is Nothing) Then
                 MyBase.Tables.Add(New trefDogBehaviorChecklistSubCodeDataTable(ds.Tables("trefDogBehaviorChecklistSubCode")))
-            End If
-            If (Not (ds.Tables("tblReadyDogs")) Is Nothing) Then
-                MyBase.Tables.Add(New tblReadyDogsDataTable(ds.Tables("tblReadyDogs")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -308,12 +272,6 @@ Partial Public Class Ultra_DataDataSet
                 Me.tabletblAddDogList.InitVars
             End If
         End If
-        Me.tableqryEvaluationDogIndex = CType(MyBase.Tables("qryEvaluationDogIndex"),qryEvaluationDogIndexDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableqryEvaluationDogIndex) Is Nothing) Then
-                Me.tableqryEvaluationDogIndex.InitVars
-            End If
-        End If
         Me.tablePerson_BusinessEntity = CType(MyBase.Tables("Person_BusinessEntity"),Person_BusinessEntityDataTable)
         If (initTable = true) Then
             If (Not (Me.tablePerson_BusinessEntity) Is Nothing) Then
@@ -332,12 +290,6 @@ Partial Public Class Ultra_DataDataSet
                 Me.tabletrefDogBehaviorChecklistSubCode.InitVars
             End If
         End If
-        Me.tabletblReadyDogs = CType(MyBase.Tables("tblReadyDogs"),tblReadyDogsDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tabletblReadyDogs) Is Nothing) Then
-                Me.tabletblReadyDogs.InitVars
-            End If
-        End If
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -352,16 +304,12 @@ Partial Public Class Ultra_DataDataSet
         MyBase.Tables.Add(Me.tableqryTblEvaluations)
         Me.tabletblAddDogList = New tblAddDogListDataTable()
         MyBase.Tables.Add(Me.tabletblAddDogList)
-        Me.tableqryEvaluationDogIndex = New qryEvaluationDogIndexDataTable()
-        MyBase.Tables.Add(Me.tableqryEvaluationDogIndex)
         Me.tablePerson_BusinessEntity = New Person_BusinessEntityDataTable()
         MyBase.Tables.Add(Me.tablePerson_BusinessEntity)
         Me.tabletrefDogBehaviorChecklistCode = New trefDogBehaviorChecklistCodeDataTable()
         MyBase.Tables.Add(Me.tabletrefDogBehaviorChecklistCode)
         Me.tabletrefDogBehaviorChecklistSubCode = New trefDogBehaviorChecklistSubCodeDataTable()
         MyBase.Tables.Add(Me.tabletrefDogBehaviorChecklistSubCode)
-        Me.tabletblReadyDogs = New tblReadyDogsDataTable()
-        MyBase.Tables.Add(Me.tabletblReadyDogs)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -373,12 +321,6 @@ Partial Public Class Ultra_DataDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializetblAddDogList() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeqryEvaluationDogIndex() As Boolean
         Return false
     End Function
     
@@ -397,12 +339,6 @@ Partial Public Class Ultra_DataDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializetrefDogBehaviorChecklistSubCode() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializetblReadyDogs() As Boolean
         Return false
     End Function
     
@@ -471,9 +407,6 @@ Partial Public Class Ultra_DataDataSet
     Public Delegate Sub tblAddDogListRowChangeEventHandler(ByVal sender As Object, ByVal e As tblAddDogListRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub qryEvaluationDogIndexRowChangeEventHandler(ByVal sender As Object, ByVal e As qryEvaluationDogIndexRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub Person_BusinessEntityRowChangeEventHandler(ByVal sender As Object, ByVal e As Person_BusinessEntityRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -481,9 +414,6 @@ Partial Public Class Ultra_DataDataSet
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub trefDogBehaviorChecklistSubCodeRowChangeEventHandler(ByVal sender As Object, ByVal e As trefDogBehaviorChecklistSubCodeRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub tblReadyDogsRowChangeEventHandler(ByVal sender As Object, ByVal e As tblReadyDogsRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -942,7 +872,7 @@ Partial Public Class Ultra_DataDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddtblAddDogListRow(ByVal Team As String, ByVal Dog As String, ByVal Tattoo As String, ByVal Selected As String) As tblAddDogListRow
+        Public Overloads Function AddtblAddDogListRow(ByVal Team As String, ByVal Dog As String, ByVal Tattoo As String, ByVal Selected As Boolean) As tblAddDogListRow
             Dim rowtblAddDogListRow As tblAddDogListRow = CType(Me.NewRow,tblAddDogListRow)
             Dim columnValuesArray() As Object = New Object() {Team, Dog, Tattoo, Selected}
             rowtblAddDogListRow.ItemArray = columnValuesArray
@@ -982,10 +912,13 @@ Partial Public Class Ultra_DataDataSet
             MyBase.Columns.Add(Me.columnDog)
             Me.columnTattoo = New Global.System.Data.DataColumn("Tattoo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTattoo)
-            Me.columnSelected = New Global.System.Data.DataColumn("Selected", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnSelected = New Global.System.Data.DataColumn("Selected", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSelected)
+            Me.columnTeam.ReadOnly = true
             Me.columnTeam.MaxLength = 100
+            Me.columnDog.ReadOnly = true
             Me.columnDog.MaxLength = 50
+            Me.columnTattoo.ReadOnly = true
             Me.columnTattoo.MaxLength = 10
         End Sub
         
@@ -1073,245 +1006,6 @@ Partial Public Class Ultra_DataDataSet
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "tblAddDogListDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class qryEvaluationDogIndexDataTable
-        Inherits Global.System.Data.TypedTableBase(Of qryEvaluationDogIndexRow)
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "qryEvaluationDogIndex"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As qryEvaluationDogIndexRow
-            Get
-                Return CType(Me.Rows(index),qryEvaluationDogIndexRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event qryEvaluationDogIndexRowChanging As qryEvaluationDogIndexRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event qryEvaluationDogIndexRowChanged As qryEvaluationDogIndexRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event qryEvaluationDogIndexRowDeleting As qryEvaluationDogIndexRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event qryEvaluationDogIndexRowDeleted As qryEvaluationDogIndexRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddqryEvaluationDogIndexRow(ByVal row As qryEvaluationDogIndexRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddqryEvaluationDogIndexRow() As qryEvaluationDogIndexRow
-            Dim rowqryEvaluationDogIndexRow As qryEvaluationDogIndexRow = CType(Me.NewRow,qryEvaluationDogIndexRow)
-            Dim columnValuesArray(-1) As Object
-            rowqryEvaluationDogIndexRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowqryEvaluationDogIndexRow)
-            Return rowqryEvaluationDogIndexRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As qryEvaluationDogIndexDataTable = CType(MyBase.Clone,qryEvaluationDogIndexDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New qryEvaluationDogIndexDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub InitVars()
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitClass()
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewqryEvaluationDogIndexRow() As qryEvaluationDogIndexRow
-            Return CType(Me.NewRow,qryEvaluationDogIndexRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New qryEvaluationDogIndexRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(qryEvaluationDogIndexRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.qryEvaluationDogIndexRowChangedEvent) Is Nothing) Then
-                RaiseEvent qryEvaluationDogIndexRowChanged(Me, New qryEvaluationDogIndexRowChangeEvent(CType(e.Row,qryEvaluationDogIndexRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.qryEvaluationDogIndexRowChangingEvent) Is Nothing) Then
-                RaiseEvent qryEvaluationDogIndexRowChanging(Me, New qryEvaluationDogIndexRowChangeEvent(CType(e.Row,qryEvaluationDogIndexRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.qryEvaluationDogIndexRowDeletedEvent) Is Nothing) Then
-                RaiseEvent qryEvaluationDogIndexRowDeleted(Me, New qryEvaluationDogIndexRowChangeEvent(CType(e.Row,qryEvaluationDogIndexRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.qryEvaluationDogIndexRowDeletingEvent) Is Nothing) Then
-                RaiseEvent qryEvaluationDogIndexRowDeleting(Me, New qryEvaluationDogIndexRowChangeEvent(CType(e.Row,qryEvaluationDogIndexRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveqryEvaluationDogIndexRow(ByVal row As qryEvaluationDogIndexRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As Ultra_DataDataSet = New Ultra_DataDataSet()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "qryEvaluationDogIndexDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -2249,297 +1943,6 @@ Partial Public Class Ultra_DataDataSet
     End Class
     
     '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class tblReadyDogsDataTable
-        Inherits Global.System.Data.TypedTableBase(Of tblReadyDogsRow)
-        
-        Private columnAdded As Global.System.Data.DataColumn
-        
-        Private columnAddedTeam As Global.System.Data.DataColumn
-        
-        Private columnAddedDog As Global.System.Data.DataColumn
-        
-        Private columnAddedTattoo As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "tblReadyDogs"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property AddedColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAdded
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property AddedTeamColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAddedTeam
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property AddedDogColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAddedDog
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property AddedTattooColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAddedTattoo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As tblReadyDogsRow
-            Get
-                Return CType(Me.Rows(index),tblReadyDogsRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event tblReadyDogsRowChanging As tblReadyDogsRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event tblReadyDogsRowChanged As tblReadyDogsRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event tblReadyDogsRowDeleting As tblReadyDogsRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event tblReadyDogsRowDeleted As tblReadyDogsRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddtblReadyDogsRow(ByVal row As tblReadyDogsRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddtblReadyDogsRow(ByVal Added As String, ByVal AddedTeam As String, ByVal AddedDog As String, ByVal AddedTattoo As String) As tblReadyDogsRow
-            Dim rowtblReadyDogsRow As tblReadyDogsRow = CType(Me.NewRow,tblReadyDogsRow)
-            Dim columnValuesArray() As Object = New Object() {Added, AddedTeam, AddedDog, AddedTattoo}
-            rowtblReadyDogsRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowtblReadyDogsRow)
-            Return rowtblReadyDogsRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As tblReadyDogsDataTable = CType(MyBase.Clone,tblReadyDogsDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New tblReadyDogsDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnAdded = MyBase.Columns("Added")
-            Me.columnAddedTeam = MyBase.Columns("AddedTeam")
-            Me.columnAddedDog = MyBase.Columns("AddedDog")
-            Me.columnAddedTattoo = MyBase.Columns("AddedTattoo")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnAdded = New Global.System.Data.DataColumn("Added", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAdded)
-            Me.columnAddedTeam = New Global.System.Data.DataColumn("AddedTeam", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAddedTeam)
-            Me.columnAddedDog = New Global.System.Data.DataColumn("AddedDog", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAddedDog)
-            Me.columnAddedTattoo = New Global.System.Data.DataColumn("AddedTattoo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAddedTattoo)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewtblReadyDogsRow() As tblReadyDogsRow
-            Return CType(Me.NewRow,tblReadyDogsRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New tblReadyDogsRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(tblReadyDogsRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.tblReadyDogsRowChangedEvent) Is Nothing) Then
-                RaiseEvent tblReadyDogsRowChanged(Me, New tblReadyDogsRowChangeEvent(CType(e.Row,tblReadyDogsRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.tblReadyDogsRowChangingEvent) Is Nothing) Then
-                RaiseEvent tblReadyDogsRowChanging(Me, New tblReadyDogsRowChangeEvent(CType(e.Row,tblReadyDogsRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.tblReadyDogsRowDeletedEvent) Is Nothing) Then
-                RaiseEvent tblReadyDogsRowDeleted(Me, New tblReadyDogsRowChangeEvent(CType(e.Row,tblReadyDogsRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.tblReadyDogsRowDeletingEvent) Is Nothing) Then
-                RaiseEvent tblReadyDogsRowDeleting(Me, New tblReadyDogsRowChangeEvent(CType(e.Row,tblReadyDogsRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemovetblReadyDogsRow(ByVal row As tblReadyDogsRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As Ultra_DataDataSet = New Ultra_DataDataSet()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "tblReadyDogsDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class qryTblEvaluationsRow
@@ -2806,10 +2209,10 @@ Partial Public Class Ultra_DataDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Selected() As String
+        Public Property Selected() As Boolean
             Get
                 Try 
-                    Return CType(Me(Me.tabletblAddDogList.SelectedColumn),String)
+                    Return CType(Me(Me.tabletblAddDogList.SelectedColumn),Boolean)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Selected' in table 'tblAddDogList' is DBNull.", e)
                 End Try
@@ -2865,22 +2268,6 @@ Partial Public Class Ultra_DataDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetSelectedNull()
             Me(Me.tabletblAddDogList.SelectedColumn) = Global.System.Convert.DBNull
-        End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class qryEvaluationDogIndexRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableqryEvaluationDogIndex As qryEvaluationDogIndexDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableqryEvaluationDogIndex = CType(Me.Table,qryEvaluationDogIndexDataTable)
         End Sub
     End Class
     
@@ -3187,130 +2574,6 @@ Partial Public Class Ultra_DataDataSet
     End Class
     
     '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class tblReadyDogsRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tabletblReadyDogs As tblReadyDogsDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tabletblReadyDogs = CType(Me.Table,tblReadyDogsDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Added() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tabletblReadyDogs.AddedColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Added' in table 'tblReadyDogs' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletblReadyDogs.AddedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property AddedTeam() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tabletblReadyDogs.AddedTeamColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'AddedTeam' in table 'tblReadyDogs' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletblReadyDogs.AddedTeamColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property AddedDog() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tabletblReadyDogs.AddedDogColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'AddedDog' in table 'tblReadyDogs' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletblReadyDogs.AddedDogColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property AddedTattoo() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tabletblReadyDogs.AddedTattooColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'AddedTattoo' in table 'tblReadyDogs' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletblReadyDogs.AddedTattooColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsAddedNull() As Boolean
-            Return Me.IsNull(Me.tabletblReadyDogs.AddedColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetAddedNull()
-            Me(Me.tabletblReadyDogs.AddedColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsAddedTeamNull() As Boolean
-            Return Me.IsNull(Me.tabletblReadyDogs.AddedTeamColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetAddedTeamNull()
-            Me(Me.tabletblReadyDogs.AddedTeamColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsAddedDogNull() As Boolean
-            Return Me.IsNull(Me.tabletblReadyDogs.AddedDogColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetAddedDogNull()
-            Me(Me.tabletblReadyDogs.AddedDogColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsAddedTattooNull() As Boolean
-            Return Me.IsNull(Me.tabletblReadyDogs.AddedTattooColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetAddedTattooNull()
-            Me(Me.tabletblReadyDogs.AddedTattooColumn) = Global.System.Convert.DBNull
-        End Sub
-    End Class
-    
-    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -3368,42 +2631,6 @@ Partial Public Class Ultra_DataDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Row() As tblAddDogListRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class qryEvaluationDogIndexRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As qryEvaluationDogIndexRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As qryEvaluationDogIndexRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As qryEvaluationDogIndexRow
             Get
                 Return Me.eventRow
             End Get
@@ -3512,42 +2739,6 @@ Partial Public Class Ultra_DataDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Row() As trefDogBehaviorChecklistSubCodeRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class tblReadyDogsRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As tblReadyDogsRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As tblReadyDogsRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As tblReadyDogsRow
             Get
                 Return Me.eventRow
             End Get
@@ -3885,6 +3076,7 @@ Namespace Ultra_DataDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Team", "Team")
             tableMapping.ColumnMappings.Add("Dog", "Dog")
             tableMapping.ColumnMappings.Add("Tattoo", "Tattoo")
+            tableMapping.ColumnMappings.Add("Selected", "Selected")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -3901,35 +3093,35 @@ Namespace Ultra_DataDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT DISTINCT HumanResources_TrainingTeam.TeamName AS Team, tblDog.dog_CallName"& _ 
-                " AS Dog, tblDog.dog_Tattoo AS Tattoo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM   ((tblDog INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             ("& _ 
-                "(HumanResources_TrainingTeam RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             (trefDogEvaluationSt"& _ 
-                "atusCode RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogClassAssignment ON trefDogEvaluati"& _ 
-                "onStatusCode.esc_EvaluationStatusCode = tblDogClassAssignment.QualificationStatu"& _ 
-                "sId) ON HumanResources_TrainingTeam.TrainingTeamId = tblDogClassAssignment.TeamI"& _ 
-                "d) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogTrngBlock ON tblDogClassAssignment.DogClassAss"& _ 
-                "ignmentId = tblDogTrngBlock.DogClassEnrollmentId) ON tblDog.dog_DogID = tblDogCl"& _ 
-                "assAssignment.DogId) LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogEvaluations ON tblDogTr"& _ 
-                "ngBlock.BlockId = tblDogEvaluations.DogBlockId)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (tblDogTrngBlock.BlockOfI"& _ 
-                "nstruction <> 1) AND (tblDogTrngBlock.Status = 1) AND (tblDogTrngBlock.StartDate"& _ 
-                " IS NOT NULL) AND (tblDogClassAssignment.DateCompleted IS NULL)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY HumanR"& _ 
-                "esources_TrainingTeam.TeamName"
+            Me._commandCollection(0).CommandText = "SELECT DISTINCT False AS Selected, HumanResources_TrainingTeam.TeamName AS Team, "& _ 
+                "tblDog.dog_CallName AS Dog, tblDog.dog_Tattoo AS Tattoo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM   ((tblDog INNER J"& _ 
+                "OIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             ((HumanResources_TrainingTeam RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             ("& _ 
+                "trefDogEvaluationStatusCode RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogClassAssignment"& _ 
+                " ON trefDogEvaluationStatusCode.esc_EvaluationStatusCode = tblDogClassAssignment"& _ 
+                ".QualificationStatusId) ON HumanResources_TrainingTeam.TrainingTeamId = tblDogCl"& _ 
+                "assAssignment.TeamId) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogTrngBlock ON tblDogClassAss"& _ 
+                "ignment.DogClassAssignmentId = tblDogTrngBlock.DogClassEnrollmentId) ON tblDog.d"& _ 
+                "og_DogID = tblDogClassAssignment.DogId) LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogEval"& _ 
+                "uations ON tblDogTrngBlock.BlockId = tblDogEvaluations.DogBlockId)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (tblDo"& _ 
+                "gTrngBlock.BlockOfInstruction <> 1) AND (tblDogTrngBlock.Status = 1) AND (tblDog"& _ 
+                "TrngBlock.StartDate IS NOT NULL) AND (tblDogClassAssignment.DateCompleted IS NUL"& _ 
+                "L)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY HumanResources_TrainingTeam.TeamName"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT DISTINCT HumanResources_TrainingTeam.TeamName AS Team, tblDog.dog_CallName"& _ 
-                " AS Dog, tblDog.dog_Tattoo AS Tattoo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM   ((tblDog INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             ("& _ 
-                "(HumanResources_TrainingTeam RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             (trefDogEvaluationSt"& _ 
-                "atusCode RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogClassAssignment ON trefDogEvaluati"& _ 
-                "onStatusCode.esc_EvaluationStatusCode = tblDogClassAssignment.QualificationStatu"& _ 
-                "sId) ON HumanResources_TrainingTeam.TrainingTeamId = tblDogClassAssignment.TeamI"& _ 
-                "d) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogTrngBlock ON tblDogClassAssignment.DogClassAss"& _ 
-                "ignmentId = tblDogTrngBlock.DogClassEnrollmentId) ON tblDog.dog_DogID = tblDogCl"& _ 
-                "assAssignment.DogId) LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogEvaluations ON tblDogTr"& _ 
-                "ngBlock.BlockId = tblDogEvaluations.DogBlockId)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (tblDogTrngBlock.BlockOfI"& _ 
-                "nstruction <> 1) AND (tblDogTrngBlock.Status = 1) AND (tblDogTrngBlock.StartDate"& _ 
-                " IS NOT NULL) AND (tblDogClassAssignment.DateCompleted IS NULL)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY HumanR"& _ 
-                "esources_TrainingTeam.TeamName"
+            Me._commandCollection(1).CommandText = "SELECT DISTINCT False AS Selected, HumanResources_TrainingTeam.TeamName AS Team, "& _ 
+                "tblDog.dog_CallName AS Dog, tblDog.dog_Tattoo AS Tattoo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM   ((tblDog INNER J"& _ 
+                "OIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             ((HumanResources_TrainingTeam RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             ("& _ 
+                "trefDogEvaluationStatusCode RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogClassAssignment"& _ 
+                " ON trefDogEvaluationStatusCode.esc_EvaluationStatusCode = tblDogClassAssignment"& _ 
+                ".QualificationStatusId) ON HumanResources_TrainingTeam.TrainingTeamId = tblDogCl"& _ 
+                "assAssignment.TeamId) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogTrngBlock ON tblDogClassAss"& _ 
+                "ignment.DogClassAssignmentId = tblDogTrngBlock.DogClassEnrollmentId) ON tblDog.d"& _ 
+                "og_DogID = tblDogClassAssignment.DogId) LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogEval"& _ 
+                "uations ON tblDogTrngBlock.BlockId = tblDogEvaluations.DogBlockId)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (tblDo"& _ 
+                "gTrngBlock.BlockOfInstruction <> 1) AND (tblDogTrngBlock.Status = 1) AND (tblDog"& _ 
+                "TrngBlock.StartDate IS NOT NULL) AND (tblDogClassAssignment.DateCompleted IS NUL"& _ 
+                "L)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY HumanResources_TrainingTeam.TeamName"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -3968,189 +3160,6 @@ Namespace Ultra_DataDataSetTableAdapters
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class qryEvaluationDogIndexTableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
-        
-        Private _connection As Global.System.Data.OleDb.OleDbConnection
-        
-        Private _transaction As Global.System.Data.OleDb.OleDbTransaction
-        
-        Private _commandCollection() As Global.System.Data.OleDb.OleDbCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.OleDb.OleDbDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Property Connection() As Global.System.Data.OleDb.OleDbConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.OleDb.OleDbCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Property Transaction() As Global.System.Data.OleDb.OleDbTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.OleDb.OleDbCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter()
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.UltraMigration_V4.My.MySettings.Default.UltraDataConnectionString
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT tblDogEvaluations.dev_EvaluationID, tblDogEvaluations.dev_DogEvaluationID,"& _ 
-                " tblDog.dog_DogID, [dog_CallName] & "" / "" & IIf(Not IsNull([dog_tattoo]),[dog_Ta"& _ 
-                "ttoo],[dog_ControlNumber]) AS NameTattoo, HumanResources_TrainingTeam.TeamName, "& _ 
-                "Person_Person.LastName, tblDogEvaluations.dev_DaysTrained, trefDogEvaluationStat"& _ 
-                "usCode.esc_EvaluationStatusText, tblDogEvaluations.dev_Notes, IIf(IsNull([dev_Pa"& _ 
-                "ssFailElimReshoot]) Or [dev_PassFailElimReshoot]=0,""In Progress"",""Complete"") AS "& _ 
-                "Status, IIf([Status]=""Complete"",Null,""Remove"") AS Complete, IIf([Status]=""Comple"& _ 
-                "te"",""Test Results"",""Test Results"") AS TestResult"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM (tblDog INNER JOIN (((tre"& _ 
-                "fDogEvaluationStatusCode RIGHT JOIN tblDogClassAssignment ON trefDogEvaluationSt"& _ 
-                "atusCode.esc_EvaluationStatusCode = tblDogClassAssignment.QualificationStatusId)"& _ 
-                " LEFT JOIN HumanResources_TrainingTeam ON tblDogClassAssignment.TeamId = HumanRe"& _ 
-                "sources_TrainingTeam.TrainingTeamId) INNER JOIN tblDogTrngBlock ON tblDogClassAs"& _ 
-                "signment.DogClassAssignmentId = tblDogTrngBlock.DogClassEnrollmentId) ON tblDog."& _ 
-                "dog_DogID = tblDogClassAssignment.DogId) INNER JOIN (tblDogEvaluations LEFT JOIN"& _ 
-                " Person_Person ON tblDogEvaluations.dev_TrainerID = Person_Person.BusinessEntity"& _ 
-                "Id) ON tblDogTrngBlock.BlockId = tblDogEvaluations.DogBlockId"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As Ultra_DataDataSet.qryEvaluationDogIndexDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As Ultra_DataDataSet.qryEvaluationDogIndexDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As Ultra_DataDataSet.qryEvaluationDogIndexDataTable = New Ultra_DataDataSet.qryEvaluationDogIndexDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
         End Function
     End Class
     

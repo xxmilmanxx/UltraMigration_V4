@@ -33,33 +33,27 @@ Partial Class frmAddDogs
         Me.lblByTattoo = New System.Windows.Forms.Label()
         Me.lblByTeam = New System.Windows.Forms.Label()
         Me.lblAddDogs = New System.Windows.Forms.Label()
-        Me.DGVSelectDogs = New System.Windows.Forms.DataGridView()
-        Me.TblAddDogListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Ultra_DataDataSet = New UltraMigration_V4.Ultra_DataDataSet()
         Me.btnSubmitDogs = New System.Windows.Forms.Button()
         Me.btnCancelDogs = New System.Windows.Forms.Button()
         Me.txtDogCount = New System.Windows.Forms.TextBox()
         Me.lblAddeddogs = New System.Windows.Forms.Label()
-        Me.DGVReadyDogs = New System.Windows.Forms.DataGridView()
-        Me.AddedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.AddedTeamDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AddedDogDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AddedTattooDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TblReadyDogsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.btnReset = New System.Windows.Forms.Button()
         Me.btnAddSelected = New System.Windows.Forms.Button()
-        Me.TblAddDogListTableAdapter = New UltraMigration_V4.Ultra_DataDataSetTableAdapters.tblAddDogListTableAdapter()
         Me.txtSelectCount = New System.Windows.Forms.TextBox()
+        Me.DGVReadyDogs = New System.Windows.Forms.DataGridView()
+        Me.DGVSelectDogs = New System.Windows.Forms.DataGridView()
         Me.SelectedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.TeamDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DogDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TattooDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TblAddDogListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Ultra_DataDataSet = New UltraMigration_V4.Ultra_DataDataSet()
+        Me.TblAddDogListTableAdapter = New UltraMigration_V4.Ultra_DataDataSetTableAdapters.tblAddDogListTableAdapter()
         Me.gpbxFilterDogs.SuspendLayout()
+        CType(Me.DGVReadyDogs, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGVSelectDogs, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblAddDogListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Ultra_DataDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DGVReadyDogs, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblReadyDogsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblSelectDogs
@@ -164,33 +158,6 @@ Partial Class frmAddDogs
         Me.lblAddDogs.TabIndex = 3
         Me.lblAddDogs.Text = "Add Dogs To Evaluation"
         '
-        'DGVSelectDogs
-        '
-        Me.DGVSelectDogs.AllowUserToAddRows = False
-        Me.DGVSelectDogs.AllowUserToDeleteRows = False
-        Me.DGVSelectDogs.AllowUserToResizeRows = False
-        Me.DGVSelectDogs.AutoGenerateColumns = False
-        Me.DGVSelectDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVSelectDogs.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SelectedDataGridViewTextBoxColumn, Me.TeamDataGridViewTextBoxColumn, Me.DogDataGridViewTextBoxColumn, Me.TattooDataGridViewTextBoxColumn})
-        Me.DGVSelectDogs.DataSource = Me.TblAddDogListBindingSource
-        Me.DGVSelectDogs.Location = New System.Drawing.Point(190, 317)
-        Me.DGVSelectDogs.Name = "DGVSelectDogs"
-        Me.DGVSelectDogs.RowHeadersVisible = False
-        Me.DGVSelectDogs.RowTemplate.Height = 28
-        Me.DGVSelectDogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGVSelectDogs.Size = New System.Drawing.Size(656, 409)
-        Me.DGVSelectDogs.TabIndex = 4
-        '
-        'TblAddDogListBindingSource
-        '
-        Me.TblAddDogListBindingSource.DataMember = "tblAddDogList"
-        Me.TblAddDogListBindingSource.DataSource = Me.Ultra_DataDataSet
-        '
-        'Ultra_DataDataSet
-        '
-        Me.Ultra_DataDataSet.DataSetName = "Ultra_DataDataSet"
-        Me.Ultra_DataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'btnSubmitDogs
         '
         Me.btnSubmitDogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -233,56 +200,6 @@ Partial Class frmAddDogs
         Me.lblAddeddogs.Text = "Added Dogs:"
         Me.lblAddeddogs.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'DGVReadyDogs
-        '
-        Me.DGVReadyDogs.AllowUserToAddRows = False
-        Me.DGVReadyDogs.AllowUserToDeleteRows = False
-        Me.DGVReadyDogs.AutoGenerateColumns = False
-        Me.DGVReadyDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVReadyDogs.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AddedDataGridViewTextBoxColumn, Me.AddedTeamDataGridViewTextBoxColumn, Me.AddedDogDataGridViewTextBoxColumn, Me.AddedTattooDataGridViewTextBoxColumn})
-        Me.DGVReadyDogs.DataSource = Me.TblReadyDogsBindingSource
-        Me.DGVReadyDogs.Location = New System.Drawing.Point(1047, 317)
-        Me.DGVReadyDogs.Name = "DGVReadyDogs"
-        Me.DGVReadyDogs.RowHeadersVisible = False
-        Me.DGVReadyDogs.RowTemplate.Height = 28
-        Me.DGVReadyDogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGVReadyDogs.Size = New System.Drawing.Size(656, 409)
-        Me.DGVReadyDogs.TabIndex = 11
-        '
-        'AddedDataGridViewTextBoxColumn
-        '
-        Me.AddedDataGridViewTextBoxColumn.DataPropertyName = "Added"
-        Me.AddedDataGridViewTextBoxColumn.HeaderText = "Added"
-        Me.AddedDataGridViewTextBoxColumn.Name = "AddedDataGridViewTextBoxColumn"
-        Me.AddedDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.AddedDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
-        'AddedTeamDataGridViewTextBoxColumn
-        '
-        Me.AddedTeamDataGridViewTextBoxColumn.DataPropertyName = "AddedTeam"
-        Me.AddedTeamDataGridViewTextBoxColumn.HeaderText = "Team"
-        Me.AddedTeamDataGridViewTextBoxColumn.Name = "AddedTeamDataGridViewTextBoxColumn"
-        Me.AddedTeamDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'AddedDogDataGridViewTextBoxColumn
-        '
-        Me.AddedDogDataGridViewTextBoxColumn.DataPropertyName = "AddedDog"
-        Me.AddedDogDataGridViewTextBoxColumn.HeaderText = "Dog"
-        Me.AddedDogDataGridViewTextBoxColumn.Name = "AddedDogDataGridViewTextBoxColumn"
-        Me.AddedDogDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'AddedTattooDataGridViewTextBoxColumn
-        '
-        Me.AddedTattooDataGridViewTextBoxColumn.DataPropertyName = "AddedTattoo"
-        Me.AddedTattooDataGridViewTextBoxColumn.HeaderText = "Tattoo"
-        Me.AddedTattooDataGridViewTextBoxColumn.Name = "AddedTattooDataGridViewTextBoxColumn"
-        Me.AddedTattooDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TblReadyDogsBindingSource
-        '
-        Me.TblReadyDogsBindingSource.DataMember = "tblReadyDogs"
-        Me.TblReadyDogsBindingSource.DataSource = Me.Ultra_DataDataSet
-        '
         'btnReset
         '
         Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -303,10 +220,6 @@ Partial Class frmAddDogs
         Me.btnAddSelected.Text = "Add Selected"
         Me.btnAddSelected.UseVisualStyleBackColor = True
         '
-        'TblAddDogListTableAdapter
-        '
-        Me.TblAddDogListTableAdapter.ClearBeforeFill = True
-        '
         'txtSelectCount
         '
         Me.txtSelectCount.BorderStyle = System.Windows.Forms.BorderStyle.None
@@ -317,6 +230,36 @@ Partial Class frmAddDogs
         Me.txtSelectCount.Size = New System.Drawing.Size(355, 28)
         Me.txtSelectCount.TabIndex = 14
         Me.txtSelectCount.WordWrap = False
+        '
+        'DGVReadyDogs
+        '
+        Me.DGVReadyDogs.AllowUserToAddRows = False
+        Me.DGVReadyDogs.AllowUserToDeleteRows = False
+        Me.DGVReadyDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVReadyDogs.Location = New System.Drawing.Point(1047, 317)
+        Me.DGVReadyDogs.Name = "DGVReadyDogs"
+        Me.DGVReadyDogs.RowHeadersVisible = False
+        Me.DGVReadyDogs.RowTemplate.Height = 28
+        Me.DGVReadyDogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DGVReadyDogs.Size = New System.Drawing.Size(656, 409)
+        Me.DGVReadyDogs.TabIndex = 11
+        '
+        'DGVSelectDogs
+        '
+        Me.DGVSelectDogs.AllowUserToAddRows = False
+        Me.DGVSelectDogs.AllowUserToDeleteRows = False
+        Me.DGVSelectDogs.AllowUserToResizeRows = False
+        Me.DGVSelectDogs.AutoGenerateColumns = False
+        Me.DGVSelectDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVSelectDogs.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SelectedDataGridViewTextBoxColumn, Me.TeamDataGridViewTextBoxColumn, Me.DogDataGridViewTextBoxColumn, Me.TattooDataGridViewTextBoxColumn})
+        Me.DGVSelectDogs.DataSource = Me.TblAddDogListBindingSource
+        Me.DGVSelectDogs.Location = New System.Drawing.Point(190, 317)
+        Me.DGVSelectDogs.Name = "DGVSelectDogs"
+        Me.DGVSelectDogs.RowHeadersVisible = False
+        Me.DGVSelectDogs.RowTemplate.Height = 28
+        Me.DGVSelectDogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DGVSelectDogs.Size = New System.Drawing.Size(656, 409)
+        Me.DGVSelectDogs.TabIndex = 4
         '
         'SelectedDataGridViewTextBoxColumn
         '
@@ -347,6 +290,20 @@ Partial Class frmAddDogs
         Me.TattooDataGridViewTextBoxColumn.Name = "TattooDataGridViewTextBoxColumn"
         Me.TattooDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'TblAddDogListBindingSource
+        '
+        Me.TblAddDogListBindingSource.DataMember = "tblAddDogList"
+        Me.TblAddDogListBindingSource.DataSource = Me.Ultra_DataDataSet
+        '
+        'Ultra_DataDataSet
+        '
+        Me.Ultra_DataDataSet.DataSetName = "Ultra_DataDataSet"
+        Me.Ultra_DataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TblAddDogListTableAdapter
+        '
+        Me.TblAddDogListTableAdapter.ClearBeforeFill = True
+        '
         'frmAddDogs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -369,11 +326,10 @@ Partial Class frmAddDogs
         Me.Text = "Add Dogs To Evaluation"
         Me.gpbxFilterDogs.ResumeLayout(False)
         Me.gpbxFilterDogs.PerformLayout()
+        CType(Me.DGVReadyDogs, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGVSelectDogs, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblAddDogListBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Ultra_DataDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DGVReadyDogs, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblReadyDogsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -396,15 +352,10 @@ Partial Class frmAddDogs
     Friend WithEvents DGVReadyDogs As DataGridView
     Friend WithEvents btnReset As Button
     Friend WithEvents btnAddSelected As Button
-    Friend WithEvents TblReadyDogsBindingSource As BindingSource
-    Friend WithEvents TblAddDogListBindingSource As BindingSource
-    Friend WithEvents TblAddDogListTableAdapter As Ultra_DataDataSetTableAdapters.tblAddDogListTableAdapter
-    Friend WithEvents AddedDataGridViewTextBoxColumn As DataGridViewCheckBoxColumn
-    Friend WithEvents AddedTeamDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents AddedDogDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents AddedTattooDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DGVSelectDogs As DataGridView
     Friend WithEvents txtSelectCount As TextBox
+    Friend WithEvents TblAddDogListBindingSource As BindingSource
+    Friend WithEvents TblAddDogListTableAdapter As Ultra_DataDataSetTableAdapters.tblAddDogListTableAdapter
     Friend WithEvents SelectedDataGridViewTextBoxColumn As DataGridViewCheckBoxColumn
     Friend WithEvents TeamDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DogDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
