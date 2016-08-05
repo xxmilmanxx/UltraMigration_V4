@@ -29,11 +29,6 @@
         End Try
     End Sub
 
-    Public Sub LoadReadyDogs()
-
-
-    End Sub
-
     Public Sub LoadDogCombobox()
 
         ' Clears the Team combobox before running command
@@ -48,11 +43,21 @@
                     frmAddDogs.cmboTeam.Items.Add(R("Team"))
                 Next
             End If
+
+
             ' Report errors
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
 
+    End Sub
+
+    Public Sub PrepDataGrids()
+
+        For c = 0 To frmAddDogs.DGVSelectDogs.Columns.Count - 1
+            frmAddDogs.DGVReadyDogs.Columns.Add(frmAddDogs.DGVSelectDogs.Columns(c).Clone())
+
+        Next
     End Sub
 
     Public Sub FilterDGVDogs()
@@ -152,22 +157,69 @@ WHERE(tblDogTrngBlock.BlockOfInstruction <> 1) And (tblDogTrngBlock.Status = 1) 
 
     Public Sub SubmitSelectedDogs()
         Try
-            Dim e As DataGridViewCellEventArgs = New DataGridViewCellEventArgs(0, -1)
+            Dim c As Integer
+            Dim r As Integer
 
 
-            For Each row As DataGridViewRow In frmAddDogs.DGVSelectDogs.Rows
+            If frmAddDogs.DGVReadyDogs.SelectedRows.Count < 0 Then
+                frmAddDogs.DGVReadyDogs.Columns.Clear()
+            End If
 
-                If frmAddDogs.DGVSelectDogs.Rows(e.RowIndex).Cells(0).Value = True Then
-                    ClsQry.ExeQuery("UPDATE tblReadyDogs
-                               SET Added = (SELECT Selected
-                                            FROM tblAddDogList)")
+            For c = frmAddDogs.DGVSelectDogs.Rows.Count() - 1 To 0 Step -1
+
+                Dim add As Boolean = frmAddDogs.DGVSelectDogs.Rows(c).Cells(0).Value
+
+                If add = True Then
+
+                    frmAddDogs.DGVReadyDogs.Rows.Add(frmAddDogs.DGVSelectDogs.Rows(c).Cells(0).Value, frmAddDogs.DGVSelectDogs.Rows(c).Cells(1).Value, frmAddDogs.DGVSelectDogs.Rows(c).Cells(2).Value, frmAddDogs.DGVSelectDogs.Rows(c).Cells(3).Value)
 
                 End If
 
             Next
+
+            For r = frmAddDogs.DGVSelectDogs.Rows.Count() - 1 To 0 Step -1
+
+                Dim delete As Boolean = frmAddDogs.DGVSelectDogs.Rows(r).Cells(0).Value
+
+                If delete = True Then
+
+                    Dim deleteRows As DataGridViewRow
+                    deleteRows = frmAddDogs.DGVSelectDogs.Rows(r)
+                    frmAddDogs.DGVSelectDogs.Rows.Remove(deleteRows)
+
+                End If
+
+            Next
+
+            ' Report errors
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 
+    Public Sub CompareGrids()
+
+        Try
+
+            Dim m As Integer
+
+            For m = frmAddDogs.DGVReadyDogs.Rows.Count() - 1 To 0 Step -1
+
+                Dim match As Boolean = frmAddDogs.DGVReadyDogs.Rows(m).Cells(0).Value
+
+                If match = True Then
+
+                    Dim deleteMatch As DataGridViewRow
+                    deleteMatch = frmAddDogs.DGVSelectDogs.Rows(m)
+                    frmAddDogs.DGVSelectDogs.Rows.Remove(deleteMatch)
+
+                End If
+
+            Next
+
+            ' Report errors
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
         End Try
     End Sub
 
@@ -202,18 +254,39 @@ WHERE(tblDogTrngBlock.BlockOfInstruction <> 1) And (tblDogTrngBlock.Status = 1) 
     End Sub
 
     Public Sub UpdateDogCount()
+        Dim dogCountCheck As Integer = 0
+        Dim addCountCheck As Integer = 0
 
         Try
+            For r = frmAddDogs.DGVSelectDogs.Rows.Count() - 1 To 0 Step -1
+                ' Update the current Table in the frmEvalManagement Form
+                Dim dogRowCount As String = frmAddDogs.DGVSelectDogs.Rows.Count
 
-            ' Update the current Table in the frmEvalManagement Form
-            Dim dogRowCount As String = frmAddDogs.DGVSelectDogs.Rows.Count
-            ' Show the number of dogs currently in data grid
-            frmAddDogs.txtDogCount.Text = dogRowCount & " DOGS SHOWING"
+                If frmAddDogs.DGVSelectDogs.Rows(r).Cells(0).Value = True Then
 
-            ' Update the current Table in the frmEvalManagement Form
-            Dim addCount As String = frmAddDogs.DGVReadyDogs.Rows.Count
-            ' Show the number of dogs currently in data grid
-            frmAddDogs.txtSelectCount.Text = addCount & " DOGS ADDED"
+                    dogCountCheck += 1
+
+                    frmAddDogs.txtDogCount.Text = dogRowCount & " DOGS SHOWING AND " & dogCountCheck.ToString() & " DOGS SELECTED"
+                Else
+                    frmAddDogs.txtDogCount.Text = dogRowCount & " DOGS SHOWING"
+                End If
+            Next
+
+            For s = frmAddDogs.DGVReadyDogs.Rows.Count() - 1 To 0 Step -1
+                ' Update the current Table in the frmEvalManagement Form
+                Dim addCount As String = frmAddDogs.DGVReadyDogs.Rows.Count
+
+                ' Dim checkDogReadyDogs As Boolean = frmAddDogs.DGVReadyDogs.Rows(addCountCheck).Cells(0).Value
+
+                If frmAddDogs.DGVReadyDogs.Rows(s).Cells(0).Value = True Then
+
+                    addCountCheck += 1
+                    frmAddDogs.txtSelectCount.Text = addCount & " DOGS ADDED AND " & addCountCheck.ToString() & " DOGS SELECTED"
+                Else
+                    frmAddDogs.txtSelectCount.Text = addCount & " DOGS ADDED"
+                End If
+                ' Show the number of dogs currently in data grid
+            Next
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)

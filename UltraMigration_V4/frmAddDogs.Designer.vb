@@ -182,10 +182,10 @@ Partial Class frmAddDogs
         '
         Me.txtDogCount.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtDogCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDogCount.Location = New System.Drawing.Point(337, 264)
+        Me.txtDogCount.Location = New System.Drawing.Point(190, 264)
         Me.txtDogCount.Name = "txtDogCount"
         Me.txtDogCount.ReadOnly = True
-        Me.txtDogCount.Size = New System.Drawing.Size(355, 28)
+        Me.txtDogCount.Size = New System.Drawing.Size(656, 28)
         Me.txtDogCount.TabIndex = 8
         Me.txtDogCount.WordWrap = False
         '
@@ -224,10 +224,10 @@ Partial Class frmAddDogs
         '
         Me.txtSelectCount.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtSelectCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSelectCount.Location = New System.Drawing.Point(1177, 264)
+        Me.txtSelectCount.Location = New System.Drawing.Point(1047, 264)
         Me.txtSelectCount.Name = "txtSelectCount"
         Me.txtSelectCount.ReadOnly = True
-        Me.txtSelectCount.Size = New System.Drawing.Size(355, 28)
+        Me.txtSelectCount.Size = New System.Drawing.Size(656, 28)
         Me.txtSelectCount.TabIndex = 14
         Me.txtSelectCount.WordWrap = False
         '
