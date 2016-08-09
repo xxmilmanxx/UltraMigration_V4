@@ -1,7 +1,6 @@
 ﻿Public Class frmAddDogs
 
     Public ClsQry As New qryRunner
-    '  Dim rowIndex As Integer = 0
 
     Public Function NotEmpty(text As String) As Boolean
         Return Not String.IsNullOrEmpty(text)
@@ -95,6 +94,21 @@
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+    Private Sub DGVSelectDogs_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs) Handles DGVSelectDogs.CurrentCellDirtyStateChanged
+
+        If DGVSelectDogs.IsCurrentCellDirty Then
+            DGVSelectDogs.CommitEdit(DataGridViewDataErrorContexts.Commit)
+        End If
+
+    End Sub
+
+    Private Sub DGVReadyDogs_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs) Handles DGVReadyDogs.CurrentCellDirtyStateChanged
+
+        If DGVReadyDogs.IsCurrentCellDirty Then
+            DGVReadyDogs.CommitEdit(DataGridViewDataErrorContexts.Commit)
+        End If
+
+    End Sub
 
     Private Sub DGVSelectDogs_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVSelectDogs.CellDoubleClick
 
@@ -118,35 +132,29 @@
         End Try
     End Sub
 
-    Private Sub DGVReadyDogs_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DGVReadyDogs.CellMouseDoubleClick
+    Private Sub DGVReadyDogs_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DGVReadyDogs.CellValueChanged
         Try
-            If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-                Dim selectedRow = DGVReadyDogs.Rows(e.RowIndex)
+            If DGVReadyDogs.Columns(e.ColumnIndex).Name = "Selected" Then
+                Dim count As Integer = 0
+                For Each checked As DataGridViewRow In DGVReadyDogs.Rows
+                    If checked.Cells("Selected").Value IsNot Nothing And checked.Cells("Selected").Value = True Then
+                        count += 1
+                    End If
+                Next
             End If
-            ' Report errors
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-    End Sub
 
-    Private Sub DGVSelectDogs_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DGVSelectDogs.CellMouseClick
-        Try
-            '   Dim state As DataGridViewCheckBoxCell = CType(DGVSelectDogs.Rows(e.RowIndex).Cells(0), DataGridViewCheckBoxCell)
-            For Each state As DataGridViewRow In DGVSelectDogs.Rows
-                If state.Cells("SelectedDataGridViewTextBoxColumn").Value = True Then
-                    '  DGVSelectDogs.Item(e.ColumnIndex, e.RowIndex - 1).Selected = True
-                    state.Cells("SelectedDataGridViewTextBoxColumn").Value = False
-                End If
-
-                If state.Cells("SelectedDataGridViewTextBoxColumn").Value = False Then
-
-                    state.Cells("SelectedDataGridViewTextBoxColumn").Value = True
-                End If
-            Next
             UpdateDogCount()
             ' Report errors
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+
+    End Sub
+
+    Private Sub btnSubmitDogs_Click(sender As Object, e As EventArgs) Handles btnSubmitDogs.Click
+
+
+
+
     End Sub
 End Class

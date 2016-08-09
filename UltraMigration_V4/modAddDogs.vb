@@ -254,7 +254,7 @@ WHERE(tblDogTrngBlock.BlockOfInstruction <> 1) And (tblDogTrngBlock.Status = 1) 
     End Sub
 
     Public Sub UpdateDogCount()
-        Dim dogCountCheck As Integer = 0
+
         Dim addCountCheck As Integer = 0
 
         Try
@@ -262,13 +262,10 @@ WHERE(tblDogTrngBlock.BlockOfInstruction <> 1) And (tblDogTrngBlock.Status = 1) 
                 ' Update the current Table in the frmEvalManagement Form
                 Dim dogRowCount As String = frmAddDogs.DGVSelectDogs.Rows.Count
 
-                If frmAddDogs.DGVSelectDogs.Rows(r).Cells(0).Value = True Then
+                If frmAddDogs.DGVSelectDogs.Rows(r).Cells(0).Value = False Then
 
-                    dogCountCheck += 1
-
-                    frmAddDogs.txtDogCount.Text = dogRowCount & " DOGS SHOWING AND " & dogCountCheck.ToString() & " DOGS SELECTED"
-                Else
                     frmAddDogs.txtDogCount.Text = dogRowCount & " DOGS SHOWING"
+
                 End If
             Next
 
@@ -293,4 +290,14 @@ WHERE(tblDogTrngBlock.BlockOfInstruction <> 1) And (tblDogTrngBlock.Status = 1) 
 
         End Try
     End Sub
+
+    Public Sub SubmitDogs()
+        '  Dim dgvReady As New DataGridView
+
+        '   For Each selectedItem In DGVReadyDogs.rows
+
+        '  Next
+
+    End Sub
+
 End Module

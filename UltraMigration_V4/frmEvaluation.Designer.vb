@@ -22,6 +22,7 @@ Partial Class frmEvaluation
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.pnlNewEval = New System.Windows.Forms.Panel()
         Me.btnViewAidsArea = New System.Windows.Forms.Button()
         Me.btnEvalResults = New System.Windows.Forms.Button()
@@ -43,12 +44,27 @@ Partial Class frmEvaluation
         Me.lblEvalType = New System.Windows.Forms.Label()
         Me.lblNewEvalTitle = New System.Windows.Forms.Label()
         Me.sfrmEvaluationDogIndex = New System.Windows.Forms.Panel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DGVDogIndex = New System.Windows.Forms.DataGridView()
         Me.Ultra_DataDataSet = New UltraMigration_V4.Ultra_DataDataSet()
+        Me.Ultra_DataDataSet1 = New UltraMigration_V4.Ultra_DataDataSet()
+        Me.QryTblDogIndexBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.QryTblDogIndexTableAdapter = New UltraMigration_V4.Ultra_DataDataSetTableAdapters.qryTblDogIndexTableAdapter()
+        Me.Expr1000DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DevDogEvaluationIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DogDogIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NameTattooDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TeamNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DevDaysTrainedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EscEvaluationStatusTextDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DevNotesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlNewEval.SuspendLayout()
         Me.sfrmEvaluationDogIndex.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGVDogIndex, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Ultra_DataDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Ultra_DataDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QryTblDogIndexBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlNewEval
@@ -293,25 +309,104 @@ Partial Class frmEvaluation
         '
         'sfrmEvaluationDogIndex
         '
-        Me.sfrmEvaluationDogIndex.Controls.Add(Me.DataGridView1)
+        Me.sfrmEvaluationDogIndex.Controls.Add(Me.DGVDogIndex)
         Me.sfrmEvaluationDogIndex.Location = New System.Drawing.Point(65, 727)
         Me.sfrmEvaluationDogIndex.Name = "sfrmEvaluationDogIndex"
         Me.sfrmEvaluationDogIndex.Size = New System.Drawing.Size(1801, 583)
         Me.sfrmEvaluationDogIndex.TabIndex = 5
         '
-        'DataGridView1
+        'DGVDogIndex
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 76)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowTemplate.Height = 28
-        Me.DataGridView1.Size = New System.Drawing.Size(1432, 447)
-        Me.DataGridView1.TabIndex = 0
+        Me.DGVDogIndex.AllowUserToAddRows = False
+        Me.DGVDogIndex.AllowUserToDeleteRows = False
+        Me.DGVDogIndex.AutoGenerateColumns = False
+        Me.DGVDogIndex.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVDogIndex.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Expr1000DataGridViewTextBoxColumn, Me.DevDogEvaluationIDDataGridViewTextBoxColumn, Me.DogDogIDDataGridViewTextBoxColumn, Me.NameTattooDataGridViewTextBoxColumn, Me.TeamNameDataGridViewTextBoxColumn, Me.LastNameDataGridViewTextBoxColumn, Me.DevDaysTrainedDataGridViewTextBoxColumn, Me.EscEvaluationStatusTextDataGridViewTextBoxColumn, Me.DevNotesDataGridViewTextBoxColumn, Me.StatusDataGridViewTextBoxColumn})
+        Me.DGVDogIndex.DataSource = Me.QryTblDogIndexBindingSource
+        Me.DGVDogIndex.Location = New System.Drawing.Point(3, 76)
+        Me.DGVDogIndex.Name = "DGVDogIndex"
+        Me.DGVDogIndex.RowTemplate.Height = 28
+        Me.DGVDogIndex.Size = New System.Drawing.Size(1432, 447)
+        Me.DGVDogIndex.TabIndex = 0
         '
         'Ultra_DataDataSet
         '
         Me.Ultra_DataDataSet.DataSetName = "Ultra_DataDataSet"
         Me.Ultra_DataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Ultra_DataDataSet1
+        '
+        Me.Ultra_DataDataSet1.DataSetName = "Ultra_DataDataSet"
+        Me.Ultra_DataDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'QryTblDogIndexBindingSource
+        '
+        Me.QryTblDogIndexBindingSource.DataMember = "qryTblDogIndex"
+        Me.QryTblDogIndexBindingSource.DataSource = Me.Ultra_DataDataSet1
+        '
+        'QryTblDogIndexTableAdapter
+        '
+        Me.QryTblDogIndexTableAdapter.ClearBeforeFill = True
+        '
+        'Expr1000DataGridViewTextBoxColumn
+        '
+        Me.Expr1000DataGridViewTextBoxColumn.DataPropertyName = "Expr1000"
+        Me.Expr1000DataGridViewTextBoxColumn.HeaderText = "Expr1000"
+        Me.Expr1000DataGridViewTextBoxColumn.Name = "Expr1000DataGridViewTextBoxColumn"
+        '
+        'DevDogEvaluationIDDataGridViewTextBoxColumn
+        '
+        Me.DevDogEvaluationIDDataGridViewTextBoxColumn.DataPropertyName = "dev_DogEvaluationID"
+        Me.DevDogEvaluationIDDataGridViewTextBoxColumn.HeaderText = "dev_DogEvaluationID"
+        Me.DevDogEvaluationIDDataGridViewTextBoxColumn.Name = "DevDogEvaluationIDDataGridViewTextBoxColumn"
+        '
+        'DogDogIDDataGridViewTextBoxColumn
+        '
+        Me.DogDogIDDataGridViewTextBoxColumn.DataPropertyName = "dog_DogID"
+        Me.DogDogIDDataGridViewTextBoxColumn.HeaderText = "dog_DogID"
+        Me.DogDogIDDataGridViewTextBoxColumn.Name = "DogDogIDDataGridViewTextBoxColumn"
+        '
+        'NameTattooDataGridViewTextBoxColumn
+        '
+        Me.NameTattooDataGridViewTextBoxColumn.DataPropertyName = "NameTattoo"
+        Me.NameTattooDataGridViewTextBoxColumn.HeaderText = "NameTattoo"
+        Me.NameTattooDataGridViewTextBoxColumn.Name = "NameTattooDataGridViewTextBoxColumn"
+        '
+        'TeamNameDataGridViewTextBoxColumn
+        '
+        Me.TeamNameDataGridViewTextBoxColumn.DataPropertyName = "TeamName"
+        Me.TeamNameDataGridViewTextBoxColumn.HeaderText = "TeamName"
+        Me.TeamNameDataGridViewTextBoxColumn.Name = "TeamNameDataGridViewTextBoxColumn"
+        '
+        'LastNameDataGridViewTextBoxColumn
+        '
+        Me.LastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName"
+        Me.LastNameDataGridViewTextBoxColumn.HeaderText = "LastName"
+        Me.LastNameDataGridViewTextBoxColumn.Name = "LastNameDataGridViewTextBoxColumn"
+        '
+        'DevDaysTrainedDataGridViewTextBoxColumn
+        '
+        Me.DevDaysTrainedDataGridViewTextBoxColumn.DataPropertyName = "dev_DaysTrained"
+        Me.DevDaysTrainedDataGridViewTextBoxColumn.HeaderText = "dev_DaysTrained"
+        Me.DevDaysTrainedDataGridViewTextBoxColumn.Name = "DevDaysTrainedDataGridViewTextBoxColumn"
+        '
+        'EscEvaluationStatusTextDataGridViewTextBoxColumn
+        '
+        Me.EscEvaluationStatusTextDataGridViewTextBoxColumn.DataPropertyName = "esc_EvaluationStatusText"
+        Me.EscEvaluationStatusTextDataGridViewTextBoxColumn.HeaderText = "esc_EvaluationStatusText"
+        Me.EscEvaluationStatusTextDataGridViewTextBoxColumn.Name = "EscEvaluationStatusTextDataGridViewTextBoxColumn"
+        '
+        'DevNotesDataGridViewTextBoxColumn
+        '
+        Me.DevNotesDataGridViewTextBoxColumn.DataPropertyName = "dev_Notes"
+        Me.DevNotesDataGridViewTextBoxColumn.HeaderText = "dev_Notes"
+        Me.DevNotesDataGridViewTextBoxColumn.Name = "DevNotesDataGridViewTextBoxColumn"
+        '
+        'StatusDataGridViewTextBoxColumn
+        '
+        Me.StatusDataGridViewTextBoxColumn.DataPropertyName = "Status"
+        Me.StatusDataGridViewTextBoxColumn.HeaderText = "Status"
+        Me.StatusDataGridViewTextBoxColumn.Name = "StatusDataGridViewTextBoxColumn"
         '
         'frmEvaluation
         '
@@ -326,8 +421,10 @@ Partial Class frmEvaluation
         Me.Text = "Evaluation"
         Me.pnlNewEval.ResumeLayout(False)
         Me.sfrmEvaluationDogIndex.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGVDogIndex, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Ultra_DataDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Ultra_DataDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QryTblDogIndexBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -354,6 +451,19 @@ Partial Class frmEvaluation
     Friend WithEvents sfrmEvaluationDogIndex As Panel
     Friend WithEvents btnViewAidsArea As Button
     Friend WithEvents btnEvalResults As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DGVDogIndex As DataGridView
     Friend WithEvents Ultra_DataDataSet As Ultra_DataDataSet
+    Friend WithEvents Ultra_DataDataSet1 As Ultra_DataDataSet
+    Friend WithEvents QryTblDogIndexBindingSource As BindingSource
+    Friend WithEvents QryTblDogIndexTableAdapter As Ultra_DataDataSetTableAdapters.qryTblDogIndexTableAdapter
+    Friend WithEvents Expr1000DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DevDogEvaluationIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DogDogIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NameTattooDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TeamNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents LastNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DevDaysTrainedDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EscEvaluationStatusTextDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DevNotesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents StatusDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

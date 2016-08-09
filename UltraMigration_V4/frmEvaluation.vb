@@ -119,4 +119,10 @@
         LoadNewSubTypeCombobox()
 
     End Sub
+
+    Private Sub frmEvaluation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Ultra_DataDataSet1.qryTblDogIndex' table. You can move, or remove it, as needed.
+        Me.QryTblDogIndexTableAdapter.Fill(Me.Ultra_DataDataSet1.qryTblDogIndex)
+
+    End Sub
 End Class
