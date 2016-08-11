@@ -42,6 +42,7 @@ Partial Class frmAddDogs
         Me.txtSelectCount = New System.Windows.Forms.TextBox()
         Me.DGVReadyDogs = New System.Windows.Forms.DataGridView()
         Me.DGVSelectDogs = New System.Windows.Forms.DataGridView()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SelectedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.TeamDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DogDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -261,6 +262,15 @@ Partial Class frmAddDogs
         Me.DGVSelectDogs.Size = New System.Drawing.Size(656, 409)
         Me.DGVSelectDogs.TabIndex = 4
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(1019, 810)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(165, 63)
+        Me.Button1.TabIndex = 15
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'SelectedDataGridViewTextBoxColumn
         '
         Me.SelectedDataGridViewTextBoxColumn.DataPropertyName = "Selected"
@@ -309,6 +319,7 @@ Partial Class frmAddDogs
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1847, 952)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtSelectCount)
         Me.Controls.Add(Me.btnAddSelected)
         Me.Controls.Add(Me.btnReset)
@@ -360,4 +371,5 @@ Partial Class frmAddDogs
     Friend WithEvents TeamDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DogDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TattooDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
 End Class

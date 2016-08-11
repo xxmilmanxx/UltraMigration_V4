@@ -153,8 +153,15 @@
 
     Private Sub btnSubmitDogs_Click(sender As Object, e As EventArgs) Handles btnSubmitDogs.Click
 
+        CheckIfReady()
 
+        SubmitDogs()
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        frmEvaluation.Show()
 
     End Sub
 End Class

@@ -291,12 +291,79 @@ WHERE(tblDogTrngBlock.BlockOfInstruction <> 1) And (tblDogTrngBlock.Status = 1) 
         End Try
     End Sub
 
+    Public Sub CheckIfReady()
+        Try
+            Dim valid As Integer
+
+            For valid = frmAddDogs.DGVReadyDogs.Rows.Count() - 1 To 0 Step -1
+
+                If frmAddDogs.DGVReadyDogs.Rows(valid).Cells(0).Value = False Then
+                    If MessageBox.Show("You have dogs that are not selected. Please check to make sure this is what you intended to do.
+
+Select OK to continue.
+Select Cancel to go back.", "DOGS NOT SELECTED", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) = DialogResult.OK Then
+
+                        frmEvaluation.sfrmEvaluationDogIndex.Visible = True
+
+                        frmEvaluation.btnAddDogs.Visible = False
+
+                    End If
+                End If
+            Next
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+
+        End Try
+    End Sub
+
     Public Sub SubmitDogs()
-        '  Dim dgvReady As New DataGridView
 
-        '   For Each selectedItem In DGVReadyDogs.rows
+        Try
 
-        '  Next
+
+
+
+            Dim transfer As Integer
+
+            If frmEvaluation.DGVDogIndex.SelectedRows.Count < 0 Then
+                frmEvaluation.DGVDogIndex.Columns.Clear()
+            End If
+
+            For transfer = frmAddDogs.DGVReadyDogs.Rows.Count() - 1 To 0 Step -1
+
+                Dim move As Boolean = frmAddDogs.DGVReadyDogs.Rows(transfer).Cells(0).Value
+                Dim added As String = frmAddDogs.DGVReadyDogs.Rows(transfer).Cells(2).Value
+
+                If move = True Then
+
+                    ClsQry.ExeQuery("SELECT tblDog.dog_CallName AS Name, tblDog.dog_Tattoo AS Tattoo, HumanResources_TrainingTeam.TeamName AS Team, Person_Person.LastName AS Trainer, tblDogEvaluations.dev_DaysTrained AS [Days In Training], 
+             trefDogEvaluationStatusCode.esc_EvaluationStatusText AS [Evaluation Status], tblDogEvaluations.dev_Notes AS Notes, tblDogEvaluations.dev_PassFailElimReshoot AS Status
+FROM   ((tblDog INNER JOIN
+             (((trefDogEvaluationStatusCode RIGHT OUTER JOIN
+             tblDogClassAssignment ON trefDogEvaluationStatusCode.esc_EvaluationStatusCode = tblDogClassAssignment.QualificationStatusId) LEFT OUTER JOIN
+             HumanResources_TrainingTeam ON tblDogClassAssignment.TeamId = HumanResources_TrainingTeam.TrainingTeamId) INNER JOIN
+             tblDogTrngBlock ON tblDogClassAssignment.DogClassAssignmentId = tblDogTrngBlock.DogClassEnrollmentId) ON tblDog.dog_DogID = tblDogClassAssignment.DogId) INNER JOIN
+             (tblDogEvaluations LEFT OUTER JOIN
+             Person_Person ON tblDogEvaluations.dev_TrainerID = Person_Person.BusinessEntityId) ON tblDogTrngBlock.BlockId = tblDogEvaluations.DogBlockId)
+WHERE (tblDog.dog_CallName = '" & added & "')")
+
+                End If
+            Next
+
+            CompareGrids()
+
+            UpdateDogCount()
+
+            ' Check for errors before continuung
+            If Not String.IsNullOrEmpty(ClsQry.Exception) Then MsgBox(ClsQry.Exception) : Exit Sub
+
+            frmEvaluation.DGVDogIndex.DataSource = ClsQry.DBDT.DefaultView
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+
+        End Try
 
     End Sub
 

@@ -1985,25 +1985,21 @@ Partial Public Class Ultra_DataDataSet
     Partial Public Class qryTblDogIndexDataTable
         Inherits Global.System.Data.TypedTableBase(Of qryTblDogIndexRow)
         
-        Private columnEvaluationID As Global.System.Data.DataColumn
+        Private columnStatus As Global.System.Data.DataColumn
         
-        Private columnDogEvaluationID As Global.System.Data.DataColumn
+        Private columnName As Global.System.Data.DataColumn
         
-        Private columnDogID As Global.System.Data.DataColumn
+        Private columnTattoo As Global.System.Data.DataColumn
         
-        Private columnNameTattoo As Global.System.Data.DataColumn
+        Private columnTeam As Global.System.Data.DataColumn
         
-        Private columnTeamName As Global.System.Data.DataColumn
+        Private columnTrainer As Global.System.Data.DataColumn
         
-        Private columnLastName As Global.System.Data.DataColumn
+        Private columnDays_In_Training As Global.System.Data.DataColumn
         
-        Private columnDaysTrained As Global.System.Data.DataColumn
-        
-        Private columnEvaluationStatus As Global.System.Data.DataColumn
+        Private columnEvaluation_Status As Global.System.Data.DataColumn
         
         Private columnNotes As Global.System.Data.DataColumn
-        
-        Private columnStatus As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -2042,65 +2038,57 @@ Partial Public Class Ultra_DataDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property EvaluationIDColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property StatusColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnEvaluationID
+                Return Me.columnStatus
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property DogEvaluationIDColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property NameColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnDogEvaluationID
+                Return Me.columnName
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property DogIDColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property TattooColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnDogID
+                Return Me.columnTattoo
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NameTattooColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property TeamColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnNameTattoo
+                Return Me.columnTeam
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property TeamNameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property TrainerColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnTeamName
+                Return Me.columnTrainer
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property LastNameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Days_In_TrainingColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnLastName
+                Return Me.columnDays_In_Training
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property DaysTrainedColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Evaluation_StatusColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnDaysTrained
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property EvaluationStatusColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEvaluationStatus
+                Return Me.columnEvaluation_Status
             End Get
         End Property
         
@@ -2109,14 +2097,6 @@ Partial Public Class Ultra_DataDataSet
         Public ReadOnly Property NotesColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnNotes
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property StatusColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnStatus
             End Get
         End Property
         
@@ -2157,9 +2137,9 @@ Partial Public Class Ultra_DataDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddqryTblDogIndexRow(ByVal EvaluationID As Integer, ByVal DogEvaluationID As Integer, ByVal DogID As Integer, ByVal NameTattoo As String, ByVal TeamName As String, ByVal LastName As String, ByVal DaysTrained As Integer, ByVal EvaluationStatus As String, ByVal Notes As String, ByVal Status As Integer) As qryTblDogIndexRow
+        Public Overloads Function AddqryTblDogIndexRow(ByVal Status As Integer, ByVal Name As String, ByVal Tattoo As String, ByVal Team As String, ByVal Trainer As String, ByVal Days_In_Training As Integer, ByVal Evaluation_Status As String, ByVal Notes As String) As qryTblDogIndexRow
             Dim rowqryTblDogIndexRow As qryTblDogIndexRow = CType(Me.NewRow,qryTblDogIndexRow)
-            Dim columnValuesArray() As Object = New Object() {EvaluationID, DogEvaluationID, DogID, NameTattoo, TeamName, LastName, DaysTrained, EvaluationStatus, Notes, Status}
+            Dim columnValuesArray() As Object = New Object() {Status, Name, Tattoo, Team, Trainer, Days_In_Training, Evaluation_Status, Notes}
             rowqryTblDogIndexRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowqryTblDogIndexRow)
             Return rowqryTblDogIndexRow
@@ -2182,52 +2162,40 @@ Partial Public Class Ultra_DataDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnEvaluationID = MyBase.Columns("EvaluationID")
-            Me.columnDogEvaluationID = MyBase.Columns("DogEvaluationID")
-            Me.columnDogID = MyBase.Columns("DogID")
-            Me.columnNameTattoo = MyBase.Columns("NameTattoo")
-            Me.columnTeamName = MyBase.Columns("TeamName")
-            Me.columnLastName = MyBase.Columns("LastName")
-            Me.columnDaysTrained = MyBase.Columns("DaysTrained")
-            Me.columnEvaluationStatus = MyBase.Columns("EvaluationStatus")
-            Me.columnNotes = MyBase.Columns("Notes")
             Me.columnStatus = MyBase.Columns("Status")
+            Me.columnName = MyBase.Columns("Name")
+            Me.columnTattoo = MyBase.Columns("Tattoo")
+            Me.columnTeam = MyBase.Columns("Team")
+            Me.columnTrainer = MyBase.Columns("Trainer")
+            Me.columnDays_In_Training = MyBase.Columns("Days In Training")
+            Me.columnEvaluation_Status = MyBase.Columns("Evaluation Status")
+            Me.columnNotes = MyBase.Columns("Notes")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnEvaluationID = New Global.System.Data.DataColumn("EvaluationID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEvaluationID)
-            Me.columnDogEvaluationID = New Global.System.Data.DataColumn("DogEvaluationID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDogEvaluationID)
-            Me.columnDogID = New Global.System.Data.DataColumn("DogID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDogID)
-            Me.columnNameTattoo = New Global.System.Data.DataColumn("NameTattoo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNameTattoo)
-            Me.columnTeamName = New Global.System.Data.DataColumn("TeamName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTeamName)
-            Me.columnLastName = New Global.System.Data.DataColumn("LastName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnLastName)
-            Me.columnDaysTrained = New Global.System.Data.DataColumn("DaysTrained", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDaysTrained)
-            Me.columnEvaluationStatus = New Global.System.Data.DataColumn("EvaluationStatus", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEvaluationStatus)
-            Me.columnNotes = New Global.System.Data.DataColumn("Notes", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNotes)
             Me.columnStatus = New Global.System.Data.DataColumn("Status", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnStatus)
-            Me.columnEvaluationID.Caption = "Expr1000"
-            Me.columnDogEvaluationID.Caption = "dev_DogEvaluationID"
-            Me.columnDogID.Caption = "dog_DogID"
-            Me.columnNameTattoo.ReadOnly = true
-            Me.columnNameTattoo.MaxLength = 536870910
-            Me.columnTeamName.MaxLength = 100
-            Me.columnLastName.MaxLength = 100
-            Me.columnDaysTrained.Caption = "dev_DaysTrained"
-            Me.columnEvaluationStatus.Caption = "esc_EvaluationStatusText"
-            Me.columnEvaluationStatus.MaxLength = 25
-            Me.columnNotes.Caption = "dev_Notes"
+            Me.columnName = New Global.System.Data.DataColumn("Name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnName)
+            Me.columnTattoo = New Global.System.Data.DataColumn("Tattoo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTattoo)
+            Me.columnTeam = New Global.System.Data.DataColumn("Team", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTeam)
+            Me.columnTrainer = New Global.System.Data.DataColumn("Trainer", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTrainer)
+            Me.columnDays_In_Training = New Global.System.Data.DataColumn("Days In Training", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDays_In_Training)
+            Me.columnEvaluation_Status = New Global.System.Data.DataColumn("Evaluation Status", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEvaluation_Status)
+            Me.columnNotes = New Global.System.Data.DataColumn("Notes", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNotes)
+            Me.columnName.MaxLength = 50
+            Me.columnTattoo.MaxLength = 10
+            Me.columnTeam.MaxLength = 100
+            Me.columnTrainer.MaxLength = 100
+            Me.columnEvaluation_Status.MaxLength = 25
             Me.columnNotes.MaxLength = 536870910
         End Sub
         
@@ -3006,121 +2974,106 @@ Partial Public Class Ultra_DataDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property EvaluationID() As Integer
+        Public Property Status() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableqryTblDogIndex.EvaluationIDColumn),Integer)
+                    Return CType(Me(Me.tableqryTblDogIndex.StatusColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'EvaluationID' in table 'qryTblDogIndex' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Status' in table 'qryTblDogIndex' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableqryTblDogIndex.EvaluationIDColumn) = value
+                Me(Me.tableqryTblDogIndex.StatusColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property DogEvaluationID() As Integer
+        Public Property Name() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableqryTblDogIndex.DogEvaluationIDColumn),Integer)
+                    Return CType(Me(Me.tableqryTblDogIndex.NameColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'DogEvaluationID' in table 'qryTblDogIndex' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Name' in table 'qryTblDogIndex' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableqryTblDogIndex.DogEvaluationIDColumn) = value
+                Me(Me.tableqryTblDogIndex.NameColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property DogID() As Integer
+        Public Property Tattoo() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableqryTblDogIndex.DogIDColumn),Integer)
+                    Return CType(Me(Me.tableqryTblDogIndex.TattooColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'DogID' in table 'qryTblDogIndex' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Tattoo' in table 'qryTblDogIndex' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableqryTblDogIndex.DogIDColumn) = value
+                Me(Me.tableqryTblDogIndex.TattooColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property NameTattoo() As String
+        Public Property Team() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableqryTblDogIndex.NameTattooColumn),String)
+                    Return CType(Me(Me.tableqryTblDogIndex.TeamColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'NameTattoo' in table 'qryTblDogIndex' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Team' in table 'qryTblDogIndex' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableqryTblDogIndex.NameTattooColumn) = value
+                Me(Me.tableqryTblDogIndex.TeamColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property TeamName() As String
+        Public Property Trainer() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableqryTblDogIndex.TeamNameColumn),String)
+                    Return CType(Me(Me.tableqryTblDogIndex.TrainerColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'TeamName' in table 'qryTblDogIndex' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Trainer' in table 'qryTblDogIndex' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableqryTblDogIndex.TeamNameColumn) = value
+                Me(Me.tableqryTblDogIndex.TrainerColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property LastName() As String
+        Public Property Days_In_Training() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableqryTblDogIndex.LastNameColumn),String)
+                    Return CType(Me(Me.tableqryTblDogIndex.Days_In_TrainingColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastName' in table 'qryTblDogIndex' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Days In Training' in table 'qryTblDogIndex' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableqryTblDogIndex.LastNameColumn) = value
+                Me(Me.tableqryTblDogIndex.Days_In_TrainingColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property DaysTrained() As Integer
+        Public Property Evaluation_Status() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableqryTblDogIndex.DaysTrainedColumn),Integer)
+                    Return CType(Me(Me.tableqryTblDogIndex.Evaluation_StatusColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'DaysTrained' in table 'qryTblDogIndex' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Evaluation Status' in table 'qryTblDogIndex' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableqryTblDogIndex.DaysTrainedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property EvaluationStatus() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableqryTblDogIndex.EvaluationStatusColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'EvaluationStatus' in table 'qryTblDogIndex' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableqryTblDogIndex.EvaluationStatusColumn) = value
+                Me(Me.tableqryTblDogIndex.Evaluation_StatusColumn) = value
             End Set
         End Property
         
@@ -3141,113 +3094,86 @@ Partial Public Class Ultra_DataDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Status() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tableqryTblDogIndex.StatusColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Status' in table 'qryTblDogIndex' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableqryTblDogIndex.StatusColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsEvaluationIDNull() As Boolean
-            Return Me.IsNull(Me.tableqryTblDogIndex.EvaluationIDColumn)
+        Public Function IsStatusNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblDogIndex.StatusColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetEvaluationIDNull()
-            Me(Me.tableqryTblDogIndex.EvaluationIDColumn) = Global.System.Convert.DBNull
+        Public Sub SetStatusNull()
+            Me(Me.tableqryTblDogIndex.StatusColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsDogEvaluationIDNull() As Boolean
-            Return Me.IsNull(Me.tableqryTblDogIndex.DogEvaluationIDColumn)
+        Public Function IsNameNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblDogIndex.NameColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetDogEvaluationIDNull()
-            Me(Me.tableqryTblDogIndex.DogEvaluationIDColumn) = Global.System.Convert.DBNull
+        Public Sub SetNameNull()
+            Me(Me.tableqryTblDogIndex.NameColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsDogIDNull() As Boolean
-            Return Me.IsNull(Me.tableqryTblDogIndex.DogIDColumn)
+        Public Function IsTattooNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblDogIndex.TattooColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetDogIDNull()
-            Me(Me.tableqryTblDogIndex.DogIDColumn) = Global.System.Convert.DBNull
+        Public Sub SetTattooNull()
+            Me(Me.tableqryTblDogIndex.TattooColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNameTattooNull() As Boolean
-            Return Me.IsNull(Me.tableqryTblDogIndex.NameTattooColumn)
+        Public Function IsTeamNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblDogIndex.TeamColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNameTattooNull()
-            Me(Me.tableqryTblDogIndex.NameTattooColumn) = Global.System.Convert.DBNull
+        Public Sub SetTeamNull()
+            Me(Me.tableqryTblDogIndex.TeamColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsTeamNameNull() As Boolean
-            Return Me.IsNull(Me.tableqryTblDogIndex.TeamNameColumn)
+        Public Function IsTrainerNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblDogIndex.TrainerColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetTeamNameNull()
-            Me(Me.tableqryTblDogIndex.TeamNameColumn) = Global.System.Convert.DBNull
+        Public Sub SetTrainerNull()
+            Me(Me.tableqryTblDogIndex.TrainerColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsLastNameNull() As Boolean
-            Return Me.IsNull(Me.tableqryTblDogIndex.LastNameColumn)
+        Public Function IsDays_In_TrainingNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblDogIndex.Days_In_TrainingColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetLastNameNull()
-            Me(Me.tableqryTblDogIndex.LastNameColumn) = Global.System.Convert.DBNull
+        Public Sub SetDays_In_TrainingNull()
+            Me(Me.tableqryTblDogIndex.Days_In_TrainingColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsDaysTrainedNull() As Boolean
-            Return Me.IsNull(Me.tableqryTblDogIndex.DaysTrainedColumn)
+        Public Function IsEvaluation_StatusNull() As Boolean
+            Return Me.IsNull(Me.tableqryTblDogIndex.Evaluation_StatusColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetDaysTrainedNull()
-            Me(Me.tableqryTblDogIndex.DaysTrainedColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsEvaluationStatusNull() As Boolean
-            Return Me.IsNull(Me.tableqryTblDogIndex.EvaluationStatusColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetEvaluationStatusNull()
-            Me(Me.tableqryTblDogIndex.EvaluationStatusColumn) = Global.System.Convert.DBNull
+        Public Sub SetEvaluation_StatusNull()
+            Me(Me.tableqryTblDogIndex.Evaluation_StatusColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3260,18 +3186,6 @@ Partial Public Class Ultra_DataDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetNotesNull()
             Me(Me.tableqryTblDogIndex.NotesColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsStatusNull() As Boolean
-            Return Me.IsNull(Me.tableqryTblDogIndex.StatusColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetStatusNull()
-            Me(Me.tableqryTblDogIndex.StatusColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -4888,16 +4802,14 @@ Namespace Ultra_DataDataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "qryTblDogIndex"
-            tableMapping.ColumnMappings.Add("Expr1000", "EvaluationID")
-            tableMapping.ColumnMappings.Add("dev_DogEvaluationID", "DogEvaluationID")
-            tableMapping.ColumnMappings.Add("dog_DogID", "DogID")
-            tableMapping.ColumnMappings.Add("NameTattoo", "NameTattoo")
-            tableMapping.ColumnMappings.Add("TeamName", "TeamName")
-            tableMapping.ColumnMappings.Add("LastName", "LastName")
-            tableMapping.ColumnMappings.Add("dev_DaysTrained", "DaysTrained")
-            tableMapping.ColumnMappings.Add("esc_EvaluationStatusText", "EvaluationStatus")
-            tableMapping.ColumnMappings.Add("dev_Notes", "Notes")
             tableMapping.ColumnMappings.Add("Status", "Status")
+            tableMapping.ColumnMappings.Add("Name", "Name")
+            tableMapping.ColumnMappings.Add("Tattoo", "Tattoo")
+            tableMapping.ColumnMappings.Add("Team", "Team")
+            tableMapping.ColumnMappings.Add("Trainer", "Trainer")
+            tableMapping.ColumnMappings.Add("Days In Training", "Days In Training")
+            tableMapping.ColumnMappings.Add("Evaluation Status", "Evaluation Status")
+            tableMapping.ColumnMappings.Add("Notes", "Notes")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -4914,22 +4826,21 @@ Namespace Ultra_DataDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT tblDogEvaluations.dev_DogEvaluationID, tblDogEvaluations.dev_DogEvaluation"& _ 
-                "ID, tblDog.dog_DogID, tblDog.dog_CallName & ' / ' & IIf(IsNull(tblDog.dog_Tattoo"& _ 
-                "), tblDog.dog_Tattoo, tblDog.dog_ControlNumber) AS NameTattoo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             Hu"& _ 
-                "manResources_TrainingTeam.TeamName, Person_Person.LastName, tblDogEvaluations.de"& _ 
-                "v_DaysTrained, trefDogEvaluationStatusCode.esc_EvaluationStatusText, tblDogEvalu"& _ 
-                "ations.dev_Notes, tblDogEvaluations.dev_PassFailElimReshoot AS Status"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM   (("& _ 
-                "tblDog INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             (((trefDogEvaluationStatusCode RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogClassAssignment ON trefDogEvaluationStatusCode.esc_Evaluatio"& _ 
-                "nStatusCode = tblDogClassAssignment.QualificationStatusId) LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
-                "         HumanResources_TrainingTeam ON tblDogClassAssignment.TeamId = HumanReso"& _ 
-                "urces_TrainingTeam.TrainingTeamId) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogTrngBlock ON t"& _ 
-                "blDogClassAssignment.DogClassAssignmentId = tblDogTrngBlock.DogClassEnrollmentId"& _ 
-                ") ON tblDog.dog_DogID = tblDogClassAssignment.DogId) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             (t"& _ 
-                "blDogEvaluations LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             Person_Person ON tblDogEvaluation"& _ 
-                "s.dev_TrainerID = Person_Person.BusinessEntityId) ON tblDogTrngBlock.BlockId = t"& _ 
-                "blDogEvaluations.DogBlockId)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (NOT (tblDogEvaluations.dev_PassFailElimResh"& _ 
-                "oot IS NULL)) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             (tblDogEvaluations.dev_PassFailElimReshoot = 0)"
+            Me._commandCollection(0).CommandText = "SELECT tblDog.dog_CallName AS Name, tblDog.dog_Tattoo AS Tattoo, HumanResources_T"& _ 
+                "rainingTeam.TeamName AS Team, Person_Person.LastName AS Trainer, tblDogEvaluatio"& _ 
+                "ns.dev_DaysTrained AS [Days In Training], "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             trefDogEvaluationStatus"& _ 
+                "Code.esc_EvaluationStatusText AS [Evaluation Status], tblDogEvaluations.dev_Note"& _ 
+                "s AS Notes, tblDogEvaluations.dev_PassFailElimReshoot AS Status"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM   ((tblDog"& _ 
+                " INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             (((trefDogEvaluationStatusCode RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "        tblDogClassAssignment ON trefDogEvaluationStatusCode.esc_EvaluationStatu"& _ 
+                "sCode = tblDogClassAssignment.QualificationStatusId) LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
+                "   HumanResources_TrainingTeam ON tblDogClassAssignment.TeamId = HumanResources_"& _ 
+                "TrainingTeam.TrainingTeamId) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             tblDogTrngBlock ON tblDogC"& _ 
+                "lassAssignment.DogClassAssignmentId = tblDogTrngBlock.DogClassEnrollmentId) ON t"& _ 
+                "blDog.dog_DogID = tblDogClassAssignment.DogId) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             (tblDogE"& _ 
+                "valuations LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             Person_Person ON tblDogEvaluations.dev_"& _ 
+                "TrainerID = Person_Person.BusinessEntityId) ON tblDogTrngBlock.BlockId = tblDogE"& _ 
+                "valuations.DogBlockId)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

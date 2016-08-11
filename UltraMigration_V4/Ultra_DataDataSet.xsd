@@ -213,33 +213,29 @@ WHERE (bcs_BehaviorChecklistCode = 2)</CommandText>
               <DbSource ConnectionRef="UltraDataConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT tblDogEvaluations.dev_DogEvaluationID, tblDogEvaluations.dev_DogEvaluationID, tblDog.dog_DogID, tblDog.dog_CallName &amp; ' / ' &amp; IIf(IsNull(tblDog.dog_Tattoo), tblDog.dog_Tattoo, tblDog.dog_ControlNumber) AS NameTattoo, 
-             HumanResources_TrainingTeam.TeamName, Person_Person.LastName, tblDogEvaluations.dev_DaysTrained, trefDogEvaluationStatusCode.esc_EvaluationStatusText, tblDogEvaluations.dev_Notes, tblDogEvaluations.dev_PassFailElimReshoot AS Status
+                    <CommandText>SELECT tblDog.dog_CallName AS Name, tblDog.dog_Tattoo AS Tattoo, HumanResources_TrainingTeam.TeamName AS Team, Person_Person.LastName AS Trainer, tblDogEvaluations.dev_DaysTrained AS [Days In Training], 
+             trefDogEvaluationStatusCode.esc_EvaluationStatusText AS [Evaluation Status], tblDogEvaluations.dev_Notes AS Notes, tblDogEvaluations.dev_PassFailElimReshoot AS Status
 FROM   ((tblDog INNER JOIN
              (((trefDogEvaluationStatusCode RIGHT OUTER JOIN
              tblDogClassAssignment ON trefDogEvaluationStatusCode.esc_EvaluationStatusCode = tblDogClassAssignment.QualificationStatusId) LEFT OUTER JOIN
              HumanResources_TrainingTeam ON tblDogClassAssignment.TeamId = HumanResources_TrainingTeam.TrainingTeamId) INNER JOIN
              tblDogTrngBlock ON tblDogClassAssignment.DogClassAssignmentId = tblDogTrngBlock.DogClassEnrollmentId) ON tblDog.dog_DogID = tblDogClassAssignment.DogId) INNER JOIN
              (tblDogEvaluations LEFT OUTER JOIN
-             Person_Person ON tblDogEvaluations.dev_TrainerID = Person_Person.BusinessEntityId) ON tblDogTrngBlock.BlockId = tblDogEvaluations.DogBlockId)
-WHERE (NOT (tblDogEvaluations.dev_PassFailElimReshoot IS NULL)) OR
-             (tblDogEvaluations.dev_PassFailElimReshoot = 0)</CommandText>
+             Person_Person ON tblDogEvaluations.dev_TrainerID = Person_Person.BusinessEntityId) ON tblDogTrngBlock.BlockId = tblDogEvaluations.DogBlockId)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="Expr1000" DataSetColumn="EvaluationID" />
-              <Mapping SourceColumn="dev_DogEvaluationID" DataSetColumn="DogEvaluationID" />
-              <Mapping SourceColumn="dog_DogID" DataSetColumn="DogID" />
-              <Mapping SourceColumn="NameTattoo" DataSetColumn="NameTattoo" />
-              <Mapping SourceColumn="TeamName" DataSetColumn="TeamName" />
-              <Mapping SourceColumn="LastName" DataSetColumn="LastName" />
-              <Mapping SourceColumn="dev_DaysTrained" DataSetColumn="DaysTrained" />
-              <Mapping SourceColumn="esc_EvaluationStatusText" DataSetColumn="EvaluationStatus" />
-              <Mapping SourceColumn="dev_Notes" DataSetColumn="Notes" />
               <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Tattoo" DataSetColumn="Tattoo" />
+              <Mapping SourceColumn="Team" DataSetColumn="Team" />
+              <Mapping SourceColumn="Trainer" DataSetColumn="Trainer" />
+              <Mapping SourceColumn="Days In Training" DataSetColumn="Days In Training" />
+              <Mapping SourceColumn="Evaluation Status" DataSetColumn="Evaluation Status" />
+              <Mapping SourceColumn="Notes" DataSetColumn="Notes" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -251,7 +247,7 @@ WHERE (NOT (tblDogEvaluations.dev_PassFailElimReshoot IS NULL)) OR
   <xs:element name="Ultra_DataDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Ultra_DataDataSet" msprop:Generator_UserDSName="Ultra_DataDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="qryTblEvaluations" msprop:Generator_TableClassName="qryTblEvaluationsDataTable" msprop:Generator_TableVarName="tableqryTblEvaluations" msprop:Generator_TablePropName="qryTblEvaluations" msprop:Generator_RowDeletingName="qryTblEvaluationsRowDeleting" msprop:Generator_RowChangingName="qryTblEvaluationsRowChanging" msprop:Generator_RowEvHandlerName="qryTblEvaluationsRowChangeEventHandler" msprop:Generator_RowDeletedName="qryTblEvaluationsRowDeleted" msprop:Generator_UserTableName="qryTblEvaluations" msprop:Generator_RowChangedName="qryTblEvaluationsRowChanged" msprop:Generator_RowEvArgName="qryTblEvaluationsRowChangeEvent" msprop:Generator_RowClassName="qryTblEvaluationsRow">
+        <xs:element name="qryTblEvaluations" msprop:Generator_TableClassName="qryTblEvaluationsDataTable" msprop:Generator_TableVarName="tableqryTblEvaluations" msprop:Generator_RowChangedName="qryTblEvaluationsRowChanged" msprop:Generator_TablePropName="qryTblEvaluations" msprop:Generator_RowDeletingName="qryTblEvaluationsRowDeleting" msprop:Generator_RowChangingName="qryTblEvaluationsRowChanging" msprop:Generator_RowEvHandlerName="qryTblEvaluationsRowChangeEventHandler" msprop:Generator_RowDeletedName="qryTblEvaluationsRowDeleted" msprop:Generator_RowClassName="qryTblEvaluationsRow" msprop:Generator_UserTableName="qryTblEvaluations" msprop:Generator_RowEvArgName="qryTblEvaluationsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Evaluator_x0020_Name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEvaluator_Name" msprop:Generator_ColumnPropNameInRow="Evaluator_Name" msprop:Generator_ColumnPropNameInTable="Evaluator_NameColumn" msprop:Generator_UserColumnName="Evaluator Name" minOccurs="0">
@@ -288,7 +284,7 @@ WHERE (NOT (tblDogEvaluations.dev_PassFailElimReshoot IS NULL)) OR
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblAddDogList" msprop:Generator_TableClassName="tblAddDogListDataTable" msprop:Generator_TableVarName="tabletblAddDogList" msprop:Generator_RowChangedName="tblAddDogListRowChanged" msprop:Generator_TablePropName="tblAddDogList" msprop:Generator_RowDeletingName="tblAddDogListRowDeleting" msprop:Generator_RowChangingName="tblAddDogListRowChanging" msprop:Generator_RowEvHandlerName="tblAddDogListRowChangeEventHandler" msprop:Generator_RowDeletedName="tblAddDogListRowDeleted" msprop:Generator_RowClassName="tblAddDogListRow" msprop:Generator_UserTableName="tblAddDogList" msprop:Generator_RowEvArgName="tblAddDogListRowChangeEvent">
+        <xs:element name="tblAddDogList" msprop:Generator_TableClassName="tblAddDogListDataTable" msprop:Generator_TableVarName="tabletblAddDogList" msprop:Generator_TablePropName="tblAddDogList" msprop:Generator_RowDeletingName="tblAddDogListRowDeleting" msprop:Generator_RowChangingName="tblAddDogListRowChanging" msprop:Generator_RowEvHandlerName="tblAddDogListRowChangeEventHandler" msprop:Generator_RowDeletedName="tblAddDogListRowDeleted" msprop:Generator_UserTableName="tblAddDogList" msprop:Generator_RowChangedName="tblAddDogListRowChanged" msprop:Generator_RowEvArgName="tblAddDogListRowChangeEvent" msprop:Generator_RowClassName="tblAddDogListRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Team" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTeam" msprop:Generator_ColumnPropNameInRow="Team" msprop:Generator_ColumnPropNameInTable="TeamColumn" msprop:Generator_UserColumnName="Team" minOccurs="0">
@@ -316,7 +312,7 @@ WHERE (NOT (tblDogEvaluations.dev_PassFailElimReshoot IS NULL)) OR
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Person_BusinessEntity" msprop:Generator_TableClassName="Person_BusinessEntityDataTable" msprop:Generator_TableVarName="tablePerson_BusinessEntity" msprop:Generator_TablePropName="Person_BusinessEntity" msprop:Generator_RowDeletingName="Person_BusinessEntityRowDeleting" msprop:Generator_RowChangingName="Person_BusinessEntityRowChanging" msprop:Generator_RowEvHandlerName="Person_BusinessEntityRowChangeEventHandler" msprop:Generator_RowDeletedName="Person_BusinessEntityRowDeleted" msprop:Generator_UserTableName="Person_BusinessEntity" msprop:Generator_RowChangedName="Person_BusinessEntityRowChanged" msprop:Generator_RowEvArgName="Person_BusinessEntityRowChangeEvent" msprop:Generator_RowClassName="Person_BusinessEntityRow">
+        <xs:element name="Person_BusinessEntity" msprop:Generator_TableClassName="Person_BusinessEntityDataTable" msprop:Generator_TableVarName="tablePerson_BusinessEntity" msprop:Generator_RowChangedName="Person_BusinessEntityRowChanged" msprop:Generator_TablePropName="Person_BusinessEntity" msprop:Generator_RowDeletingName="Person_BusinessEntityRowDeleting" msprop:Generator_RowChangingName="Person_BusinessEntityRowChanging" msprop:Generator_RowEvHandlerName="Person_BusinessEntityRowChangeEventHandler" msprop:Generator_RowDeletedName="Person_BusinessEntityRowDeleted" msprop:Generator_RowClassName="Person_BusinessEntityRow" msprop:Generator_UserTableName="Person_BusinessEntity" msprop:Generator_RowEvArgName="Person_BusinessEntityRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="BusinessEntityId" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnBusinessEntityId" msprop:Generator_ColumnPropNameInRow="BusinessEntityId" msprop:Generator_ColumnPropNameInTable="BusinessEntityIdColumn" msprop:Generator_UserColumnName="BusinessEntityId" type="xs:int" />
@@ -332,7 +328,7 @@ WHERE (NOT (tblDogEvaluations.dev_PassFailElimReshoot IS NULL)) OR
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="trefDogBehaviorChecklistCode" msprop:Generator_TableClassName="trefDogBehaviorChecklistCodeDataTable" msprop:Generator_TableVarName="tabletrefDogBehaviorChecklistCode" msprop:Generator_RowChangedName="trefDogBehaviorChecklistCodeRowChanged" msprop:Generator_TablePropName="trefDogBehaviorChecklistCode" msprop:Generator_RowDeletingName="trefDogBehaviorChecklistCodeRowDeleting" msprop:Generator_RowChangingName="trefDogBehaviorChecklistCodeRowChanging" msprop:Generator_RowEvHandlerName="trefDogBehaviorChecklistCodeRowChangeEventHandler" msprop:Generator_RowDeletedName="trefDogBehaviorChecklistCodeRowDeleted" msprop:Generator_RowClassName="trefDogBehaviorChecklistCodeRow" msprop:Generator_UserTableName="trefDogBehaviorChecklistCode" msprop:Generator_RowEvArgName="trefDogBehaviorChecklistCodeRowChangeEvent">
+        <xs:element name="trefDogBehaviorChecklistCode" msprop:Generator_TableClassName="trefDogBehaviorChecklistCodeDataTable" msprop:Generator_TableVarName="tabletrefDogBehaviorChecklistCode" msprop:Generator_TablePropName="trefDogBehaviorChecklistCode" msprop:Generator_RowDeletingName="trefDogBehaviorChecklistCodeRowDeleting" msprop:Generator_RowChangingName="trefDogBehaviorChecklistCodeRowChanging" msprop:Generator_RowEvHandlerName="trefDogBehaviorChecklistCodeRowChangeEventHandler" msprop:Generator_RowDeletedName="trefDogBehaviorChecklistCodeRowDeleted" msprop:Generator_UserTableName="trefDogBehaviorChecklistCode" msprop:Generator_RowChangedName="trefDogBehaviorChecklistCodeRowChanged" msprop:Generator_RowEvArgName="trefDogBehaviorChecklistCodeRowChangeEvent" msprop:Generator_RowClassName="trefDogBehaviorChecklistCodeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SubIndex" msprop:Generator_ColumnVarNameInTable="columnSubIndex" msprop:Generator_ColumnPropNameInRow="SubIndex" msprop:Generator_ColumnPropNameInTable="SubIndexColumn" msprop:Generator_UserColumnName="SubIndex" type="xs:int" />
@@ -347,7 +343,7 @@ WHERE (NOT (tblDogEvaluations.dev_PassFailElimReshoot IS NULL)) OR
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="trefDogBehaviorChecklistSubCode" msprop:Generator_TableClassName="trefDogBehaviorChecklistSubCodeDataTable" msprop:Generator_TableVarName="tabletrefDogBehaviorChecklistSubCode" msprop:Generator_RowChangedName="trefDogBehaviorChecklistSubCodeRowChanged" msprop:Generator_TablePropName="trefDogBehaviorChecklistSubCode" msprop:Generator_RowDeletingName="trefDogBehaviorChecklistSubCodeRowDeleting" msprop:Generator_RowChangingName="trefDogBehaviorChecklistSubCodeRowChanging" msprop:Generator_RowEvHandlerName="trefDogBehaviorChecklistSubCodeRowChangeEventHandler" msprop:Generator_RowDeletedName="trefDogBehaviorChecklistSubCodeRowDeleted" msprop:Generator_RowClassName="trefDogBehaviorChecklistSubCodeRow" msprop:Generator_UserTableName="trefDogBehaviorChecklistSubCode" msprop:Generator_RowEvArgName="trefDogBehaviorChecklistSubCodeRowChangeEvent">
+        <xs:element name="trefDogBehaviorChecklistSubCode" msprop:Generator_TableClassName="trefDogBehaviorChecklistSubCodeDataTable" msprop:Generator_TableVarName="tabletrefDogBehaviorChecklistSubCode" msprop:Generator_TablePropName="trefDogBehaviorChecklistSubCode" msprop:Generator_RowDeletingName="trefDogBehaviorChecklistSubCodeRowDeleting" msprop:Generator_RowChangingName="trefDogBehaviorChecklistSubCodeRowChanging" msprop:Generator_RowEvHandlerName="trefDogBehaviorChecklistSubCodeRowChangeEventHandler" msprop:Generator_RowDeletedName="trefDogBehaviorChecklistSubCodeRowDeleted" msprop:Generator_UserTableName="trefDogBehaviorChecklistSubCode" msprop:Generator_RowChangedName="trefDogBehaviorChecklistSubCodeRowChanged" msprop:Generator_RowEvArgName="trefDogBehaviorChecklistSubCodeRowChangeEvent" msprop:Generator_RowClassName="trefDogBehaviorChecklistSubCodeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="bcs_BehaviorChecklistSubCode" msprop:Generator_ColumnVarNameInTable="columnbcs_BehaviorChecklistSubCode" msprop:Generator_ColumnPropNameInRow="bcs_BehaviorChecklistSubCode" msprop:Generator_ColumnPropNameInTable="bcs_BehaviorChecklistSubCodeColumn" msprop:Generator_UserColumnName="bcs_BehaviorChecklistSubCode" type="xs:int" />
@@ -363,49 +359,53 @@ WHERE (NOT (tblDogEvaluations.dev_PassFailElimReshoot IS NULL)) OR
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qryTblDogIndex" msprop:Generator_TableClassName="qryTblDogIndexDataTable" msprop:Generator_TableVarName="tableqryTblDogIndex" msprop:Generator_TablePropName="qryTblDogIndex" msprop:Generator_RowDeletingName="qryTblDogIndexRowDeleting" msprop:Generator_RowChangingName="qryTblDogIndexRowChanging" msprop:Generator_RowEvHandlerName="qryTblDogIndexRowChangeEventHandler" msprop:Generator_RowDeletedName="qryTblDogIndexRowDeleted" msprop:Generator_UserTableName="qryTblDogIndex" msprop:Generator_RowChangedName="qryTblDogIndexRowChanged" msprop:Generator_RowEvArgName="qryTblDogIndexRowChangeEvent" msprop:Generator_RowClassName="qryTblDogIndexRow">
+        <xs:element name="qryTblDogIndex" msprop:Generator_TableClassName="qryTblDogIndexDataTable" msprop:Generator_TableVarName="tableqryTblDogIndex" msprop:Generator_RowChangedName="qryTblDogIndexRowChanged" msprop:Generator_TablePropName="qryTblDogIndex" msprop:Generator_RowDeletingName="qryTblDogIndexRowDeleting" msprop:Generator_RowChangingName="qryTblDogIndexRowChanging" msprop:Generator_RowEvHandlerName="qryTblDogIndexRowChangeEventHandler" msprop:Generator_RowDeletedName="qryTblDogIndexRowDeleted" msprop:Generator_RowClassName="qryTblDogIndexRow" msprop:Generator_UserTableName="qryTblDogIndex" msprop:Generator_RowEvArgName="qryTblDogIndexRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="EvaluationID" msdata:Caption="Expr1000" msprop:Generator_ColumnVarNameInTable="columnEvaluationID" msprop:Generator_ColumnPropNameInRow="EvaluationID" msprop:Generator_ColumnPropNameInTable="EvaluationIDColumn" msprop:Generator_UserColumnName="EvaluationID" type="xs:int" minOccurs="0" />
-              <xs:element name="DogEvaluationID" msdata:Caption="dev_DogEvaluationID" msprop:Generator_ColumnVarNameInTable="columnDogEvaluationID" msprop:Generator_ColumnPropNameInRow="DogEvaluationID" msprop:Generator_ColumnPropNameInTable="DogEvaluationIDColumn" msprop:Generator_UserColumnName="DogEvaluationID" type="xs:int" minOccurs="0" />
-              <xs:element name="DogID" msdata:Caption="dog_DogID" msprop:Generator_ColumnVarNameInTable="columnDogID" msprop:Generator_ColumnPropNameInRow="DogID" msprop:Generator_ColumnPropNameInTable="DogIDColumn" msprop:Generator_UserColumnName="DogID" type="xs:int" minOccurs="0" />
-              <xs:element name="NameTattoo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNameTattoo" msprop:Generator_ColumnPropNameInRow="NameTattoo" msprop:Generator_ColumnPropNameInTable="NameTattooColumn" msprop:Generator_UserColumnName="NameTattoo" minOccurs="0">
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" type="xs:int" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="536870910" />
+                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TeamName" msprop:Generator_ColumnVarNameInTable="columnTeamName" msprop:Generator_ColumnPropNameInRow="TeamName" msprop:Generator_ColumnPropNameInTable="TeamNameColumn" msprop:Generator_UserColumnName="TeamName" minOccurs="0">
+              <xs:element name="Tattoo" msprop:Generator_ColumnVarNameInTable="columnTattoo" msprop:Generator_ColumnPropNameInRow="Tattoo" msprop:Generator_ColumnPropNameInTable="TattooColumn" msprop:Generator_UserColumnName="Tattoo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Team" msprop:Generator_ColumnVarNameInTable="columnTeam" msprop:Generator_ColumnPropNameInRow="Team" msprop:Generator_ColumnPropNameInTable="TeamColumn" msprop:Generator_UserColumnName="Team" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_UserColumnName="LastName" minOccurs="0">
+              <xs:element name="Trainer" msprop:Generator_ColumnVarNameInTable="columnTrainer" msprop:Generator_ColumnPropNameInRow="Trainer" msprop:Generator_ColumnPropNameInTable="TrainerColumn" msprop:Generator_UserColumnName="Trainer" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DaysTrained" msdata:Caption="dev_DaysTrained" msprop:Generator_ColumnVarNameInTable="columnDaysTrained" msprop:Generator_ColumnPropNameInRow="DaysTrained" msprop:Generator_ColumnPropNameInTable="DaysTrainedColumn" msprop:Generator_UserColumnName="DaysTrained" type="xs:int" minOccurs="0" />
-              <xs:element name="EvaluationStatus" msdata:Caption="esc_EvaluationStatusText" msprop:Generator_ColumnVarNameInTable="columnEvaluationStatus" msprop:Generator_ColumnPropNameInRow="EvaluationStatus" msprop:Generator_ColumnPropNameInTable="EvaluationStatusColumn" msprop:Generator_UserColumnName="EvaluationStatus" minOccurs="0">
+              <xs:element name="Days_x0020_In_x0020_Training" msprop:Generator_ColumnVarNameInTable="columnDays_In_Training" msprop:Generator_ColumnPropNameInRow="Days_In_Training" msprop:Generator_ColumnPropNameInTable="Days_In_TrainingColumn" msprop:Generator_UserColumnName="Days In Training" type="xs:int" minOccurs="0" />
+              <xs:element name="Evaluation_x0020_Status" msprop:Generator_ColumnVarNameInTable="columnEvaluation_Status" msprop:Generator_ColumnPropNameInRow="Evaluation_Status" msprop:Generator_ColumnPropNameInTable="Evaluation_StatusColumn" msprop:Generator_UserColumnName="Evaluation Status" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="25" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Notes" msdata:Caption="dev_Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+              <xs:element name="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="536870910" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
